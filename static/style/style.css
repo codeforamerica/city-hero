@@ -40,6 +40,30 @@ p {
     line-height: 1.5em;
 }
 
+/**
+ * Clearfix
+ */
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
 /* Header Elements */
 .nav-links {
     /* for vertical alignment */
@@ -274,9 +298,9 @@ p {
 
 /* Main Content Section */
 #content {
-    background-color: transparent;
+  background-color: transparent;
 	float:left;
-    width: 570px;
+  width: 570px;
 /*    padding: 20px;*/
 	margin-right:20px;
 	border-width: 20px 24px 29px 24px;
@@ -440,4 +464,90 @@ p {
 
 #footer p {
     color: #999999;
+}
+
+/**
+ * Front page styles
+ */
+.front #content {
+  width: 900px;
+}
+
+.front .content-sidebar {
+  float: right;
+  width: 300px;
+}
+
+.front .content-sidebar h1 {
+  text-transform: uppercase;
+  color: #992739;
+  font-weight: bold;
+  padding-top: 0;
+  margin-bottom: 5px;
+  line-height: 100%;
+}
+
+.front .content-sidebar ul {
+  margin-bottom: 15px;
+}
+
+.front .content-sidebar ul li {
+  color: #96A044;
+  font-weight: bold;
+  font-size: 1.25;
+  padding-bottom: 10px;
+}
+
+.front .content-inner {
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+
+a.content-sidebar-link {
+  background-color: #96A044;
+  color: #FFFFFF;
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/**
+ * Home slider
+ */
+.home-slider {
+  padding: 0 20px;
+}
+.home-slider .slider-move-left,
+.home-slider .slider-move-right {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-top: 80px;
+  background-color: #FF88C0;
+}
+.home-slider .slider-image {
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+.home-slider .slider-image img {
+  width: 200px;
+  height: 200px;
+  background-color: #FF88C0;
+}
+.home-slider .slider-move-left,
+.home-slider .slider-image {
+  margin-right: 40px;
+}
+.home-slider .slider-image-description {
+  color: #992739;
+  font-size: 1.5em;
+  width: 180px;
+  height: 45px;
+  padding: 10px;
+  display: block;
+  position: relative;
+  top: -65px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
