@@ -6,7 +6,17 @@ The ET is a site that makes the world a better place.
 
 ## How to Install
 
-1. Not sure yet?
+1. Install node
+2. Go to this directory
+3. Run: `node city-hero.js`
+
+## Coding Standards
+
+  * ??
+  
+## Testing
+
+  * ??
 
 ## Credits and Resources
 
