@@ -6,28 +6,34 @@ The ET is a site that makes the world a better place.
 
 ## How to Install
 
-1. Install node
-2. Go to this directory
-3. Do stuff
-4. Run: `node city-hero.js`
+1. Install node (needs link)
+2. Install npm (needs link)
+2. Clone this repository
+2. `cd city-hero`
+3. `npm install` (will make some time)
+4. Run application: `node server.js`
 
 ## Coding Standards
 
-  * ??
+  * [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+  * JSLint
   
 ## Testing
 
-  * ??
+  * qunit or expresso?
+  * JSLint
 
 ## Credits and Resources
 
   * Node.js (version?)
-  * Express (2.3.4) (and submodules)
-  * Connect (1.4.1) (and submodules)
+  * See package.json for dependencies
   
 ## Deploy
 
   * Currently using DotCloud
+  * See [DotCloud Node.JS docs](http://docs.dotcloud.com/components/nodejs/)
+  * See [npm package.json documentation](https://github.com/isaacs/npm/blob/master/doc/json.md)
+  * Must listen on port 8080 for DotCloud
   
 ## TODOs
 

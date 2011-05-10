@@ -2,6 +2,8 @@
  * Main city hero server.
  */
 
+// Must listen on port 8080 for DotCloud
+
 // Get our custom module paths
 //require.paths.unshift(__dirname + '/node_modules/express');
 require.paths.unshift('.');
@@ -19,3 +21,4 @@ app.set('view options', {
 routes.set_routes(app);
 
 app.listen(1337);
+
