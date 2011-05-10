@@ -10,4 +10,5 @@ The ET is a site that makes the world a better place.
 
 ## Credits and Resources
 
-  * Node.js
+  * Node.js (version?)
+  * Express (2.3.4)
