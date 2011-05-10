@@ -8,7 +8,8 @@ The ET is a site that makes the world a better place.
 
 1. Install node
 2. Go to this directory
-3. Run: `node city-hero.js`
+3. Do stuff
+4. Run: `node city-hero.js`
 
 ## Coding Standards
 
@@ -23,6 +24,10 @@ The ET is a site that makes the world a better place.
   * Node.js (version?)
   * Express (2.3.4) (and submodules)
   * Connect (1.4.1) (and submodules)
+  
+## Deploy
+
+  * Currently using DotCloud
   
 ## TODOs
 
