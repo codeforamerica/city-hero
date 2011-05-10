@@ -21,4 +21,10 @@ The ET is a site that makes the world a better place.
 ## Credits and Resources
 
   * Node.js (version?)
-  * Express (2.3.4)
+  * Express (2.3.4) (and submodules)
+  * Connect (1.4.1) (and submodules)
+  
+## TODOs
+
+  * Look at packaging, like ndistro
+  
