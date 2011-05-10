@@ -8,8 +8,7 @@
     "url" : "git@github.com:codeforamerica/city-hero.git"
   },
   "engines" : {
-    "node" : "0.4.4 || 0.4.5 || 0.4.6 || 0.4.7",
-    "npm" : "1"
+    "node" : "v0.4.4 || v0.4.5 || v0.4.6 || v0.4.7",
   },
   "dependencies": {
     "express": "2.3.4",
