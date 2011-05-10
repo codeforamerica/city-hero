@@ -1,0 +1,23 @@
+{
+  "name": "cityhero",
+  "version": "1.0.0",
+  "description" : "City Hero application",
+  "homepage" : "http://codeforamerica.org",
+  "repository" : { 
+    "type" : "git",
+    "url" : "git@github.com:codeforamerica/city-hero.git"
+  },
+  "engines" : {
+    "node" : "0.4 || 0.5",
+    "npm" : "1"
+  },
+  "dependencies": {
+    "express": "2.3.4",
+    "cradle": "0.5.5",
+    "qunit": "0.1.5",
+    "jslint": "0.1.0",
+    "ejs": "0.4.1",
+    "expresso": "0.7.6",
+    "supervisor": "0.1.2" 
+  }
+}

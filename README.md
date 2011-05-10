@@ -6,10 +6,12 @@ The ET is a site that makes the world a better place.
 
 ## How to Install
 
-1. Install node
-2. Go to this directory
-3. Do stuff
-4. Run: `node city-hero.js`
+1. Install node (needs link)
+2. Install npm (needs link)
+2. Clone this repository
+2. `cd city-hero`
+3. `npm install` (will nake some time)
+4. Run application: `node server.js`
 
 ## Coding Standards
 
