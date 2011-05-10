@@ -15,7 +15,7 @@ The ET is a site that makes the world a better place.
 
 ## Coding Standards
 
-  * [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+  * [Crockford JavaScript Style Guide](http://javascript.crockford.com/code.html)
   * JSLint
   * Commenting via [JSDoc](http://code.google.com/p/jsdoc-toolkit/)
   
