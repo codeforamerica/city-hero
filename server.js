@@ -20,5 +20,5 @@ app.set('view options', {
 
 routes.set_routes(app);
 
-app.listen(1337);
+app.listen(8080);
 
