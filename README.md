@@ -30,6 +30,7 @@ The ET is a site that makes the world a better place.
 ## Deploy
 
   * Currently using DotCloud
+  * Must listen on port 8080 for DotCloud
   
 ## TODOs
 
