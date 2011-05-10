@@ -1,5 +1,5 @@
 /**
- * Main city hero server.
+ * @fileoverview Main server for city-hero application
  */
 
 // Get our custom module paths

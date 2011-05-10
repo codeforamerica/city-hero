@@ -17,6 +17,7 @@ The ET is a site that makes the world a better place.
 
   * [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   * JSLint
+  * Commenting via [JSDoc](http://code.google.com/p/jsdoc-toolkit/)
   
 ## Testing
 
