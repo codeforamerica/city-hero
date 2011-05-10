@@ -25,4 +25,4 @@ routes.set_routes(app);
 
 // Listen on port 8080 for DotCloud
 app.listen(8080);
-
+console.log('Server started on port 8080');

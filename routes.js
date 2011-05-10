@@ -1,6 +1,8 @@
 /**
  * @fileoverview Main routes for city-hero application
  */
+
+controllers = require('./controllers');
  
 /**
  * Class Set all router.
@@ -8,20 +10,22 @@
  */
 function set_routes(app) {
   
-  // Home
-  app.get('/', function(req, res) {
-    res.render('home.view.ejs');
-  });
+    // Home
+    app.get('/', function(req, res) {
+        res.render('home.view.ejs');
+    });
 
-  // Project page (this is currently just an example)
-  app.get('/project', function(req, res) {
-    res.render('project.view.ejs');
-  });
-  
-  // Project add page
-  app.get('/project/add', function(req, res) {
-    res.render('project-add.view.ejs');
-  });
+    // Project page (this is currently just an example)
+    app.get('/project', function(req, res) {
+        controllers.Projects.retrieve(req, res, function(context) {
+            res.render('project.view.ejs', context);
+        });
+    });
+
+    // Project add page
+    app.get('/project/add', function(req, res) {
+        res.render('project-add.view.ejs');
+    });
 };
 
 // Publicize functions
