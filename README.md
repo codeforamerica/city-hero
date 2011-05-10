@@ -31,7 +31,8 @@ The ET is a site that makes the world a better place.
 ## Deploy
 
   * Currently using DotCloud
-  * See [Node.JS docs](http://docs.dotcloud.com/components/nodejs/)
+  * See [DotCloud Node.JS docs](http://docs.dotcloud.com/components/nodejs/)
+  * See [npm package.json documentation](https://github.com/isaacs/npm/blob/master/doc/json.md)
   * Must listen on port 8080 for DotCloud
   
 ## TODOs
