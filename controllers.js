@@ -26,14 +26,24 @@ var Projects = {
     },
     
     create_project: function(req, res, callback) {
-        project = {
-            title: req.body.project_title //,
-            // ...
+        if(req.form) {
+            req.form.complete(function(err, fields, files){
+                // TODO : validate this stuff!!
+                project = {
+                    title: fields['project-title'],
+                    description: fields['project-description'],
+                    location: fields['project-location'],
+                    image: fields['project-image'],
+                    video: fields['project-video'],
+                    link: fields['project-link']
+                }
+                
+                // If our images are not going into the couch - do some parallel
+                models.Projects.save(project, function(err, resp) {
+                    callback(err, resp);
+                });
+            });
         }
-        
-        model.Projects.save(project, function(data) {
-            callback(data)
-        })
     }
 };
 

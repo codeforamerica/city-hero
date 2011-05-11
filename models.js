@@ -16,7 +16,9 @@ var Projects = {
         });
     },
     save: function(project, callback) {
-        
+        this.db.save(project, function(err, resp) {
+            callback(err, resp);
+        });
     }
 }
 

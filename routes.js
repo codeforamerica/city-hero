@@ -14,6 +14,11 @@ function set_routes(app) {
     app.get('/', function(req, res) {
         res.render('home.view.ejs');
     });
+    
+    // Project add page
+    app.get('/projects/add', function(req, res) {
+        res.render('project-add.view.ejs');
+    });
 
     // Project page (this is currently just an example)
     app.get('/projects/:pid', function(req, res) {
@@ -23,15 +28,10 @@ function set_routes(app) {
             res.render('project.view.ejs', context);
         });
     });
-
-    // Project add page
-    app.get('/projects/add', function(req, res) {
-        res.render('project-add.view.ejs');
-    });
     
     app.post('/projects/add', function(req, res) {
-        contollers.Projects.create_project(req, res, function(context) {
-            res.redirect('/projects');
+        controllers.Projects.create_project(req, res, function(err, context) {
+            res.redirect('/projects/'+context.id);
         });
     });
 };

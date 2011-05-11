@@ -10,12 +10,19 @@ var express = require('express');
 var cradle = require('cradle');
 var routes = require('./routes');
 var models = require('./models');
+var form = require('connect-form');
 
 // Create express-based server
 var app = express.createServer();
 
 // Define static directory (CSS and images)
 app.use(express.static(__dirname + '/static'));
+
+// Use the body parser
+app.use(express.bodyParser());
+
+// Use the form parser middleware
+app.use(form({ keepExtensions: true }));
 
 // Set options for views/templates
 app.set('view options', {
