@@ -615,3 +615,9 @@ form .submit {
   border: none;
   text-transform: uppercase;
 }
+
+form .form-item-help img {
+  width: 20px;
+  height: 20px;
+  background-color: #FF88C0;
+}
