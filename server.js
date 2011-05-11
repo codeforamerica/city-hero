@@ -9,6 +9,8 @@
 var express = require('express');
 var cradle = require('cradle');
 var form = require('connect-form');
+var fbsdk = require('facebook-sdk');
+var step = require('step');
 
 // Requires custom modules
 var routes = require('./routes');
@@ -18,8 +20,17 @@ var models = require('./models');
 var settings = require('./settings/settings.js');
 var auth = require('./settings/auth.js');
 
+// Global variables (good?)
+var facebook;
+
 // Create express-based server
 var app = express.createServer();
+
+// Attach things to application (good?)
+app.custom = app.custom || {};
+app.custom.fbsdk = fbsdk;
+app.custom.auth = auth;
+app.custom.settings = settings;
 
 // Define static directory (CSS and images)
 app.use(express.static(__dirname + '/static'));
