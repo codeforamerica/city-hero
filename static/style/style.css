@@ -296,19 +296,27 @@ html[xmlns] .clearfix {
 }
 /* END Project Metric Block */
 
-/* Main Content Section */
+/**
+ * Main Content Section
+ */
 #content {
   background-color: transparent;
 	float:left;
-  width: 570px;
-/*    padding: 20px;*/
+  width: 900px;
 	margin-right:20px;
 	border-width: 20px 24px 29px 24px;
 	border-image: url(/images/content-border.png) 20 24 29 24 stretch;
 	-moz-border-image: url(/images/content-border.png) 20 24 29 24 stretch;
 	-webkit-border-image: url(/images/content-border.png) 20 24 29 24 stretch;
 }
+.sidebar #content {
+  width: 570px;
+}
 
+.content-inner {
+  background-color: #FFFFFF;
+  padding: 10px;
+}
 .wrapper > header > h1 {
     font-weight: bold;
     font-size: 4.2em;
@@ -469,9 +477,6 @@ html[xmlns] .clearfix {
 /**
  * Front page styles
  */
-.front #content {
-  width: 900px;
-}
 
 .front .content-sidebar {
   float: right;
@@ -496,11 +501,6 @@ html[xmlns] .clearfix {
   font-weight: bold;
   font-size: 1.25;
   padding-bottom: 10px;
-}
-
-.front .content-inner {
-  background-color: #FFFFFF;
-  padding: 10px;
 }
 
 a.content-sidebar-link {
@@ -550,4 +550,68 @@ a.content-sidebar-link {
   position: relative;
   top: -65px;
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+/**
+ * Forms
+ */
+form .form-item-wrapper {
+  margin-bottom: 10px;
+}
+
+form .label-wrapper {
+  display: block;
+  height: 20px; 
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+form label {
+  background-color: #E89A41;
+  padding: 5px;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-transform: uppercase; 
+}
+
+form .textarea,
+form .textfield {
+  border: none;
+  background-color: #AAAAAA;
+  color: #FFFFFF;
+  font-size: 1.25em;
+  padding: 10px;
+  margin-bottom: 15px
+}
+
+
+form .textarea:hover,
+form .textfield:hover,
+form .textarea:focus,
+form .textfield:focus {
+  background-color: #666666;
+}
+
+form .textarea {
+  width: 860px;
+  height: 40px;
+}
+
+form .form-item-help {
+  margin-left: 10px;
+  color: #333333;
+}
+
+form .form-filefield-wrapper {
+  margin-bottom: 20px;
+}
+
+form .submit {
+  background-color: #96A044;
+  padding: 15px;
+  font-size: 1.75em;
+  color: #FFFFFF;
+  border: none;
+  text-transform: uppercase;
 }
