@@ -16,20 +16,22 @@ function set_routes(app) {
     });
 
     // Project page (this is currently just an example)
-    app.get('/project', function(req, res) {
-        controllers.Projects.retrieve(req, res, function(context) {
+    app.get('/projects/:pid', function(req, res) {
+        controllers.Projects.get_project(req, res, function(err, context) {
+            console.log('about to render!');
+            console.log(context);
             res.render('project.view.ejs', context);
         });
     });
 
     // Project add page
-    app.get('/project/add', function(req, res) {
+    app.get('/projects/add', function(req, res) {
         res.render('project-add.view.ejs');
     });
     
-    app.post('/project/add', function(req, res) {
+    app.post('/projects/add', function(req, res) {
         contollers.Projects.create_project(req, res, function(context) {
-            res.redirect('/project');
+            res.redirect('/projects');
         });
     });
 };

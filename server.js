@@ -3,11 +3,13 @@
  */
 
 // Get our custom module paths
-require.paths.unshift('.');
+//require.paths.unshift('.');
 
 // Requires
 var express = require('express');
-var routes = require('routes');
+var cradle = require('cradle');
+var routes = require('./routes');
+var models = require('./models');
 
 // Create express-based server
 var app = express.createServer();
@@ -19,6 +21,12 @@ app.use(express.static(__dirname + '/static'));
 app.set('view options', {
     layout: false
 });
+
+// Set up the database connection
+var conn = new (cradle.Connection)('127.0.0.1','5984');
+
+// Initialize the models with the database conneciton
+models.Projects.init(conn, 'projects');
 
 // Get the routes
 routes.set_routes(app);

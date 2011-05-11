@@ -6,12 +6,12 @@ cradle = require('cradle');
 
 var Projects = {
     
-    init: function(conn, settings) {
+    init: function(conn, dbname) {
         this.db = conn.database(dbname);
     },
     
     get: function(pid, callback) {
-        this. db.get(pid, function (err, doc) {
+        this.db.get(pid, function (err, doc) {
             callback(err, doc);
         });
     },

@@ -31,7 +31,7 @@
 
 <div class="wrapper">
     <header>
-        <h1>Clean-Up 16th &amp; Mission</h1>
+        <h1><%= project.title %></h1>
         <h2>Created by <a href="#">Charles Norris</a>, <a href="#">San
         Francisco, CA</a></h2>
     </header>
@@ -54,10 +54,7 @@
                     <header>
                         <h1>About This Project</h1>
                     </header>
-                    <p>My block is a mess and really just needs a small group of
-                    people to get together and pick it up in an afternoon. I know
-                    some cities help out with projects like this, and I want to
-                    organize a few of my friends to pick up this rubbish.</p>
+                    <p><%= project.about %></p>
                 </section>
                 
                 <section class="project_recipe">
@@ -65,6 +62,7 @@
                         <h1>How to get my street cleaned up in San Francisco</h1>
                         <h2>by <a href="#">FAQ Robot</a></h2>
                     </header>
+                    <p><%= project.description %></p>
                     <ol class="recipe_steps">
                         <li>
                             <p>Call 311 to see if people are already involved with cleanups on your street via the Adopt-A-Street program.</p>
