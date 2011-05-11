@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Controllers for projects.
+ */
+
+models = require('./models');
 
 var Projects = {
     
@@ -10,8 +15,18 @@ var Projects = {
     retrieve : function(req, res, callback) {
         context = {};
         callback(context);
-    }
+    },
     
+    create_project : function(req, res, callback) {
+        project = {
+            title: req.body.project_title //,
+            // ...
+        }
+        
+        model.Projects.save(project, function(data) {
+            callback(data)
+        })
+    }
 };
 
 exports.Projects = Projects;

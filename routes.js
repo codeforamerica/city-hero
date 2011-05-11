@@ -26,6 +26,12 @@ function set_routes(app) {
     app.get('/project/add', function(req, res) {
         res.render('project-add.view.ejs');
     });
+    
+    app.post('/project/add', function(req, res) {
+        contollers.Projects.create_project(req, res, function(context) {
+            res.redirect('/project');
+        });
+    });
 };
 
 // Publicize functions
