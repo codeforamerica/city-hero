@@ -5,12 +5,18 @@
 // Get our custom module paths
 //require.paths.unshift('.');
 
-// Requires
+// Requires libraryies
 var express = require('express');
 var cradle = require('cradle');
+var form = require('connect-form');
+
+// Requires custom modules
 var routes = require('./routes');
 var models = require('./models');
-var form = require('connect-form');
+
+// Requires settings
+var settings = require('./settings/settings.js');
+var auth = require('./settings/auth.js');
 
 // Create express-based server
 var app = express.createServer();
@@ -30,7 +36,7 @@ app.set('view options', {
 });
 
 // Set up the database connection
-var conn = new (cradle.Connection)('127.0.0.1','5984');
+var conn = new (cradle.Connection)(auth.db.host, auth.db.port);
 
 // Initialize the models with the database conneciton
 models.Projects.init(conn, 'projects');
@@ -39,5 +45,5 @@ models.Projects.init(conn, 'projects');
 routes.set_routes(app);
 
 // Listen on port 8080 for DotCloud
-app.listen(8080);
-console.log('Server started on port 8080');
+app.listen(settings.sitePort);
+console.log('Server started on port: ' + settings.sitePort);

@@ -11,6 +11,7 @@ The ET is a site that makes the world a better place.
 2. Clone this repository
 2. `cd city-hero`
 3. `npm install` (will make some time)
+3. Create new `settings/auth.js` file from `settings/auth.example.js`
 4. Run application: `node server.js`
 
 ## Coding Standards
