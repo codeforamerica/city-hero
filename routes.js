@@ -8,15 +8,14 @@ controllers = require('./controllers');
  * Class Set all router.
  * @param {object} App object (probably express)
  */
-function set_routes(app) {
-  
+function set_routes(app) {  
     // Home
     app.get('/', function(req, res) {
         var context = context || {};
-
+        
         // Facebook setup (this needs to be abstracted out)
         facebook = new app.custom.fbsdk.Facebook({
-            appId: app.custom.auth.fb.appID,
+            appId: app.custom.auth.fb.appId,
             secret: app.custom.auth.fb.secret,
             request: req,
             response: res
@@ -25,19 +24,27 @@ function set_routes(app) {
         // Check if logged in
         var loginLink = '';
         if (facebook.getSession()) {
+            console.log('logged in');
             facebook.api('/me', function(me) {
                 fbid = me.id;
-                context.loginHref = '#';
-                context.loginTitle = 'Logged In';
+                console.log(fbid);
+                context.loginHref = facebook.getLoginUrl();
+                context.loginTitle = 'Log Out';
+                res.render('home.view.ejs', context);
             });
         } 
         else {
+            console.log('not logged in');
             //  If the user is not logged in, just show them the login button.
             context.loginHref = facebook.getLoginUrl();
             context.loginTitle = 'Login with Facebook';
+            res.render('home.view.ejs', context);
         }
-    
-        res.render('home.view.ejs', context);
+
+        // HACK: I moved the function below into each of the if blocks above - this seems 
+        //       redundant so we need to come back and fix this.
+        //res.render('home.view.ejs', context);
+        
     });
     
     // Project add page

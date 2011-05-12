@@ -18,11 +18,12 @@ var Projects = {
     },
     save: function(project, callback) {
         var project_data = {}
-          , attachemnts = []
+          , attachments = []
           , that = this;
         
         // Separate out the data that we have to handle in a special way.  Put
         // the rest into the project_data object.
+console.log(project);
         for (key in project) {
             if (key === '_attachments') {
                 attachments = project[key]
