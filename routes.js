@@ -12,6 +12,7 @@ function set_routes(app) {
   
     // Home
     app.get('/', function(req, res) {
+        var context = context || {};
     
         // Facebook setup (this needs to be abstracted out)
         facebook = new app.custom.fbsdk.Facebook({
@@ -20,8 +21,23 @@ function set_routes(app) {
             request: req,
             response: res
         });
+        
+        // Check if logged in
+        var loginLink = '';
+        if (facebook.getSession()) {
+            facebook.api('/me', function(me) {
+                fbid = me.id;
+                context.loginHref = '#';
+                context.loginTitle = 'Logged In';
+            });
+        } 
+        else {
+            //  If the user is not logged in, just show them the login button.
+            context.loginHref = facebook.getLoginUrl();
+            context.loginTitle = 'Login with Facebook';
+        }
     
-        res.render('home.view.ejs');
+        res.render('home.view.ejs', context);
     });
     
     // Project add page

@@ -6,6 +6,7 @@
 //require.paths.unshift('.');
 
 // Requires libraryies
+var connect = require('connect');
 var express = require('express');
 var cradle = require('cradle');
 var form = require('connect-form');
@@ -31,6 +32,7 @@ app.custom = app.custom || {};
 app.custom.fbsdk = fbsdk;
 app.custom.auth = auth;
 app.custom.settings = settings;
+app.custom.conect = connect;
 
 // Define static directory (CSS and images)
 app.use(express.static(__dirname + '/static'));

@@ -12,6 +12,7 @@
     "node" : "v0.4.4 || v0.4.5 || v0.4.6 || v0.4.7"
   },
   "dependencies": {
+    "connect" : "1.4.1",
     "express" : "2.3.4",
     "cradle" : "0.5.5",
     "qunit" : "0.1.5",
