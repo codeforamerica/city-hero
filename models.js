@@ -2,7 +2,7 @@
  * @fileoverview Models for projects.
  */
 
-cradle = require('cradle');
+var fs = require('fs')
 
 var Projects = {
     
@@ -20,6 +20,8 @@ var Projects = {
           , attachemnts = []
           , that = this;
         
+        // Separate out the data that we have to handle in a special way.  Put
+        // the rest into the project_data object.
         for (key in project) {
             if (key === '_attachments') {
                 attachments = project[key]
@@ -28,14 +30,20 @@ var Projects = {
                 project_data[key] = project[key]
             }
         }
-                
+        
+        // Save the project data to the database.
         this.db.save(project_data, function(err, resp) {
             var id = resp._id
-              , att_key;
+              , att_key
+              , attachment;
             
             for (att_key in attachments) {
-                that.db.saveAttachment(id, att_key, attachments[att_key].type, [], function(att_resp) {
-                    console.log(att_resp);
+                attachment = attachments[att_key]
+                fs.readFile(attachment.path, function(att_data) {
+                    that.db.saveAttachment(id, att_key, attachment.type, 
+                                           att_data, function(att_resp) {
+                        console.log(att_resp);
+                    });
                 });
             }
             
