@@ -365,8 +365,8 @@ html[xmlns] .clearfix {
     padding-top: 1em;
 }
 
-.project_description > img {
-    width: 100%;
+.project_image {
+    width: 570px;
 }
 
 .project_overview > header > h1,

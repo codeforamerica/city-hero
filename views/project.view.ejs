@@ -49,7 +49,7 @@
     <div id="content">
         <section class="project_description">
             <% if (project._attachments && project._attachments['project-image']) { %>
-            <img src="http://<%= dbHost %>:<%= dbPort %>/projects/<%= project._id %>/project-image" />
+            <img class="project_image" src="http://<%= dbHost %>:<%= dbPort %>/projects/<%= project._id %>/project-image" />
             <% } else { %>
             (No project image provided)
             <% } %>

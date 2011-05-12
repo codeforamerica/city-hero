@@ -12,8 +12,8 @@ function set_routes(app) {
   
     // Home
     app.get('/', function(req, res) {
-        var context = {};
-    
+        var context = context || {};
+
         // Facebook setup (this needs to be abstracted out)
         facebook = new app.custom.fbsdk.Facebook({
             appId: app.custom.auth.fb.appID,
