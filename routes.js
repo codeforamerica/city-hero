@@ -45,5 +45,27 @@ function set_routes(app) {
     });
 };
 
+/* This is a simple combine method.  I don't know what pitfalls there are here
+ * yet, I just want something that works.
+ */
+combine = function(first, other) {
+    var combined_context = {},
+        contexts = [first, other],
+        context_index,
+        curr_context,
+        key;
+    
+    for (context_index in contexts) {
+        curr_context = contexts[context_index];
+        //console.log(curr_context);
+        for (key in curr_context) {
+            combined_context[key] = curr_context[key];
+        }
+    }
+    
+    //console.log(combined_context);
+    return combined_context;
+}
+
 // Publicize functions
 exports.set_routes = set_routes;
