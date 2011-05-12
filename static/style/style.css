@@ -70,7 +70,12 @@ html[xmlns] .clearfix {
     padding-top:5px; 
 }
 
-#title {
+#header a {
+    color: #ffffff;
+    font-size: 11px;
+}
+
+a#title  {
     width:200px;
     color: #ffffff;
     font-size:18px;
@@ -78,11 +83,6 @@ html[xmlns] .clearfix {
 
 #user-links {
     width:150px;
-}
-
-#header a {
-    color: #ffffff;
-    font-size: 11px;
 }
 
 .wrapper {
