@@ -65,9 +65,10 @@ var Projects = {
                     description: fields['project-description'],
                     location: fields['project-location'],
                     link: fields['project-link'],
-                    _attachments: files
-                    
+                    _attachments: files                    
                 }
+                
+                console.log(files);
                 
                 // If our images are not going into the couch - do some parallel
                 models.Projects.save(project, function(err, resp) {

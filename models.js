@@ -12,6 +12,7 @@ var Projects = {
     
     get: function(pid, callback) {
         this.db.get(pid, function (err, doc) {
+            console.log(doc);
             callback(err, doc);
         });
     },
@@ -39,17 +40,25 @@ var Projects = {
             
             for (att_key in attachments) {
                 attachment = attachments[att_key]
-                fs.readFile(attachment.path, function(att_data) {
+                console.log('Uploading attachment')
+                console.log(attachment)
+                fs.readFile(attachment.path, function(err, att_data) {
+                    if (err) { console.log(err); }
+                    
                     that.db.saveAttachment(id, att_key, attachment.type, 
                                            att_data, function(att_resp) {
                         console.log(att_resp);
+                        
+                        // NOTE: This shouldn't be called from here if we're
+                        //       uploading multiple attachments.  But how do
+                        //       we tell that all the attachments have been
+                        //       uploaded?
+                        callback(err, resp);
                     });
                 });
             }
             
-            // How do we tell that all the attachments have been uploaded?  Does
-            // it matter?
-            callback(err, resp);
+            // callback(err, resp);
         });
     }
 }
