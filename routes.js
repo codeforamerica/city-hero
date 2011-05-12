@@ -34,19 +34,21 @@ function set_routes(app) {
             if (facebook.getSession()) {
                 facebook.api('/me', function(me) {
                     fbid = me.id;
-                    context.loginHref = '#';
-                    context.loginTitle = 'Logged In';
+                    context.loginHref = facebook.getLogoutUrl();
+                    context.loginTitle = 'Log Out';
+                    res.render('home.view.ejs', context);
                 });
             } 
             else {
                 //  If the user is not logged in, just show them the login button.
                 context.loginHref = facebook.getLoginUrl();
                 context.loginTitle = 'Login with Facebook';
+                res.render('home.view.ejs', context);
             }
             
             console.log(context);
         
-            res.render('home.view.ejs', context);
+            
         });
 
     });
