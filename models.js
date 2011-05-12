@@ -10,15 +10,23 @@ var Projects = {
         this.db = conn.database(dbname);
     },
     
+    all: function(callback) {
+        this.db.all({ 'include_docs':'true' }, function(err, docs) {
+            console.log(docs);
+            callback(err, docs);
+        });
+    },
+    
     get: function(pid, callback) {
         this.db.get(pid, function (err, doc) {
             console.log(doc);
             callback(err, doc);
         });
     },
+    
     save: function(project, callback) {
         var project_data = {}
-          , attachemnts = []
+          , attachments = []
           , that = this;
         
         // Separate out the data that we have to handle in a special way.  Put
@@ -58,7 +66,9 @@ var Projects = {
                 });
             }
             
-            // callback(err, resp);
+            if (attachments.length === 0) {
+                callback(err, resp);
+            }
         });
     }
 }

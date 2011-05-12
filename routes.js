@@ -12,6 +12,9 @@ function set_routes(app) {
   
     // Home
     app.get('/', function(req, res) {
+        var site_context = controllers.Site.get_context(req, res);
+        var auth_context = controllers.Auth.get_context(req, res);
+        
         var context = context || {};
 
         // Facebook setup (this needs to be abstracted out)
@@ -22,22 +25,30 @@ function set_routes(app) {
             response: res
         });
         
-        // Check if logged in
-        var loginLink = '';
-        if (facebook.getSession()) {
-            facebook.api('/me', function(me) {
-                fbid = me.id;
-                context.loginHref = '#';
-                context.loginTitle = 'Logged In';
-            });
-        } 
-        else {
-            //  If the user is not logged in, just show them the login button.
-            context.loginHref = facebook.getLoginUrl();
-            context.loginTitle = 'Login with Facebook';
-        }
-    
-        res.render('home.view.ejs', context);
+        controllers.Projects.get_all_projects(req, res, function(err, projects_context) {
+            var context = combine(site_context
+                                , auth_context
+                                , projects_context);
+            
+            // Check if logged in
+            var loginLink = '';
+            if (facebook.getSession()) {
+                facebook.api('/me', function(me) {
+                    fbid = me.id;
+                    context.loginHref = '#';
+                    context.loginTitle = 'Logged In';
+                });
+            } 
+            else {
+                //  If the user is not logged in, just show them the login button.
+                context.loginHref = facebook.getLoginUrl();
+                context.loginTitle = 'Login with Facebook';
+            }
+            
+            console.log(context);
+        
+            res.render('home.view.ejs', context);
+        });
     });
     
     // Project add page
