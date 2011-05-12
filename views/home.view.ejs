@@ -68,7 +68,18 @@
             <section class="home-slider clearfix">
                 <a class="slider-move-left" href="#">Prev</a>
                 <ul>
+                    <% for (project_index in projects) { 
+                            project = projects[project_index]; %>
                     <li>
+                        <div class="slider-image">
+                            <a href="/projects/<%= project._id %>">
+                                <img src="http://<%= dbHost %>:<%= dbPort %>/projects/<%= project._id %>/project-image" width="200px" height="200px" />
+                                <span class="slider-image-description"><%= project.title %></span>
+                            </a>
+                        </div>
+                    </li>
+                    <% } %>
+<!--                    <li>
                         <div class="slider-image">
                             <img src="/images/example.jpg" width="200px" height="200px" />
                             <span class="slider-image-description">Victory Gardening in Washington Park</span>
@@ -86,6 +97,7 @@
                             <span class="slider-image-description">Recent Library Reading to Children</span>
                         </div>
                     </li>
+-->
                 </ul>
                 <a class="slider-move-right" href="#">Next</a>
             </section>

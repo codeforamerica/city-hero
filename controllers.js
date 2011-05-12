@@ -56,6 +56,24 @@ var Projects = {
         })
     },
     
+    get_all_projects: function(req, res, callback) {
+        models.Projects.all(function(err, docs) {
+            var project
+              , projects = [];
+            
+            if (err) {
+                console.error(err);
+                callback(err, null);
+            }
+            
+            for (project_key in docs) {
+                project = docs[project_key].doc;
+                projects.push(project);
+            }
+            callback(err, {projects: projects});
+        });
+    },
+    
     create_project: function(req, res, callback) {
         if(req.form) {
             req.form.complete(function(err, fields, files){

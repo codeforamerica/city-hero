@@ -11,6 +11,9 @@ controllers = require('./controllers');
 function set_routes(app) {  
     // Home
     app.get('/', function(req, res) {
+        var site_context = controllers.Site.get_context(req, res);
+        var auth_context = controllers.Auth.get_context(req, res);
+        
         var context = context || {};
         
         // Facebook setup (this needs to be abstracted out)
@@ -21,30 +24,31 @@ function set_routes(app) {
             response: res
         });
         
-        // Check if logged in
-        var loginLink = '';
-        if (facebook.getSession()) {
-            console.log('logged in');
-            facebook.api('/me', function(me) {
-                fbid = me.id;
-                console.log(fbid);
+        controllers.Projects.get_all_projects(req, res, function(err, projects_context) {
+            var context = combine(site_context
+                                , auth_context
+                                , projects_context);
+            
+            // Check if logged in
+            var loginLink = '';
+            if (facebook.getSession()) {
+                facebook.api('/me', function(me) {
+                    fbid = me.id;
+                    context.loginHref = '#';
+                    context.loginTitle = 'Logged In';
+                });
+            } 
+            else {
+                //  If the user is not logged in, just show them the login button.
                 context.loginHref = facebook.getLoginUrl();
-                context.loginTitle = 'Log Out';
-                res.render('home.view.ejs', context);
-            });
-        } 
-        else {
-            console.log('not logged in');
-            //  If the user is not logged in, just show them the login button.
-            context.loginHref = facebook.getLoginUrl();
-            context.loginTitle = 'Login with Facebook';
-            res.render('home.view.ejs', context);
-        }
-
-        // HACK: I moved the function below into each of the if blocks above - this seems 
-        //       redundant so we need to come back and fix this.
-        //res.render('home.view.ejs', context);
+                context.loginTitle = 'Login with Facebook';
+            }
+            
+            console.log(context);
         
+            res.render('home.view.ejs', context);
+        });
+
     });
     
     // Project add page
