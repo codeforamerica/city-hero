@@ -438,7 +438,7 @@ a#title  {
 /* Footer */
 #footer {
     float: left;
-    width: 630px;
+    width: 920px;
     height: 140px;
     font-weight: bold;
 }
@@ -465,9 +465,10 @@ a#title  {
     display: block;
 }
 
-#footer img {
-    float:right;
-    margin-top: -20px;
+#footer .footer-logo img {
+    float: right;
+    margin-top: 1em;
+    display: block;
 }
 
 #footer span {
