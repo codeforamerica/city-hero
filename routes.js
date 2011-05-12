@@ -12,8 +12,11 @@ function set_routes(app) {
   
     // Home
     app.get('/', function(req, res) {
+<<<<<<< HEAD
         var context = context || {};
     
+=======
+>>>>>>> fb7f38d7285d54775840bc3ed8eed848d3015e4a
         // Facebook setup (this needs to be abstracted out)
         facebook = new app.custom.fbsdk.Facebook({
             appId: app.custom.auth.fb.appID,
@@ -47,19 +50,48 @@ function set_routes(app) {
 
     // Project page (this is currently just an example)
     app.get('/projects/:pid', function(req, res) {
-        controllers.Projects.get_project(req, res, function(err, context) {
+        var site_context = controllers.Site.get_context(req, res);
+        var auth_context = controllers.Auth.get_context(req, res);
+        
+        controllers.Projects.get_project(req, res, function(err, project_context) {
+            var context = combine(site_context
+                                , auth_context
+                                , project_context);
             console.log('about to render!');
             console.log(context);
             res.render('project.view.ejs', context);
         });
     });
     
+    // Handle the POST of a new project
     app.post('/projects/add', function(req, res) {
         controllers.Projects.create_project(req, res, function(err, context) {
             res.redirect('/projects/'+context.id);
         });
     });
 };
+
+/* This is a simple combine method.  I don't know what pitfalls there are here
+ * yet, I just want something that works.
+ */
+combine = function(/* context1, context2, ... */) {
+    var combined_context = {},
+        contexts = arguments,
+        context_index,
+        curr_context,
+        key;
+    
+    for (context_index in contexts) {
+        curr_context = contexts[context_index];
+        //console.log(curr_context);
+        for (key in curr_context) {
+            combined_context[key] = curr_context[key];
+        }
+    }
+    
+    //console.log(combined_context);
+    return combined_context;
+}
 
 // Publicize functions
 exports.set_routes = set_routes;

@@ -48,8 +48,12 @@
     
     <div id="content">
         <section class="project_description">
-            <img src="/files/cleanup-video.png" />
-            
+            <% if (project._attachments && project._attachments['project-image']) { %>
+            <img src="http://<%= dbHost %>:<%= dbPort %>/projects/<%= project._id %>/project-image" />
+            <% } else { %>
+            (No project image provided)
+            <% } %>
+                        
             <div class="social_bar">
                 <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like>
             </div>
@@ -59,36 +63,40 @@
                     <header>
                         <h1>About This Project</h1>
                     </header>
-                    <p><%= project.about %></p>
+                    <p><%= project.description %></p>
                 </section>
                 
                 <section class="project_recipe">
                     <header>
-                        <h1>How to get my street cleaned up in San Francisco</h1>
+                        <h1>How to dolor sit amet, consectetur adipiscing</h1>
                         <h2>by <a href="#">FAQ Robot</a></h2>
                     </header>
-                    <p><%= project.description %></p>
+                    <!--p><%= project.description %></p-->
                     <ol class="recipe_steps">
                         <li>
-                            <p>Call 311 to see if people are already involved with cleanups on your street via the Adopt-A-Street program.</p>
+                            <p>Proin eget justo quis lectus laoreet dapibus. </p>
                         </li>
                         <li>
-                            <p>Recall that the law requires property owners/ground floor tenants to keep their adjacent sidewalk clean of trash and leaves. Contact 311 if there is a violation.</p>
+                            <p>Fusce libero enim, fermentum vitae placerat non, sodales a nunc. Suspendisse nec leo id purus sollicitudin suscipit</p>
                         </li>
                         <li>
-                            <p>Attempt to join San Francisco’s <a href="http://www.sfdpw.org/index.aspx?page=1229">Adopt-A-Street Program</a>.</p>
-                            <p>Organize merchants and neighbors on your street. They all have a strong incentive to see the street cleaned.</p>
-                            <p>If you are an individual, you can make an agreement with San Francisco to clean up your street. Merchant and neighborhood associations can also make an agreement with San Francisco to clean up a street.</p>
+                            <p>Aliquam ullamcorper est vel tortor tincidunt at venenatis urna vestibulum <a href="#">Suspendisse Nec Leo id Purus</a>.</p>
+                            <p>Cras consectetur turpis sed odio hendrerit sollicitudin. Integer euismod, tellus sed ultrices mattis, elit magna gravida ipsum, a ornare ligula tellus ut enim. Aliquam mattis, nisi eget dapibus ultricies, mi arcu suscipit lorem, at ornare mi lacus eget eros.</p>
+                            <p>Suspendisse in orci massa. Curabitur at nulla ut sapien elementum sollicitudin sit amet eget libero. Ut malesuada magna at nibh dapibus convallis. </p>
+                            <p>Curabitur nisi velit, <a href="#">sodales fringilla porta ac</a>, sagittis id nunc. Aenean ac venenatis tellus. Etiam nec leo turpis. Nullam pellentesque est id neque tincidunt nec tempor quam semper. </p>
+                            <p>Ut ante mauris, aliquam et porta eu, posuere eget ipsum. Praesent a lorem nisi, vel lacinia felis. Nullam id bibendum ante. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>Morbi eu eros tellus. Curabitur viverra porttitor orci, ultrices posuere risus convallis sit amet. Nam urna erat, venenatis ut fermentum at, ultrices ut diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus porttitor semper fermentum.</p>
+                            <!--p>If you are an individual, you can make an agreement with San Francisco to clean up your street. Merchant and neighborhood associations can also make an agreement with San Francisco to clean up a street.</p>
                             <p>(If you are having trouble finding volunteers or other partners, contact an organization like A Good Idea - <a href="http://agoodideasf.org/">http://agoodideasf.org</a>. They may be able to connect you with willing volunteers.)</p>
                             <p>The Department of Public Works will provide supplies for you (e.g., brooms, rakes, bags, gloves).</p>
                             <p>To sign up for the Adopt-A-Street program, email <a href="mailto:volunteer@sfdpw.org">volunteer@sfdpw.org</a> or fill out this form: <a href="http://38.106.4.205/ftp/uploadedfiles/sfdpw/director/Adopt_a_Street_(application_only).pdf">http://38.106.4.205/ftp/uploadedfiles/sfdpw/director/Adopt_a_Street_(application_only).pdf</a></p>
-                            <p>Send your application form to:<br />2323 Cesar Chavez Street<br />San Francisco, CA 94124-1091</p>
+                            <p>Send your application form to:<br />2323 Cesar Chavez Street<br />San Francisco, CA 94124-1091</p -->
                         </li>
                         <li>
-                            <p>Once you have organized a day to clean up your street, you and your volunteers can call 311 to request a pickup of your garbage.</p>
+                            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas dapibus turpis nec elit accumsan sit amet consequat nunc lobortis.</p>
                         </li>
                     </ol>
-                </section>
+                </section -->
                 
                 <section class="helpful_questions">
                     <header>
