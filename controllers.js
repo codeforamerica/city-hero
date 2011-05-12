@@ -33,9 +33,9 @@ var Projects = {
                     title: fields['project-title'],
                     description: fields['project-description'],
                     location: fields['project-location'],
-                    image: fields['project-image'],
-                    video: fields['project-video'],
-                    link: fields['project-link']
+                    link: fields['project-link'],
+                    _attachments: files
+                    
                 }
                 
                 // If our images are not going into the couch - do some parallel
