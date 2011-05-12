@@ -51,6 +51,7 @@ function set_routes(app) {
         var auth_context = controllers.Auth.get_context(req, res);
         
         controllers.Projects.get_project(req, res, function(err, project_context) {
+            project_context['project']['_id'] = pid;
             var context = combine(site_context
                                 , auth_context
                                 , project_context);
