@@ -48,9 +48,9 @@ function set_routes(app) {
 /* This is a simple combine method.  I don't know what pitfalls there are here
  * yet, I just want something that works.
  */
-combine = function(first, other) {
+combine = function(/* context1, context2, ... */) {
     var combined_context = {},
-        contexts = [first, other],
+        contexts = arguments,
         context_index,
         curr_context,
         key;
