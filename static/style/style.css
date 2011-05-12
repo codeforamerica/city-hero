@@ -624,4 +624,12 @@ form .form-item-help img {
   width: 20px;
   height: 20px;
   background-color: #FF88C0;
+  padding-bottom: 20px;
+}
+
+/* Carousel */
+#slide-wrapper {
+    height: 200px;
+    width: 700px;
+    overflow: hidden;
 }

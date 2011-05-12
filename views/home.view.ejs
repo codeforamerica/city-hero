@@ -5,6 +5,7 @@
 <title>City Hero</title>
 <link rel="stylesheet" href="style/reset.css" />
 <link rel="stylesheet" href="style/style.css" />
+
 </head>
 
 <body class="front">
@@ -66,8 +67,9 @@
             </section>
             
             <section class="home-slider clearfix">
-                <a class="slider-move-left" href="#">Prev</a>
-                <ul>
+                <!-- a class="slider-move-left" href="#">Prev</a>
+                <div id="slide-wrapper"-->
+                <ul id="slide-list">
                     <% for (project_index in projects) { 
                             project = projects[project_index]; %>
                     <li>
@@ -99,7 +101,8 @@
                     </li>
 -->
                 </ul>
-                <a class="slider-move-right" href="#">Next</a>
+                <!-- /div>
+                <a class="slider-move-right" href="#">Next</a-->
             </section>
             
         </div>

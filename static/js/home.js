@@ -4,6 +4,15 @@
 
 (function($) {
     $(document).ready(function() {
-        //$('.home-slider').infiniteCarousel();
+        $('slider-move-left').bind('click', function(ev) {
+            ev.preventDefault();
+            $('#slide-list').animate(
+                { marginLeft: '-200px'}, 
+                2000, 
+                function() { 
+                    console.log('complete'); 
+                }
+            );
+        });
     });
 })(jQuery);
