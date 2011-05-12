@@ -10,10 +10,10 @@
 <body class="front">
 <div id="header">
     <div class="wrapper">
-        
         <div id="title" class="left"><a href="/">City Hero</a></div>
+        <!--
         <div id="search-link" class="right nav-links">
-            <img src="images/search-icon.png" id="search-link" alt="Search" />
+            <img src="/images/search-icon.png" id="search-link" alt="Search" />
         </div>
         <div id="search-input" class="right">
             <input type="input" id="search-input" class="right" value="Search..."/>
@@ -25,6 +25,10 @@
         <div id="proj-links" class="nav-links left">
             <a href="#">Projects</a> | 
             <a href="#">Recipes</a>
+        </div>
+        -->
+        <div id="user-links" class="nav-links right">
+            <a href="#">Log In</a>
         </div>
     </div>
 </div>
@@ -43,14 +47,15 @@
                     <li>Find better ways to do things.</li>
                     <li>Find existing projects.</li>
                     <li>Share projects with others.</li>
-                    <li>Get other people passionate.</li>
                 </ul>
                 <h1>Coming Soon:</h1>
                 <ul>
+                    <li>Get other people passionate.</li>
+                    <li>Find better ways to do things.</li>
                     <li>Ask questions to civic gurus.</li>
                     <li>Find other passionate people.</li>
                 </ul>
-                <a class="content-sidebar-link" href="#">Want to find more things?</a>
+                <a class="content-sidebar-link" href="#">Big things to come!</a>
             </section>
             
             <section class="project_description">
@@ -61,26 +66,35 @@
             </section>
             
             <section class="home-slider clearfix">
-                <img class="slider-move-left" src="" />
-                <div class="slider-image">
-                    <img src="" />
-                    <span class="slider-image-description">Victory Gardening in Washington Park</span>
-                </div>
-                <div class="slider-image">
-                    <img src="" />
-                    <span class="slider-image-description">Hyde Community Center Cleanup Crew</span>
-                </div>
-                <div class="slider-image">
-                    <img src="" />
-                    <span class="slider-image-description">Recent Library Reading to Children</span>
-                </div>
-                <img class="slider-move-right" src="" />
+                <a class="slider-move-left" href="#">Prev</a>
+                <ul>
+                    <li>
+                        <div class="slider-image">
+                            <img src="/images/example.jpg" width="200px" height="200px" />
+                            <span class="slider-image-description">Victory Gardening in Washington Park</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="slider-image">
+                            <img src="/images/example.jpg" width="200px" height="200px" />
+                            <span class="slider-image-description">Hyde Community Center Cleanup Crew</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="slider-image">
+                            <img src="/images/example.jpg" width="200px" height="200px" />
+                            <span class="slider-image-description">Recent Library Reading to Children</span>
+                        </div>
+                    </li>
+                </ul>
+                <a class="slider-move-right" href="#">Next</a>
             </section>
             
         </div>
     </div>
     
     <div id="footer">
+        <!--
         <ul>
             <li><a href="#">About</a></li>
             <li><a href="#">Blog</a></li>
@@ -89,10 +103,15 @@
             <li><a href="#">Terms</a></li>
             <li><a href="#">Privacy</a></li>
         </ul>
+        -->
         <p><span>Created as Open Source by </span><a href="#">Code for America</a><br />
         &quot;For a more transparent, efficient, and participitory future.&quot;</p>
         <a href="#"><img src="images/cfa-logo.png"></img></a>
     </div>
+    
+    <!-- Scripts -->
+    <script type="text/javascript" src="/js/libs/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="/js/home.js"></script>
 </div>
 </body>
 </html>

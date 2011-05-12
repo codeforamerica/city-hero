@@ -2,7 +2,38 @@
  * @fileoverview Controllers for projects.
  */
 
-models = require('./models');
+var models = require('./models');
+var auth = require('./settings/auth.js');
+var settings = require('./settings/settings.js');
+
+/* NOTE: If there were a thing that auto-generated express projects, it would
+ *       autogenerate the Site and Auth controllers as well.
+ */
+var Site = {
+    get_context: function(req, res, callback) {
+        var context = {sitePort: settings.sitePort
+                     , siteName: settings.siteName};
+        
+        if (callback) {
+            callback(context);
+        } else {
+            return context;
+        }
+    }
+}
+
+var Auth = {
+    get_context: function(req, res, callback) {
+        var context = {dbHost: auth.db.host
+                     , dbPort: auth.db.port};
+        
+        if (callback) {
+            callback(context);
+        } else {
+            return context;
+        }
+    }
+}
 
 var Projects = {
     
@@ -33,9 +64,9 @@ var Projects = {
                     title: fields['project-title'],
                     description: fields['project-description'],
                     location: fields['project-location'],
-                    image: fields['project-image'],
-                    video: fields['project-video'],
-                    link: fields['project-link']
+                    link: fields['project-link'],
+                    _attachments: files
+                    
                 }
                 
                 // If our images are not going into the couch - do some parallel
@@ -47,4 +78,6 @@ var Projects = {
     }
 };
 
+exports.Site = Site;
+exports.Auth = Auth;
 exports.Projects = Projects;
