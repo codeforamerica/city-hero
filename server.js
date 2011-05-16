@@ -32,7 +32,7 @@ app.custom = app.custom || {};
 app.custom.fbsdk = fbsdk;
 app.custom.auth = auth;
 app.custom.settings = settings;
-app.custom.conect = connect;
+app.custom.connect = connect;
 
 // Define static directory (CSS and images)
 app.use(express.static(__dirname + '/static'));
