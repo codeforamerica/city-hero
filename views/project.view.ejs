@@ -10,8 +10,7 @@
 <body class="sidebar">
 <div id="header">
     <div class="wrapper">
-        
-        <div id="title" class="left">City Hero</div>
+        <a id="title" class="left" href="/">City Hero</a>
         <!--
         <div id="search-link" class="right nav-links">
             <img src="/images/search-icon.png" id="search-link" alt="Search" />
@@ -37,8 +36,7 @@
 <div class="wrapper">
     <header>
         <h1><%= project.title %></h1>
-        <h2>Created by <a href="#">Charles Norris</a>, <a href="#">San
-        Francisco, CA</a></h2>
+        <h2>Created by <a href="#">Charles Norris</a>, <a href="#"><%= project.location %></a></h2>
     </header>
     
     <div class="progress_bar">
@@ -217,7 +215,7 @@
         -->
         <p><span>Created as Open Source by </span><a href="#">Code for America</a><br />
         “For a more transparent, efficient, and participitory future.”</p>
-        <a href="#"><img src="/images/cfa-logo.png"></img></a>
+        <a href="http://codeforamerica.org" class="footer-logo"><img src="/images/cfa-full-logo.png"></img></a>
     </div>
 </div>
 </body>

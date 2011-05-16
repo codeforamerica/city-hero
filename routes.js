@@ -13,42 +13,19 @@ function set_routes(app) {
     app.get('/', function(req, res) {
         var site_context = controllers.Site.get_context(req, res);
         var auth_context = controllers.Auth.get_context(req, res);
+        var sess_context = controllers.Session.get_context(req, res, app);
         
         var context = context || {};
         
         // Facebook setup (this needs to be abstracted out)
-        facebook = new app.custom.fbsdk.Facebook({
-            appId: app.custom.auth.fb.appId,
-            secret: app.custom.auth.fb.secret,
-            request: req,
-            response: res
-        });
-        
         controllers.Projects.get_all_projects(req, res, function(err, projects_context) {
             var context = combine(site_context
                                 , auth_context
+                                , sess_context
                                 , projects_context);
             
-            // Check if logged in
-            var loginLink = '';
-            if (facebook.getSession()) {
-                facebook.api('/me', function(me) {
-                    fbid = me.id;
-                    context.loginHref = facebook.getLogoutUrl();
-                    context.loginTitle = 'Log Out';
-                    res.render('home.view.ejs', context);
-                });
-            } 
-            else {
-                //  If the user is not logged in, just show them the login button.
-                context.loginHref = facebook.getLoginUrl();
-                context.loginTitle = 'Login with Facebook';
-                res.render('home.view.ejs', context);
-            }
-            
             console.log(context);
-        
-            
+            res.render('home.view.ejs', context);
         });
 
     });
