@@ -37,7 +37,7 @@ var Auth = {
 
 var Session = {
     get_context: function(req, res, app, callback) {
-        var context
+        var context = {}
           , facebook;
         
         facebook = new app.custom.fbsdk.Facebook({
@@ -136,4 +136,5 @@ var Projects = {
 
 exports.Site = Site;
 exports.Auth = Auth;
+exports.Session = Session;
 exports.Projects = Projects;
