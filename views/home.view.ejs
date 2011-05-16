@@ -5,12 +5,13 @@
 <title>City Hero</title>
 <link rel="stylesheet" href="style/reset.css" />
 <link rel="stylesheet" href="style/style.css" />
+
 </head>
 
 <body class="front">
 <div id="header">
     <div class="wrapper">
-        <div id="title" class="left"><a href="/">City Hero</a></div>
+        <a id="title" class="left" href="/">City Hero</a>
         <!--
         <div id="search-link" class="right nav-links">
             <img src="/images/search-icon.png" id="search-link" alt="Search" />
@@ -66,8 +67,9 @@
             </section>
             
             <section class="home-slider clearfix">
-                <a class="slider-move-left" href="#">Prev</a>
-                <ul>
+                <!-- a class="slider-move-left" href="#">Prev</a>
+                <div id="slide-wrapper"-->
+                <ul id="slide-list">
                     <% for (project_index in projects) { 
                             project = projects[project_index]; %>
                     <li>
@@ -99,7 +101,8 @@
                     </li>
 -->
                 </ul>
-                <a class="slider-move-right" href="#">Next</a>
+                <!-- /div>
+                <a class="slider-move-right" href="#">Next</a-->
             </section>
             
         </div>
@@ -118,7 +121,7 @@
         -->
         <p><span>Created as Open Source by </span><a href="#">Code for America</a><br />
         &quot;For a more transparent, efficient, and participitory future.&quot;</p>
-        <a href="#"><img src="images/cfa-logo.png"></img></a>
+        <a href="http://codeforamerica.org" class="footer-logo"><img src="/images/cfa-full-logo.png"></img></a>
     </div>
     
     <!-- Scripts -->

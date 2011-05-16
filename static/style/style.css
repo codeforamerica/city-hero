@@ -70,7 +70,12 @@ html[xmlns] .clearfix {
     padding-top:5px; 
 }
 
-#title {
+#header a {
+    color: #ffffff;
+    font-size: 11px;
+}
+
+a#title  {
     width:200px;
     color: #ffffff;
     font-size:18px;
@@ -78,11 +83,6 @@ html[xmlns] .clearfix {
 
 #user-links {
     width:150px;
-}
-
-#header a {
-    color: #ffffff;
-    font-size: 11px;
 }
 
 .wrapper {
@@ -438,7 +438,7 @@ html[xmlns] .clearfix {
 /* Footer */
 #footer {
     float: left;
-    width: 630px;
+    width: 920px;
     height: 140px;
     font-weight: bold;
 }
@@ -465,9 +465,10 @@ html[xmlns] .clearfix {
     display: block;
 }
 
-#footer img {
-    float:right;
-    margin-top: -20px;
+#footer .footer-logo img {
+    float: right;
+    margin-top: 1em;
+    display: block;
 }
 
 #footer span {
@@ -624,4 +625,12 @@ form .form-item-help img {
   width: 20px;
   height: 20px;
   background-color: #FF88C0;
+  padding-bottom: 20px;
+}
+
+/* Carousel */
+#slide-wrapper {
+    height: 200px;
+    width: 700px;
+    overflow: hidden;
 }
