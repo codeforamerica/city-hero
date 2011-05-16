@@ -35,6 +35,43 @@ var Auth = {
     }
 }
 
+var Session = {
+    get_context: function(req, res, app, callback) {
+        var context
+          , facebook;
+        
+        facebook = new app.custom.fbsdk.Facebook({
+            appId: app.custom.auth.fb.appId,
+            secret: app.custom.auth.fb.secret,
+            request: req,
+            response: res
+        });
+        
+        
+        if (facebook.getSession()) {
+            facebook.api('/me', function(me) {
+                fbid = me.id;
+                
+                context.user = true
+                context.actionHref = facebook.getLogoutUrl();
+                context.actionTitle = 'Log Out';
+            });
+        } 
+        else {
+            //  If the user is not logged in, just show them the login button.
+            context.user = false;
+            context.actionHref = facebook.getLoginUrl();
+            context.actionTitle = 'Login with Facebook';
+        }
+        
+        if (callback) {
+            callback({session: context});
+        } else {
+            return {session: context};
+        }
+    }
+}
+
 var Projects = {
     
     /**
