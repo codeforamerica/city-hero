@@ -1,53 +1,73 @@
 /**
  * @fileoverview Main routes for city-hero application
  */
+var controllers = require('./controllers');
 
-controllers = require('./controllers');
- 
 /**
  * Class Set all router.
  * @param {object} App object (probably express)
  */
-function set_routes(app) {  
-    // Home
+var set_routes = function(app) {  
+    // Define global context 
+    var context = context || {};
+    context = routesSetGlobalContext(app, context);
+    
+    // Home page
     app.get('/', function(req, res) {
         var site_context = controllers.Site.get_context(req, res);
         var auth_context = controllers.Auth.get_context(req, res);
         var sess_context = controllers.Session.get_context(req, res, app);
         
-        var context = context || {};
-        
-        // Facebook setup (this needs to be abstracted out)
+        // Get projects
         controllers.Projects.get_all_projects(req, res, function(err, projects_context) {
-            var context = combine(site_context
-                                , auth_context
-                                , sess_context
-                                , projects_context);
+            context = combine(context, site_context, auth_context, 
+                sess_context, projects_context, context);
             
-            console.log(context);
-            res.render('home.view.ejs', context);
+            // Views and context
+            context.pageTitle = 'Welcome to City Hero';
+            context.bodyClasses = ['front', 'home'];
+            context.sidebarInnerContent = ['partials/partial.sidebar-home.ejs'];
+            context.contentMain = ['pages/content.home.ejs', 'partials/partial.project-slider.ejs'];
+            res.render('layout.ejs', context);
         });
 
     });
     
     // Project add page
     app.get('/projects/add', function(req, res) {
-        res.render('project-add.view.ejs');
+        var site_context = controllers.Site.get_context(req, res);
+        var auth_context = controllers.Auth.get_context(req, res);
+        var sess_context = controllers.Session.get_context(req, res, app);
+            
+        // Views and context
+        context.pageTitle = 'Add a Project';
+        context.bodyClasses = ['project', 'ptoject-add'];
+        context.contentMain = ['pages/content.project-add.ejs'];
+        res.render('layout.ejs', context);
     });
 
-    // Project page (this is currently just an example)
+    // Project specifc page
     app.get('/projects/:pid', function(req, res) {
         var site_context = controllers.Site.get_context(req, res);
         var auth_context = controllers.Auth.get_context(req, res);
+        var sess_context = controllers.Session.get_context(req, res, app);
         
         controllers.Projects.get_project(req, res, function(err, project_context) {
             project_context['project']['_id'] = pid;
-            var context = combine(site_context
-                                , auth_context
-                                , project_context);
-            console.log('about to render!');
-            console.log(context);
-            res.render('project.view.ejs', context);
+            context = combine(context, site_context, auth_context, project_context, sess_context);
+
+            // Views and context
+            context.pageTitle = project_context.project.title;
+            context.bodyClasses = ['project', 'project-view', 'project-' + pid];
+            context.sidebarContent = [
+                'partials/partial.project-sidebar.ejs'
+            ];
+            context.titleContent = [
+                'partials/partial.project-subtitle.ejs',
+                'partials/partial.project-progress.ejs'
+            ];
+            context.contentMain = ['pages/content.project.ejs'];
+            res.render('layout.ejs', context);
         });
     });
     
@@ -59,10 +79,18 @@ function set_routes(app) {
     });
 };
 
-/* This is a simple combine method.  I don't know what pitfalls there are here
+/**
+ * Get global context
+ */
+var routesSetGlobalContext = function(app, context) {
+    return combine(app.custom.settings, context);
+}
+
+/**
+ * This is a simple combine method.  I don't know what pitfalls there are here
  * yet, I just want something that works.
  */
-combine = function(/* context1, context2, ... */) {
+var combine = function(/* context1, context2, ... */) {
     var combined_context = {},
         contexts = arguments,
         context_index,
