@@ -22,6 +22,7 @@
     "supervisor" : "0.1.2",
     "connect-form" : "0.2.1",
     "facebook-sdk" : "0.3.2",
-    "step" : "0.0.4"
+    "step" : "0.0.4",
+    "jslint" : "0.1.0"
   }
 }
