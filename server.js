@@ -43,6 +43,7 @@ app.use(express.bodyParser());
 
 // Use the cookie parser
 app.use(express.cookieParser());
+app.use(express.session({ 'secret': 'codeforamerica'}));
 
 // Use the form parser middleware
 app.use(form({ keepExtensions: true }));

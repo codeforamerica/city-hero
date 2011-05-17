@@ -14,7 +14,8 @@ function set_routes(app, controllers) {
 
         controllers.Session.get_context(req, res, app, function(sess_context) {
             var context = context || {};
-        
+console.log('in get /');
+console.log(req.session);
             // Facebook setup (this needs to be abstracted out)
             controllers.Projects.get_all_projects(req, res, function(err, projects_context) {
                 var context = combine(site_context
@@ -27,9 +28,21 @@ function set_routes(app, controllers) {
 
     });
     
+    // Return from fb
+    app.get('/fbreturn', function(req, res) {
+//        console.log(req.query);
+        req.session.fb = req.query;
+        console.log(req.session);
+        res.redirect('home');
+    });
+    
     // Project add page
     app.get('/projects/add', function(req, res) {
-        res.render('project-add.view.ejs');
+        console.log('in get /projects/add');
+        console.log(req.session);
+        controllers.Session.get_context(req, res, app, function(sess_context) {
+            res.render('project-add.view.ejs');
+        });
     });
 
     // Project page (this is currently just an example)
