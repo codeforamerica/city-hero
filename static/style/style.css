@@ -631,5 +631,6 @@ form .form-item-help img {
 #slide-wrapper {
     height: 200px;
     width: 700px;
+    float: left;
     overflow: hidden;
 }
