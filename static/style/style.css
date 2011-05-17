@@ -49,6 +49,10 @@ p {
     margin-left:-480px;
 }
 
+.hidden {
+    display: none;
+}
+
 /**
  * Clearfix
  */
@@ -661,4 +665,40 @@ form .form-item-help img {
     height: 20px;
     background-color: #FF88C0;
     padding-bottom: 20px;
+}
+
+/**
+ * Geocoding textfields
+ */
+.textfield.geocode {
+    background-image: url('../images/map-icon-white.png');
+    background-position: 98% center;
+    background-repeat: no-repeat;
+}
+
+.ui-autocomplete {
+    background-color: #FFFFFF;
+    border: 1px solid #CFCFCF;
+    list-style-type: none;
+    padding-left: 0px;
+    font-size: 1.25em;
+    padding: 5px;
+    width: 480px;
+}
+
+.ui-autocomplete li a {
+    padding: 5px;
+    display: block;
+}
+
+.ui-autocomplete li a:hover {
+    background-color: #CCCCCC;
+    text-transform: none;
+    color: #000000;
+}
+
+.geocoding-input-map {
+    width: 350px;
+    height: 200px;
+    float: right;
 }

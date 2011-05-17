@@ -52,9 +52,92 @@
      * Form jquery for client
      */
     $(document).ready(function() {
+        var id = 1;
         // $('.form-item-help')....
         
         // do some form help stuff that is cool
+        
+        // Geocoding textfields
+        $('.textfield.geocode').each(function () {
+            id++;
+            var geocodeMapID = 'geocode-input-map-id-' + id;
+            $thisField = $(this);
+            
+            // Add place for map
+            $thisField.after('<div id="' + geocodeMapID + '" class="geocoding-input-map"></div>' + 
+                '<input class="textfield hidden" type="text" name="project-lat" id="project-lat" size="50" />' + 
+                '<input class="textfield hidden" type="text" name="project-lon" id="project-lon" size="50" />');
+            
+            // Make map
+            var latlng = new google.maps.LatLng(41.659,-100.714);
+            var options = {
+                zoom: 2,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                disableDefaultUI: true,
+            };
+            map = new google.maps.Map(document.getElementById(geocodeMapID), options);
+            
+            // Create geocoder
+            var geocoder = new google.maps.Geocoder();
+            
+            // Make marker for choosing: false,
+            var markerShadow = new google.maps.MarkerImage(
+                '/images/map-shadow-icon.png',
+                new google.maps.Size(25, 25),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(10, 34)
+            );
+            var markerImage = new google.maps.MarkerImage(
+                '/images/map-icon.png',
+                new google.maps.Size(16, 25),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(10, 34)
+            );
+            var marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                icon: markerImage,
+                shadow: markerShadow
+            });
+            
+            // Autocomplete
+            $thisField.autocomplete({
+                // This bit uses the geocoder to fetch address values
+                source: function(request, response) {
+                    geocoder.geocode( {'address': request.term }, function(results, status) {
+                        response($.map(results, function(item) {
+                            return {
+                                label: item.formatted_address,
+                                value: item.formatted_address,
+                                latitude: item.geometry.location.lat(),
+                                longitude: item.geometry.location.lng()
+                            }
+                        }));
+                    })
+                },
+                // This bit is executed upon selection of an address
+                select: function(event, ui) {
+                    $("#project-lat").val(ui.item.latitude);
+                    $("#project-lon").val(ui.item.longitude);
+                    var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
+                    marker.setPosition(location);
+                    map.setCenter(location);
+                    map.setZoom(10);
+                }
+            });
+            
+            // Reverse geocode map
+            google.maps.event.addListener(marker, 'drag', function() {
+                geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK && typeof results[0] != 'undefined') {
+                        $thisField.val(results[0].formatted_address);
+                        $('#project-lat').val(marker.getPosition().lat());
+                        $('#project-lon').val(marker.getPosition().lng());
+                    }
+                });
+            });
+        });
     });
 
 })(jQuery);
