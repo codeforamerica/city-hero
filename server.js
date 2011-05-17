@@ -40,6 +40,9 @@ app.use(express.static(__dirname + '/static'));
 // Use the body parser
 app.use(express.bodyParser());
 
+// Use the cookie parser
+app.use(express.cookieParser());
+
 // Use the form parser middleware
 app.use(form({ keepExtensions: true }));
 

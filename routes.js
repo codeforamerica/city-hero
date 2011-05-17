@@ -13,19 +13,18 @@ function set_routes(app) {
     app.get('/', function(req, res) {
         var site_context = controllers.Site.get_context(req, res);
         var auth_context = controllers.Auth.get_context(req, res);
-        var sess_context = controllers.Session.get_context(req, res, app);
+
+        controllers.Session.get_context(req, res, app, function(sess_context) {
+            var context = context || {};
         
-        var context = context || {};
-        
-        // Facebook setup (this needs to be abstracted out)
-        controllers.Projects.get_all_projects(req, res, function(err, projects_context) {
-            var context = combine(site_context
-                                , auth_context
-                                , sess_context
-                                , projects_context);
-            
-            console.log(context);
-            res.render('home.view.ejs', context);
+            // Facebook setup (this needs to be abstracted out)
+            controllers.Projects.get_all_projects(req, res, function(err, projects_context) {
+                var context = combine(site_context
+                                    , auth_context
+                                    , sess_context
+                                    , projects_context);
+                res.render('home.view.ejs', context);
+            });
         });
 
     });
