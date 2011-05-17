@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title><%= siteName %></title>
+    <link rel="stylesheet" href="/style/reset.css" />
+    <link rel="stylesheet" href="/style/style.css" />
+</head>
+
+<body class="<%= bodyClasses.join(' ') %>">
+    <div id="header">
+        <div class="wrapper">
+            <a id="title" class="left" href="/"><%= siteName %></a>
+            <!--
+            <div id="search-link" class="right nav-links">
+                <img src="/images/search-icon.png" id="search-link" alt="Search" />
+            </div>
+            <div id="search-input" class="right">
+                <input type="input" id="search-input" class="right" value="Search..."/>
+            </div>
+            <div id="user-links" class="nav-links right">
+                <a href="#">Sign Up</a> | 
+                <a href="#">Log In</a>
+            </div>
+            <div id="proj-links" class="nav-links left">
+                <a href="#">Projects</a> | 
+                <a href="#">Recipes</a>
+            </div>
+            -->
+            <div id="user-links" class="nav-links right">
+                <a href="<%= session.actionHref %>"><%= session.actionTitle %></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper">
+        <div class="title-main">
+            <h1><%= pageTitle %></h1>
+                
+            <!-- Render header partials -->
+            <% if (typeof titleContent != 'undefined') { %>
+                <div class="title-content">
+                    <% for (titleContentIndex in titleContent) { %>
+                        <%- partial(titleContent[titleContentIndex]) %>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+        
+        <div id="content">
+            <div class="content-inner">
+                
+                <!-- Render sidebar partials -->
+                <% if (typeof sidebarInnerContent != 'undefined') { %>
+                    <div class="content-sidebar">
+                        <% for (sidebarInnerContentIndex in sidebarInnerContent) { %>
+                            <%- partial(sidebarInnerContent[sidebarInnerContentIndex]) %>
+                        <% } %>
+                    </div>
+                <% } %>
+                
+                <!-- Render main content -->
+                <% if (typeof contentMain != 'undefined') { %>
+                    <div class="content-main">
+                        <% for (contentMainIndex in contentMain) { %>
+                            <%- partial(contentMain[contentMainIndex]) %>
+                        <% } %>
+                    </div>
+                <% } %>
+                
+            </div>
+        </div>
+        
+        <div id="sidebar">
+            <div class="sidebar-inner">
+            
+                <!-- Render sidebar content -->
+                <% if (typeof sidebarContent != 'undefined') { %>
+                    <div class="content-main">
+                        <% for (sidebarContentIndex in sidebarContent) { %>
+                            <%- partial(sidebarContent[sidebarContentIndex]) %>
+                        <% } %>
+                    </div>
+                <% } %>
+                
+            </div>
+        </div>
+        
+        <div id="footer">
+            <!--
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">API</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+            -->
+            <p><span>Created as Open Source by </span><a href="#">Code for America</a><br />
+            &quot;For a more transparent, efficient, and participitory future.&quot;</p>
+            <a href="http://codeforamerica.org" class="footer-logo"><img src="/images/cfa-full-logo.png"></img></a>
+        </div>
+        
+        <!-- Scripts -->
+        <script type="text/javascript" src="/js/libs/jquery-1.6.min.js"></script>
+        <script type="text/javascript" src="/js/libs/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=US"></script> 
+        <script type="text/javascript" src="/js/city-hero.js"></script>
+    </div>
+</body>
+</html>

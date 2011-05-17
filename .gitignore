@@ -1,3 +1,4 @@
 node_modules
 *~
 settings/auth.js
+lib/settings/auth.js

@@ -1,0 +1,47 @@
+<form id="project-add" enctype="multipart/form-data" method="post">
+    <div class="form-item-wrapper form-textarea-wrapper">
+        <div class="label-wrapper">
+            <label for="project-title">Project Title</label>
+            <span class="form-item-help">This is some help text for project titles.</span>
+        </div>
+        <textarea class="textarea" name="project-title" id="project-title"></textarea>
+    </div>
+    <div class="form-item-wrapper form-textarea-wrapper">
+        <div class="label-wrapper">
+            <label for="project-description">Project Description</label>
+        </div>
+        <textarea class="textarea" name="project-description" id="project-description"></textarea>
+    </div>
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-location">Project Location</label>
+        </div>
+        <input class="textfield geocode" type="text" name="project-location" id="project-location" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-filefield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-image">Image</label>
+        </div>
+        <input class="filefield" type="file" name="project-image" id="project-image" />
+    </div>
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-video">Video</label>
+        </div>
+        <input class="textfield" type="text" name="project-video" id="project-video" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-link">Link</label>
+        </div>
+        <input class="textfield" type="text" name="project-link" id="project-link" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-submit-wrapper">
+        <input class="submit" type="submit" name="project-submit" id="project-submit" value="Submit" />
+    </div>
+</form>
