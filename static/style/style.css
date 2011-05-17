@@ -109,8 +109,55 @@ a#title  {
 }
 
 /**
- * Sidebar
+ * Main Content Section
  */
+#content {
+    background-color: transparent;
+    float:left;
+    width: 900px;
+    margin-right:20px;
+    border-width: 20px 24px 29px 24px;
+    border-image: url(/images/content-border.png) 20 24 29 24 stretch;
+    -moz-border-image: url(/images/content-border.png) 20 24 29 24 stretch;
+    -webkit-border-image: url(/images/content-border.png) 20 24 29 24 stretch;
+}
+
+.content-inner {
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+.title-main h1 {
+    font-weight: bold;
+    font-size: 4.2em;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    color: #992739;
+}
+
+.title-main h2 {
+    font-weight: bold;
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+
+.title-main h2 a {
+    color: #992739;
+}
+
+/**
+ * Sidebar
+ *
+ * Use body class of .sidebar-layout for different layout CSS.
+ */
+.sidebar-layout #content {
+    width: 570px;
+}
+
+.sidebar-layout .content-inner {
+    padding: 0;
+}
+
 #sidebar {
 	width:320px;
 	padding:0;
@@ -314,47 +361,6 @@ a#title  {
 }
 
 /**
- * Main Content Section
- */
-#content {
-    background-color: transparent;
-    float:left;
-    width: 900px;
-    margin-right:20px;
-    border-width: 20px 24px 29px 24px;
-    border-image: url(/images/content-border.png) 20 24 29 24 stretch;
-    -moz-border-image: url(/images/content-border.png) 20 24 29 24 stretch;
-    -webkit-border-image: url(/images/content-border.png) 20 24 29 24 stretch;
-}
-
-.sidebar #content {
-    width: 570px;
-}
-
-.content-inner {
-    background-color: #FFFFFF;
-    padding: 10px;
-}
-
-.wrapper > header > h1 {
-    font-weight: bold;
-    font-size: 4.2em;
-    margin-bottom: -10px;
-    text-transform: uppercase;
-    color: #992739;
-}
-
-.wrapper > header > h2 {
-    font-weight: bold;
-    font-size: 1.6em;
-    text-transform: uppercase;
-}
-
-.wrapper > header > h2 > a {
-    color: #992739;
-}
-
-/**
  * Project pages
  */
 .project_text {
@@ -507,7 +513,7 @@ a#title  {
     width: 300px;
 }
 
-.front .content-sidebar h1 {
+.front .content-sidebar h2 {
     text-transform: uppercase;
     color: #992739;
     font-weight: bold;
