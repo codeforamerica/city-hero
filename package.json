@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description" : "City Hero application",
   "homepage" : "http://codeforamerica.org",
-  "main" : "./server.js",
+  "main" : "lib/server.js",
   "repository" : { 
     "type" : "git",
     "url" : "git@github.com:codeforamerica/city-hero.git"
