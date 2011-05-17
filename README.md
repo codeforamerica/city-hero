@@ -22,7 +22,8 @@ The ET is a site that makes the world a better place.
   
 ## Testing
 
-  * qunit or expresso?
+  * Currently trying Expresso
+    * To run tests from project base: `node_modules/expresso/bin/expresso test/<TEST_FILE>.js`
   * JSLint
 
 ## Credits and Resources
