@@ -7,7 +7,7 @@
         $('#slide-list li').first().addClass('carousel-active');
         
         // Add homepage project carousel
-        var sliding = false;
+        var sliding = false;        
         $('.slider-move').bind('click', function(ev) {
             // Kill the default click event
             ev.preventDefault();
@@ -17,11 +17,11 @@
                 sliding = true;
                 
                 // Figure out which direction we should go
-                var dir = ($(ev.target).hasClass('totheleft')) ? 'left' : 'right';
+                var dir = ($(ev.target).hasClass('totheright')) ? 'left' : 'right';
 
                 // What is our current left-most image?
                 var cur_image = $('#slide-list li.carousel-active');
-                
+
                 // What is the next image we want to go to?
                 var next_image = (dir === 'left') ? $('#slide-list .carousel-active').next() : $('#slide-list .carousel-active').prev();
 
@@ -43,6 +43,8 @@
                             sliding = false;
                         }
                     );
+                } else {
+                    sliding = false;
                 }
             }
         });
