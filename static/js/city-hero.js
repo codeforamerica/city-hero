@@ -64,6 +64,7 @@
             $thisField = $(this);
             
             // Add place for map
+            // TODO: Make this abstract for any textfield
             $thisField.after('<div id="' + geocodeMapID + '" class="geocoding-input-map"></div>' + 
                 '<input class="textfield hidden" type="text" name="project-lat" id="project-lat" size="50" />' + 
                 '<input class="textfield hidden" type="text" name="project-lon" id="project-lon" size="50" />');
