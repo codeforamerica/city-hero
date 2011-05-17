@@ -7,13 +7,11 @@ var controllers = require('./controllers');
  * Class Set all router.
  * @param {object} App object (probably express)
  */
-var set_routes = function(app) {  
-    // Define global context 
-    var context = context || {};
-    context = routesSetGlobalContext(app, context);
-    
+var set_routes = function(app) {
     // Home page
     app.get('/', function(req, res) {
+        var context = {};
+        context = routesSetGlobalContext(app, context);
         var site_context = controllers.Site.get_context(req, res);
         var auth_context = controllers.Auth.get_context(req, res);
         var sess_context = controllers.Session.get_context(req, res, app);
@@ -35,9 +33,12 @@ var set_routes = function(app) {
     
     // Project add page
     app.get('/projects/add', function(req, res) {
+        var context = {};
+        context = routesSetGlobalContext(app, context);
         var site_context = controllers.Site.get_context(req, res);
         var auth_context = controllers.Auth.get_context(req, res);
         var sess_context = controllers.Session.get_context(req, res, app);
+        context = combine(context, site_context, auth_context, sess_context);
             
         // Views and context
         context.pageTitle = 'Add a Project';
@@ -48,6 +49,8 @@ var set_routes = function(app) {
 
     // Project specifc page
     app.get('/projects/:pid', function(req, res) {
+        var context = {};
+        context = routesSetGlobalContext(app, context);
         var site_context = controllers.Site.get_context(req, res);
         var auth_context = controllers.Auth.get_context(req, res);
         var sess_context = controllers.Session.get_context(req, res, app);

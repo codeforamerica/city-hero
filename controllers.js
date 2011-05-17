@@ -49,25 +49,31 @@ var Session = {
         
         
         if (facebook.getSession()) {
+console.log('You are logged into facebook!');
             facebook.api('/me', function(me) {
                 fbid = me.id;
                 
                 context.user = true
                 context.actionHref = facebook.getLogoutUrl();
                 context.actionTitle = 'Log Out';
+                if (callback) {
+                    callback({session: context}); 
+                } else {
+                    return {session: context};
+                }
             });
         } 
         else {
+console.log('You are NOT logged into facebook!');
             //  If the user is not logged in, just show them the login button.
             context.user = false;
             context.actionHref = facebook.getLoginUrl();
             context.actionTitle = 'Login with Facebook';
-        }
-        
-        if (callback) {
-            callback({session: context});
-        } else {
-            return {session: context};
+            if (callback) {
+                callback({session: context}); 
+            } else {
+                return {session: context};
+            }
         }
     }
 }

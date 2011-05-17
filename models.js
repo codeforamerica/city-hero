@@ -12,7 +12,7 @@ var Projects = {
     
     all: function(callback) {
         this.db.all({ 'include_docs':'true' }, function(err, docs) {
-            console.log(docs);
+            //console.log(docs);
             callback(err, docs);
         });
     },
@@ -31,7 +31,7 @@ var Projects = {
         
         // Separate out the data that we have to handle in a special way.  Put
         // the rest into the project_data object.
-console.log(project);
+//console.log(project);
         for (key in project) {
             if (key === '_attachments') {
                 attachments = project[key]
