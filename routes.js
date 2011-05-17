@@ -2,13 +2,11 @@
  * @fileoverview Main routes for city-hero application
  */
 
-controllers = require('./controllers');
- 
 /**
  * Class Set all router.
  * @param {object} App object (probably express)
  */
-function set_routes(app) {  
+function set_routes(app, controllers) {  
     // Home
     app.get('/', function(req, res) {
         var site_context = controllers.Site.get_context(req, res);

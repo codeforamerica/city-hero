@@ -16,6 +16,7 @@ var step = require('step');
 // Requires custom modules
 var routes = require('./routes');
 var models = require('./models');
+var controllers = require('./controllers');
 
 // Requires settings
 var settings = require('./settings/settings.js');
@@ -55,8 +56,13 @@ var conn = new (cradle.Connection)(auth.db.host, auth.db.port);
 models.Projects.init(conn, 'projects');
 
 // Get the routes
-routes.set_routes(app);
+routes.set_routes(app, controllers);
 
-// Listen on port 8080 for DotCloud
-app.listen(settings.sitePort);
-console.log('Server started on port: ' + settings.sitePort);
+if (process.env.NODE_ENV !== 'test') {
+    // Listen on port 8080 for DotCloud
+    app.listen(settings.sitePort);
+    console.log('Server started on port: ' + settings.sitePort);
+}
+
+exports.app = app;
+
