@@ -7,7 +7,7 @@
         <li>
             <div class="slider-image">
                 <a href="/projects/<%= project._id %>">
-                    <img src="http://<%= dbHost %>:<%= dbPort %>/projects/<%= project._id %>/project-image" width="200px" height="200px" />
+                    <img src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= project._id %>/project-image" width="200px" height="200px" />
                     <span class="slider-image-description"><%= project.title %></span>
                 </a>
             </div>
