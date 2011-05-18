@@ -63,7 +63,7 @@ console.log(req.session);
     
     // Handle the POST of a new project
     app.post('/projects/add', function(req, res) {
-        controllers.Projects.create_project(req, res, function(err, context) {
+        controllers.projects.create_project(req, res, function(err, context) {
             res.redirect('/projects/'+context.id);
         });
     });
