@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'test';
 
 assert = require('assert');
-views = require('../lib/views');
+views = require('views');
 
 module.exports = {
     'homepage view should contain expected context' : function() {

@@ -1,10 +1,40 @@
 <form id="project-add" enctype="multipart/form-data" method="post">
-    <div class="form-item-wrapper form-textarea-wrapper">
+
+    <!--+ First you have to figure out what you want to do.  This bring up the
+        | question: how did you land on the site.  Let's address a few ways:
+        | 
+        | 1) You did a google search for "how do i start a neighborhood watch
+        |    association" or someting.
+        | 2) You were on an issue reporting site (like Kajoo) and you reported
+        |    an issue or saw an issue that you wanted addressed.  It said that
+        |    you could check whether anyone was working on the issue at the city
+        |    heroes site, so you came here to look for the issue.
+        | 3) You heard about it through some advertising campaign and want to 
+        |    plan a national night out.
+        | 4) You ask (on city how) how to get the city to clean up a vacant lot
+        |    and someone recommends that you come to city hero and try to get it
+        |    done yourself.
+        | 
+        | For scenarios (1) and (3) you can pretty much just jump in and start
+        | on the project's general description (title and such).  For scenarios
+        | (2) and (4) you might benefit from some help in picking out possible
+        | solutions to the problem you identify.
+        |
+        | 
+        +-->
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
         <div class="label-wrapper">
             <label for="project-title">Project Title</label>
-            <span class="form-item-help">This is some help text for project titles.</span>
+            <span class="form-item-help">What you are going to do</span>
         </div>
-        <textarea class="textarea" name="project-title" id="project-title"></textarea>
+        <input class="textfield" name="project-title" id="project-title" />
+        <div class="tip-wrapper">
+            <div class="tip-header">
+                <h1>Writing Your Project Title</h1>
+            </div>
+            
+        </div>
     </div>
     <div class="form-item-wrapper form-textarea-wrapper">
         <div class="label-wrapper">
