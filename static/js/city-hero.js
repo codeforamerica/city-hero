@@ -2,6 +2,33 @@
  * Client JS for home page
  */
 
+function initFieldWizardTips() {
+    $('.wizard-tip').each(function (ind, tip) {
+        var input_id_len
+          , tip_class
+          , tip_classes
+          , i;
+        
+        // The field and the wizard tip must have corresponding id's. When
+        // a field receives focus, hide all tips and show the one for that
+        // field.
+        tip_classes = $(tip).attr('class').split(/\s+/);
+        for (i in tip_classes) {
+            tip_class = tip_classes[i];
+            input_id_len = tip_class.length - ('-wizard-tip').length
+            
+            if (input_id_len <= 0)
+                continue;
+            
+            input_id = tip_class.substr(0,input_id_len);
+            $('#' + input_id).focus(function() {
+                $('.wizard-tip').hide();
+                $(tip).show();
+            });
+        }
+    });
+}
+
 (function($) {
     $(document).ready(function() {
         $('#slide-list li').first().addClass('carousel-active');
@@ -58,19 +85,7 @@
         // $('.form-item-help')....
         
         // Fields with wizard tips
-        $('.wizard-tip').each(function (ind, tip) {
-            var tip_id = $(tip).attr('id')
-              , input_id_len = tip_id.length - ('-wizard-tip').length
-            
-            // The field and the wizard tip must have corresponding id's. When
-            // a field receives focus, hide all tips and show the one for that
-            // field.
-            input_id = tip_id.substr(0,input_id_len);
-            $('#' + input_id).focus(function() {
-                $('.wizard-tip').hide();
-                $(tip).show();
-            });
-        });
+        initFieldWizardTips();
         
         // Geocoding textfields
         $('.textfield.geocode').each(function () {

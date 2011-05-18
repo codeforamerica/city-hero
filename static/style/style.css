@@ -731,6 +731,10 @@ form .form-item-help img {
     width: 540px;
 }
 
+.project-wizard .textarea {
+    height: 5em;
+}
+
 .wizard-tip {
     position: absolute;
     display: none;
@@ -784,10 +788,14 @@ form .form-item-help img {
     margin-left: 1.5em;
 }
 
-#project-definition-wizard-tip {
+.project-definition-wizard-tip {
     display: block;
 }
 
-#project-title-wizard-tip {
+.project-title-wizard-tip {
     margin-top: -7em;
+}
+
+.project-description-wizard-tip {
+    margin-top: -12em;
 }
