@@ -558,7 +558,18 @@ a.content-sidebar-link {
     height: 40px;
     float: left;
     margin-top: 80px;
-    background-color: #FF88C0;
+}
+
+.home-slider .totheright {
+    background-image: url('/images/arrow-right.png');
+    background-repeat: no-repeat;
+    
+}
+
+.home-slider .totheleft {
+    background-image: url('/images/arrow-left.png');
+    background-repeat: no-repeat;
+    
 }
 
 .home-slider .slider-image {
@@ -592,9 +603,10 @@ a.content-sidebar-link {
 
 #slide-wrapper {
     height: 200px;
-    width: 700px;
+    width: 720px;
     float: left;
     overflow: hidden;
+    margin-left: 40px;
 }
 
 /**
