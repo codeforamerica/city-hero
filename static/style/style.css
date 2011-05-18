@@ -714,3 +714,77 @@ form .form-item-help img {
     height: 200px;
     float: right;
 }
+
+/**
+ * Project Wizard
+ */
+
+.project-wizard .content-main {
+    margin-right: 320px;
+}
+
+.project-wizard .textfield,
+.project-wizard .textarea {
+    width: 540px;
+}
+
+.wizard-tip {
+    position: absolute;
+    display: none;
+    
+    left: 600px;
+    width: 310px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px #222;
+}
+
+.wizard-tip > h1 {
+    padding: 5px 15px;
+    margin: 0px;
+    
+    font-size: 1.5em;
+    
+    border-bottom: 1px solid #888;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #eee;
+}
+
+.wizard-tip > h2 {
+    margin: 15px;
+    
+    font-size: 1.2em;
+    font-weight: bold;
+    
+    border-bottom: 1px solid #888;
+}
+
+.wizard-tip > p,
+.wizard-tip > ul,
+.wizard-tip > ol {
+    margin: 10px 15px;
+    line-height: 1.5em;
+    font-size: 1.1em;
+}
+
+.wizard-tip > ul {
+    list-style: square;
+}
+
+.wizard-tip > ol {
+    list-style: decimal;
+}
+
+.wizard-tip > ul > li,
+.wizard-tip > ol > li {
+    margin-left: 1.5em;
+}
+
+#project-definition-wizard-tip {
+    display: block;
+}
+
+#project-title-wizard-tip {
+    margin-top: -7em;
+}

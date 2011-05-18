@@ -57,7 +57,20 @@
         var id = 1;
         // $('.form-item-help')....
         
-        // do some form help stuff that is cool
+        // Fields with wizard tips
+        $('.wizard-tip').each(function (ind, tip) {
+            var tip_id = $(tip).attr('id')
+              , input_id_len = tip_id.length - ('-wizard-tip').length
+            
+            // The field and the wizard tip must have corresponding id's. When
+            // a field receives focus, hide all tips and show the one for that
+            // field.
+            input_id = tip_id.substr(0,input_id_len);
+            $('#' + input_id).focus(function() {
+                $('.wizard-tip').hide();
+                $(tip).show();
+            });
+        });
         
         // Geocoding textfields
         $('.textfield.geocode').each(function () {
