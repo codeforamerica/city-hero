@@ -633,7 +633,8 @@ form label {
 }
 
 form .textarea,
-form .textfield {
+form .textfield,
+form .password {
     border: none;
     background-color: #AAAAAA;
     color: #FFFFFF;
@@ -644,8 +645,10 @@ form .textfield {
 
 form .textarea:hover,
 form .textfield:hover,
+form .password:hover,
 form .textarea:focus,
-form .textfield:focus {
+form .textarea:focus,
+form .password:focus {
     background-color: #666666;
 }
 
