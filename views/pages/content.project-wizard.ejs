@@ -1,0 +1,92 @@
+<form id="project-add" enctype="multipart/form-data" method="post">
+
+    <!--+ First you have to figure out what you want to do.  This bring up the
+        | question: how did you land on the site.  Let's address a few ways:
+        | 
+        | 1) You did a google search for "how do i start a neighborhood watch
+        |    association" or someting.
+        | 2) You were on an issue reporting site (like Kajoo) and you reported
+        |    an issue or saw an issue that you wanted addressed.  It said that
+        |    you could check whether anyone was working on the issue at the city
+        |    heroes site, so you came here to look for the issue.
+        | 3) You heard about it through some advertising campaign and want to 
+        |    plan a national night out.
+        | 4) You ask (on city how) how to get the city to clean up a vacant lot
+        |    and someone recommends that you come to city hero and try to get it
+        |    done yourself.
+        | 
+        | For scenarios (1) and (3) you can pretty much just jump in and start
+        | on the project's general description (title and such).  For scenarios
+        | (2) and (4) you might benefit from some help in picking out possible
+        | solutions to the problem you identify.
+        |
+        | 
+        +-->
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-title">Project Title</label>
+            <span class="form-item-help">What you are going to do</span>
+        </div>
+        <input class="textfield" name="project-title" id="project-title" />
+        <div class="tip-wrapper">
+            <div class="tip-header">
+                <h1>Writing Your Project Title</h1>
+            </div>
+            
+        </div>
+    </div>
+    <div class="form-item-wrapper form-textarea-wrapper">
+        <div class="label-wrapper">
+            <label for="project-description">Project Description</label>
+        </div>
+        <textarea class="textarea" name="project-description" id="project-description"></textarea>
+    </div>
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-location">Project Location</label>
+        </div>
+        <input class="textfield geocode" type="text" name="project-location" id="project-location" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-filefield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-image">Image</label>
+        </div>
+        <input class="filefield" type="file" name="project-image" id="project-image" />
+    </div>
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-video">Video</label>
+        </div>
+        <input class="textfield" type="text" name="project-video" id="project-video" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-textfield-wrapper">
+        <div class="label-wrapper">
+            <label for="project-link">Link</label>
+        </div>
+        <input class="textfield" type="text" name="project-link" id="project-link" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-submit-wrapper">
+        <input class="submit" type="submit" name="project-submit" id="project-submit" value="Submit" />
+    </div>
+</form>
+
+<div class="wizard-tip project-name-wizard-tip">
+    <h1 class="wizard-tip-title">Choosing A Project Name</h1>
+    <p>Your project name is the first thing people will read about your project</p>
+    <ol>
+        <li>Make your title positive and engaging rather than negative (<i>&quot;Creating Safe Places to Play In&quot;</i> rather than <i>&quot;Kick the Trash Out of Our Neighborhood&quot;</i>)</li>
+        <li>The title should be easy to remember.</li>
+        <li>Check your spelling, use Title Case, and avoid using ALL CAPS</li>
+        <li>Watch out for negative acronyms!</li>
+    </ol>
+    
+    <h2>Examples of Effective Project Titles</h2>
+    <ul>
+    </ul>
+</div>
