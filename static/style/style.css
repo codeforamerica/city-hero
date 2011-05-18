@@ -707,19 +707,21 @@ form .form-item-help img {
  * Project Wizard
  */
 
-.textfield {
-    width: 520px;
+.project-wizard .content-main {
+    margin-right: 320px;
 }
 
-.project-wizard .content-main {
-    margin-right: 340px;
+.project-wizard .textfield,
+.project-wizard .textarea {
+    width: 540px;
 }
 
 .wizard-tip {
     position: absolute;
+    display: none;
     
-    left: 580px;
-    width: 320px;
+    left: 600px;
+    width: 310px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0px 0px 7px #222;
@@ -747,20 +749,30 @@ form .form-item-help img {
 }
 
 .wizard-tip > p,
+.wizard-tip > ul,
 .wizard-tip > ol {
     margin: 10px 15px;
     line-height: 1.5em;
     font-size: 1.1em;
 }
 
+.wizard-tip > ul {
+    list-style: square;
+}
+
 .wizard-tip > ol {
     list-style: decimal;
 }
 
+.wizard-tip > ul > li,
 .wizard-tip > ol > li {
     margin-left: 1.5em;
 }
 
-.project-title-wizard-tip {
+#project-definition-wizard-tip {
+    display: block;
+}
+
+#project-title-wizard-tip {
     margin-top: -7em;
 }

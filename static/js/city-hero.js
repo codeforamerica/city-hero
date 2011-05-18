@@ -60,8 +60,6 @@
             var tip_id = $(tip).attr('id')
               , input_id_len = tip_id.length - ('-wizard-tip').length
             
-            $(tip).hide();
-            
             // The field and the wizard tip must have corresponding id's. When
             // a field receives focus, hide all tips and show the one for that
             // field.
