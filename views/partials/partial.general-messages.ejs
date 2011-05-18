@@ -1,0 +1,11 @@
+<% if (messages && messages.length > 0) { %>
+    <div class="wrapper messages-wrapper">
+        <div class="messages">
+            <ul>
+                <% for (m in messages) {  %>
+                    <li><%- messages[m] %></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+<% } %>
