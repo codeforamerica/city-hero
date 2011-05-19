@@ -811,10 +811,7 @@ form .form-item-help img {
     display: block;
 }
 
-.project-title-wizard-tip {
-    margin-top: -7em;
-}
-
-.project-description-wizard-tip {
-    margin-top: -12em;
+.project-wizard section + section {
+    border-top: 1px solid #888;
+    padding-top: 2em;
 }

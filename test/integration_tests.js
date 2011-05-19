@@ -1,7 +1,9 @@
 process.env.NODE_ENV = 'test';
 
-assert = require('assert');
-app = require('server').app;
+var assert = require('assert')
+  , app = require('server').app
+  , cradle = require('cradle')
+  , auth = require('settings/auth')
 
 module.exports = {
     'test that the home page gives us a 200 status' : function() {
@@ -32,11 +34,30 @@ module.exports = {
     },
     
     'test that an individual project page gives us a 200 status' : function() {
-        assert.response(app,
-            { url: '/projects/b57dc5d04fcc350208c92f88b900cc68', headers: {'Host': 'cityheroes.in'} },
-            function(res) {
-//                console.log(res.body);
-                assert.equal(res.statusCode, 200);
-            });
+        var conn = new (cradle.Connection)(auth.db.host, auth.db.port);
+        var db = conn.database('projects');
+        
+        // First let's create a project for us to use.
+        var project = {
+            _id: 'testProject1',
+            info: 'blah',
+            title: 'wonderful'
+        }
+        
+        db.save(project, function(err, dbRes) {
+        
+            assert.response(app,
+                { url: '/projects/' + dbRes._id, headers: {'Host': 'cityheroes.in'} },
+                function(res) {
+//                    console.log(res.body);
+                    assert.equal(res.statusCode, 200);
+            
+                    // Now get rid of that pesky testing project.
+                    db.remove(dbRes._id, dbRes._rev);
+                });
+            
+            console.log('The id and revision:')
+            console.log(dbRes._id + ', ' + dbRes._rev)
+        });
     }
 }
