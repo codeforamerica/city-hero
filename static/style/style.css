@@ -712,6 +712,9 @@ body.project-edit input.edit-title {
     font-size: 4.2em;
 }
 
+/**
+ * The edit project controls
+ */
 .button-floater {
     position: fixed;
     top: 0;
@@ -738,6 +741,7 @@ body.project-edit input.edit-title {
 }
 .button-floater a:hover { text-decoration: none; }
 .button-floater input:hover { cursor: pointer; }
+
 /**
  * Geocoding textfields
  */
