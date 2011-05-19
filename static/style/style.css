@@ -134,9 +134,9 @@ a#title  {
 .title-main h1 {
     font-weight: bold;
     font-size: 4.2em;
-    margin-bottom: -10px;
     text-transform: uppercase;
     color: #992739;
+    line-height: 100%;
 }
 
 .title-main h2 {
