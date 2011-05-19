@@ -1,23 +1,14 @@
 <form id="project-add" enctype="multipart/form-data" method="post">
     
-    <div class="wizard-tip" id="project-definition-wizard-tip">
+    <div class="wizard-tip project-definition-wizard-tip">
         <h1 class="wizard-tip-title">Defining Your Project</h1>
-        <p>First, we will step you through the process of providing a clear
+        <p>We will step you through the process of providing a clear
            articulation of what your project sets out to solve. This is intended
-           to give yourself as well as your audience (or audiences) an
-           understanding of the rationale for the project.</p>
-        <p>Before beginning to define your project you should have the answers
-           to these three key questions (your mission):</p>
-        <ol>
-            <li>What are the opportunities or needs that the project exist to
-                address?</li>
-            <li>What will you be doing to address these needs?</li>
-            <li>What values, principles, or beliefs guide your work?</li>
-        </ol>
+           to give your audience an understanding of the rationale for the
+           project.</p>
         
         <h2>More Information</h2>
         <ul>
-            <li><a href="http://www.tgci.com/magazine/How%20to%20Write%20a%20Mission%20Statement.pdf">How to Write a Mission Statement</a></li>
             <li><a href="#">Problem vs. Project/Issue</a></li>
         </ul>
     </div>
@@ -45,13 +36,61 @@
         | 
         +-->
     
-    <div class="form-item-wrapper form-textfield-wrapper">
-        <div class="label-wrapper">
-            <label for="project-title">Project Title</label>
-            <span class="form-item-help">What you are going to do</span>
+    <section class="project-mission-section">
+        <div class="wizard-tip project-mission-problem-wizard-tip project-mission-solution-wizard-tip project-mission-values-wizard-tip">
+            <h1 class="wizard-tip-title">Articulating Your Mission</h1>
+            <p>Before beginning to define your project you should have an idea
+               of your mission. A good mission statement should accurately
+               explain what your project hopes to achieve in the future. It
+               articulates the project's essential nature, its values, and its
+               work. </p>
+            <p>Your mission should answer these three key questions:</p>
+            <ol>
+                <li>What are the opportunities or needs that the project exist
+                    to address?</li>
+                <li>What will you be doing to address these needs?</li>
+                <li>What values, principles, or beliefs guide your work?</li>
+            </ol>
+            
+            <h2>More Information</h2>
+            <ul>
+                <li><a href="http://www.tgci.com/magazine/How%20to%20Write%20a%20Mission%20Statement.pdf">How to Write a Mission Statement</a></li>
+                <li><a href="#">Problem vs. Project/Issue</a></li>
+            </ul>
         </div>
-        <input class="textfield" name="project-title" id="project-title" />
         
+        <div class="form-item-wrapper form-textfield-wrapper">
+            <div class="label-wrapper">
+                <label for="project-mission-problem">Problem</label>
+                <span class="form-item-help">What opportunities or needs the
+                     project exists to address</span>
+            </div>
+            
+            <input class="textfield" name="project-mission-problem" id="project-mission-problem" />
+        </div>
+        
+        <div class="form-item-wrapper form-textfield-wrapper">
+            <div class="label-wrapper">
+                <label for="project-mission-solution">Solution</label>
+                <span class="form-item-help">What you will do to address the
+                     problems or needs</span>
+            </div>
+            
+            <input class="textfield" name="project-mission-solution" id="project-mission-solution" />
+        </div>
+        
+        <div class="form-item-wrapper form-textfield-wrapper">
+            <div class="label-wrapper">
+                <label for="project-mission-values">Values</label>
+                <span class="form-item-help">What values underlie your desire to
+                     solve the problem</span>
+            </div>
+            
+            <input class="textfield" name="project-mission-values" id="project-mission-values" />
+        </div>
+    </section>
+    
+    <section class="project-definition-section">
         <div class="wizard-tip project-title-wizard-tip">
             <h1 class="wizard-tip-title">Choosing A Project Title</h1>
             <p>Your project title is the first thing people will read about your project</p>
@@ -69,47 +108,16 @@
             <ul>
             </ul>
         </div>
-    </div>
-    
-    <div class="form-item-wrapper form-textfield-wrapper">
-        <div class="label-wrapper">
-            <label for="project-title">Project Title</label>
-            <span class="form-item-help">What you are going to do</span>
-        </div>
-        <input class="textfield" name="project-title" id="project-title" />
         
-        <div class="wizard-tip project-title-wizard-tip">
-            <h1 class="wizard-tip-title">Choosing A Project Title</h1>
-            <p>Your project title is the first thing people will read about your project</p>
-            <ol>
-                <li>Make your title positive and engaging rather than negative
-                    (<i>&quot;Creating Safe Places to Play In&quot;</i> rather
-                    than <i>&quot;Kick the Trash Out of Our
-                    Neighborhood&quot;</i>)</li>
-                <li>The title should be easy to remember.</li>
-                <li>Check your spelling, use Title Case, and avoid using ALL CAPS</li>
-                <li>Watch out for negative acronyms!</li>
-            </ol>
+        <div class="form-item-wrapper form-textfield-wrapper">
+            <div class="label-wrapper">
+                <label for="project-title">Project Title</label>
+                <span class="form-item-help">What you are going to do</span>
+            </div>
             
-            <h2>Examples of Effective Project Titles</h2>
-            <ul>
-            </ul>
+            <input class="textfield" name="project-title" id="project-title" />
         </div>
-    </div>
-    
-    <div class="form-item-wrapper form-textarea-wrapper">
-        <div class="label-wrapper">
-            <label for="project-description">Project Mission</label>
-        </div>
-        <textarea class="textarea" name="project-description" id="project-description"></textarea>
-        
-        <div class="wizard-tip project-description-wizard-tip">
-            <h1>Articulating Your Mission</h1>
-            <p>A good mission statement should accurately explain what your
-               project hopes to achieve in the future. It articulates the
-               project's essential nature, its values, and its work. </p>
-        </div>
-    </div>
+    </section>
     
     <div class="form-item-wrapper form-textfield-wrapper">
         <div class="label-wrapper">
