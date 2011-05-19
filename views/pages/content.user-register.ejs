@@ -2,16 +2,37 @@
     
     <div class="form-item-wrapper form-textfield-wrapper">
         <div class="label-wrapper">
-            <label for="user-username">User name</label>
+            <label for="username">User name</label>
         </div>
-        <input class="textfield" type="text" name="user-username" id="user-username" size="50" />
+        <input class="textfield" type="text" name="username" id="username" size="50" <% if (form.fields.username) {%>value="<% form.fields.username %>" <% } %>/>
     </div>
     
     <div class="form-item-wrapper form-password-wrapper">
         <div class="label-wrapper">
-            <label for="user-password">Password</label>
+            <label for="password">Password</label>
         </div>
-        <input class="password" type="password" name="user-password" id="user-password" size="50" />
+        <input class="password" type="password" name="password" id="password" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-password-wrapper confirm-wrapper">
+        <div class="label-wrapper">
+            <label for="password">Confirm Password</label>
+        </div>
+        <input class="password" type="password" name="password-confirm" id="password-confirm" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-password-wrapper">
+        <div class="label-wrapper">
+            <label for="email">Email</label>
+        </div>
+        <input class="password" type="password" name="email" id="email" size="50" />
+    </div>
+    
+    <div class="form-item-wrapper form-password-wrapper confirm-wrapper">
+        <div class="label-wrapper">
+            <label for="email-confirm">Confirm Email</label>
+        </div>
+        <input class="password" type="password" name="email-confirm" id="email-confirm" size="50" />
     </div>
     
     <div class="form-item-wrapper form-textfield-wrapper">

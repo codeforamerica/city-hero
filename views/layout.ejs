@@ -8,6 +8,8 @@
 </head>
 
 <body class="<%= bodyClasses.join(' ') %>">
+    <%- partial('partials/partial.general-messages.ejs') %>
+    
     <div id="header">
         <div class="wrapper">
             <a id="title" class="left" href="/"><%= siteName %></a>
@@ -38,11 +40,13 @@
         </div>
     </div>
     
-    <%- partial('partials/partial.general-messages.ejs') %>
-    
     <div class="wrapper">
         <div class="title-main">
-            <h1><%= pageTitle %></h1>
+            <% if (typeof pageTitle === 'object') { %>
+                <%- partial(pageTitle) %>
+            <% } else { %>
+                <h1><%- pageTitle %></h1>
+            <% } %>
                 
             <!-- Render header partials -->
             <% if (typeof titleContent != 'undefined') { %>
