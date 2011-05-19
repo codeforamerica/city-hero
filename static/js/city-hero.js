@@ -1,6 +1,59 @@
 /**
  * Client JS for home page
  */
+ 
+String.prototype.format = function(context) {
+    var s = this
+      , strings = context //[].slice.apply(arguments, 0)
+      , i
+      , reg
+    
+    for (i in strings) {
+        reg = new RegExp('\\{' + i + '\\}', 'gm');
+        s = s.replace(reg, strings[i])
+    }
+    
+    return s;
+}
+
+function compileFromValues(bufferSel, template, keySels) {
+    var keySel
+      , key
+      , context = {}
+    
+    function _buildContext() {
+        var keySel
+          , key
+          , context = {};
+        
+        for (key in keySels) {
+            keySel = keySels[key]
+            context[key] = $(keySel).val();
+        }
+        
+        return context;
+    }
+    
+    for (key in keySels) {
+        keySel = keySels[key]
+        $(keySel).change(function() {
+            context = _buildContext();
+            $(bufferSel).html(template.format(context));
+        });
+        $(keySel).keyup(function() {
+            context = _buildContext();
+            $(bufferSel).html(template.format(context));
+        });
+    }
+}
+
+function compileMissionFromParts() {
+    compileFromValues('#project-mission-mashup'
+                    , '{problem} {values} So, {solution}'
+                    , { problem: '#project-mission-problem'
+                      , values: '#project-mission-values'
+                      , solution: '#project-mission-solution' });
+}
 
 function initFieldWizardTips() {
     $('.wizard-tip').each(function (ind, tip) {
@@ -24,6 +77,9 @@ function initFieldWizardTips() {
             $('#' + input_id).focus(function() {
                 $('.wizard-tip').hide();
                 $(tip).show();
+                var xpos = $(tip).offset().left;
+                var ypos = $(this).offset().top;
+                $(tip).offset({left:xpos, top:ypos});
             });
         }
     });
@@ -86,6 +142,45 @@ function initFieldWizardTips() {
         
         // Fields with wizard tips
         initFieldWizardTips();
+        
+        // Building the mission statement up from its parts
+        compileMissionFromParts()
+        
+        $('#show-project-mission-step-by-step').click(function() {
+            $('.project-mission-section').hide();
+            $('.project-mission-step-by-step-section').show();
+            $('#project-mission-problem').focus();
+            
+            var old_mission = $('#project-mission').val();
+            if (old_mission) {
+                $('#project-mission-former').html(old_mission);
+                $('.project-mission-former-section').show();
+            }
+                        
+            return false;
+        });
+        
+        function goToCompactMissionView() {
+            $('.project-mission-section').show();
+            $('.project-mission-step-by-step-section').hide();
+            $('#project-mission').focus();
+        }
+        
+        $('#accept-project-mission-mashup').click(function() {
+            var new_mission = $('#project-mission-mashup').html();
+            $('#project-mission').val(new_mission);
+            goToCompactMissionView();
+            
+            return false;
+        });
+
+        $('#reject-project-mission-mashup').click(function() {
+            goToCompactMissionView();
+            
+            return false;
+        });
+
+
         
         // Geocoding textfields
         $('.textfield.geocode').each(function () {
