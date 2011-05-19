@@ -37,7 +37,7 @@
         +-->
     
     <section class="project-mission-section">
-        <div class="wizard-tip project-mission-problem-wizard-tip project-mission-solution-wizard-tip project-mission-values-wizard-tip">
+        <div class="wizard-tip project-mission-wizard-tip">
             <h1 class="wizard-tip-title">Articulating Your Mission</h1>
             <p>Before beginning to define your project you should have an idea
                of your mission. A good mission statement should accurately
@@ -51,10 +51,33 @@
                 <li>What will you be doing to address these needs?</li>
                 <li>What values, principles, or beliefs guide your work?</li>
             </ol>
+            <p>Not sure where to start?  Go <a id="show-project-mission-step-by-step" href="#">step-by-step</a>.</p>
             
             <h2>More Information</h2>
             <ul>
                 <li><a href="http://www.tgci.com/magazine/How%20to%20Write%20a%20Mission%20Statement.pdf">How to Write a Mission Statement</a></li>
+                <li><a href="#">Problem vs. Project/Issue</a></li>
+            </ul>
+        </div>
+        
+        <div class="form-item-wrapper form-textfield-wrapper">
+            <div class="label-wrapper">
+                <label for="project-mission">Mission</label>
+                <span class="form-item-help">What opportunities or needs the
+                     project exists to address</span>
+            </div>
+            
+            <textarea class="textarea" name="project-mission" id="project-mission"></textarea>
+        </div>
+    </section>
+    
+    <section class="project-mission-step-by-step-section">
+        <div class="wizard-tip project-mission-problem-wizard-tip">
+            <h1 class="wizard-tip-title">Identifying The Problem</h1>
+            <p>What are the opportunities or needs that you will address through this project.  This can be as short as a sentence.</p>
+            
+            <h2>More Information</h2>
+            <ul>
                 <li><a href="#">Problem vs. Project/Issue</a></li>
             </ul>
         </div>
@@ -69,6 +92,11 @@
             <input class="textfield" name="project-mission-problem" id="project-mission-problem" />
         </div>
         
+        <div class="wizard-tip project-mission-solution-wizard-tip">
+            <h1 class="wizard-tip-title">The Solution</h1>
+            <p>What will you be doing to address the needs in the problem?  What specific outputs and outcomes will result from each element?</p>
+        </div>
+        
         <div class="form-item-wrapper form-textfield-wrapper">
             <div class="label-wrapper">
                 <label for="project-mission-solution">Solution</label>
@@ -76,7 +104,12 @@
                      problems or needs</span>
             </div>
             
-            <input class="textfield" name="project-mission-solution" id="project-mission-solution" />
+            <textarea class="textarea" name="project-mission-solution" id="project-mission-solution"></textarea>
+        </div>
+        
+        <div class="wizard-tip project-mission-values-wizard-tip">
+            <h1 class="wizard-tip-title">The Values</h1>
+            <p>What will you be doing to address the needs in the problem?  What specific outputs and outcomes will result from each element?</p>
         </div>
         
         <div class="form-item-wrapper form-textfield-wrapper">
@@ -88,12 +121,15 @@
             
             <input class="textfield" name="project-mission-values" id="project-mission-values" />
         </div>
+        
+        <p id="project-mission-altogether"></p>
     </section>
     
     <section class="project-definition-section">
         <div class="wizard-tip project-title-wizard-tip">
             <h1 class="wizard-tip-title">Choosing A Project Title</h1>
-            <p>Your project title is the first thing people will read about your project</p>
+            <p>Your project title is the first thing people will read about your
+               project.  It is a short (~5-10 word) summary of your project mission.</p>
             <ol>
                 <li>Make your title positive and engaging rather than negative
                     (<i>&quot;Creating Safe Places to Play In&quot;</i> rather

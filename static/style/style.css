@@ -811,3 +811,17 @@ form .form-item-help img {
     border-top: 1px solid #888;
     padding-top: 2em;
 }
+
+.project-mission-step-by-step-section {
+    display: none;
+    border-top: none !important;
+    padding-top: 0px !important;
+}
+
+#project-mission-altogether {
+    border: 1px solid #888;
+    background-color: #eee;
+    padding: 1em;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}

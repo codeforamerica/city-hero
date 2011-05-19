@@ -3,9 +3,15 @@
 <html>
 <head>
 
+<!--
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
 <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+-->
+
+<script src="../libs/jquery-1.6.min.js"></script>
+<link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+<script type="text/javascript" src="qunit.js"></script>
 
 <script type="text/javascript" src="../city-hero.js"></script>
 
@@ -58,6 +64,31 @@ $(document).ready(function () {
             equals(fieldsAndTips[i].tip.css('display'), 'block');
             $('.wizard-tip').hide();
         }
+        
+        // finally...
+        testArea.html('');
+    });
+    
+    test("mission should be constructed from components", function() {
+        // given...
+        testArea.html(
+            '<input type="text" name="project-mission-problem" id="project-mission-problem">' +
+            '<input type="text" name="project-mission-solution" id="project-mission-solution">' +
+            '<input type="text" name="project-mission-values" id="project-mission-values">' +
+            '<p id="project-mission-altogether"></p>'
+        );
+        compileMissionFromParts();
+        
+        // when...
+        $('#project-mission-problem').val('There is a problem.');
+        $('#project-mission-problem').change();
+        $('#project-mission-solution').val('We will fix it.');
+        $('#project-mission-solution').change();
+        $('#project-mission-values').val('We care about the problem.');
+        $('#project-mission-values').change();
+        
+        // then...
+        equals($('#project-mission-altogether').html(), 'There is a problem. We care about the problem. So, We will fix it.');
         
         // finally...
         testArea.html('');
