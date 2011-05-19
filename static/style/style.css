@@ -701,6 +701,43 @@ form .form-item-help img {
     padding-bottom: 20px;
 }
 
+textarea.project-edit-form {
+    width: 525px;
+    height: 90px;
+    font-size: 1em;
+}
+
+body.project-edit input.edit-title {
+    width: 100%;
+    font-size: 4.2em;
+}
+
+.button-floater {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #999999;
+    padding: 5px;
+    z-index: 501;
+}
+
+.button-floater li {
+    margin-bottom:10px;    
+    width: 150px;
+    background-color: #96A044;
+    border: 1px solid #ccc;
+}
+.button-floater a, .button-floater input {
+    padding: 10px;
+    background-color: #96A044;
+    font-size: 1em;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    display: block;
+}
+.button-floater a:hover { text-decoration: none; }
+.button-floater input:hover { cursor: pointer; }
 /**
  * Geocoding textfields
  */

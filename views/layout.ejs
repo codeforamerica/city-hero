@@ -42,7 +42,11 @@
     
     <div class="wrapper">
         <div class="title-main">
-            <h1><%= pageTitle %></h1>
+            <% if (typeof pageTitle === 'object') { %>
+                <%- partial(pageTitle) %>
+            <% } else { %>
+                <h1><%- pageTitle %></h1>
+            <% } %>
                 
             <!-- Render header partials -->
             <% if (typeof titleContent != 'undefined') { %>
