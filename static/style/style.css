@@ -365,6 +365,21 @@ a#title  {
 }
 
 /**
+ * Messages
+ */
+.messages-wrapper {
+    z-index: 20;
+}
+.messages {
+    border: 5px solid #999999;
+    background-color: #BBBBBB;
+    font-size: 1.5em;
+    padding: 10px;
+    width: 300px;
+    float: right;
+}
+
+/**
  * Project pages
  */
 .project_text {

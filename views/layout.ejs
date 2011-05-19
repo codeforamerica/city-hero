@@ -28,10 +28,17 @@
             </div>
             -->
             <div id="user-links" class="nav-links right">
-                <a href="<%= session.actionHref %>"><%= session.actionTitle %></a>
+                <a href="<%= session.actionHref %>"><%= session.actionTitle %></a> |
+                <% if (typeof session.user != 'undefined' && typeof session.user._id != 'undefined') { %>
+                    <a href="/profile/<%= session.user._id %>">Profile</a>
+                <% } else { %>
+                    <a href="/user/register">Register</a>
+                <% } %>
             </div>
         </div>
     </div>
+    
+    <%- partial('partials/partial.general-messages.ejs') %>
     
     <div class="wrapper">
         <div class="title-main">
