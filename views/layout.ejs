@@ -8,6 +8,8 @@
 </head>
 
 <body class="<%= bodyClasses.join(' ') %>">
+    <%- partial('partials/partial.general-messages.ejs') %>
+    
     <div id="header">
         <div class="wrapper">
             <a id="title" class="left" href="/"><%= siteName %></a>
@@ -37,8 +39,6 @@
             </div>
         </div>
     </div>
-    
-    <%- partial('partials/partial.general-messages.ejs') %>
     
     <div class="wrapper">
         <div class="title-main">
