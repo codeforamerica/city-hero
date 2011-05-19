@@ -48,7 +48,7 @@ function compileFromValues(bufferSel, template, keySels) {
 }
 
 function compileMissionFromParts() {
-    compileFromValues('#project-mission-altogether'
+    compileFromValues('#project-mission-mashup'
                     , '{problem} {values} So, {solution}'
                     , { problem: '#project-mission-problem'
                       , values: '#project-mission-values'
@@ -77,6 +77,9 @@ function initFieldWizardTips() {
             $('#' + input_id).focus(function() {
                 $('.wizard-tip').hide();
                 $(tip).show();
+                var xpos = $(tip).offset().left;
+                var ypos = $(this).offset().top;
+                $(tip).offset({left:xpos, top:ypos});
             });
         }
     });
@@ -146,6 +149,34 @@ function initFieldWizardTips() {
         $('#show-project-mission-step-by-step').click(function() {
             $('.project-mission-section').hide();
             $('.project-mission-step-by-step-section').show();
+            $('#project-mission-problem').focus();
+            
+            var old_mission = $('#project-mission').val();
+            if (old_mission) {
+                $('#project-mission-former').html(old_mission);
+                $('.project-mission-former-section').show();
+            }
+                        
+            return false;
+        });
+        
+        function goToCompactMissionView() {
+            $('.project-mission-section').show();
+            $('.project-mission-step-by-step-section').hide();
+            $('#project-mission').focus();
+        }
+        
+        $('#accept-project-mission-mashup').click(function() {
+            var new_mission = $('#project-mission-mashup').html();
+            $('#project-mission').val(new_mission);
+            goToCompactMissionView();
+            
+            return false;
+        });
+
+        $('#reject-project-mission-mashup').click(function() {
+            goToCompactMissionView();
+            
             return false;
         });
 

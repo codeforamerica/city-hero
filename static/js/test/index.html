@@ -43,9 +43,9 @@ $(document).ready(function () {
     test("a tip with classes matching several field will be linked to all of those field", function() {
         // given...
         testArea.html(
-            '<input type="text" name="field1" id="field1">' +
-            '<input type="text" name="field2" id="field2">' +
-            '<input type="text" name="field3" id="field3">' +
+            '<input type="text" name="field1" id="field1"><br>' +
+            '<input type="text" name="field2" id="field2"><br>' +
+            '<input type="text" name="field3" id="field3"><br>' +
             '<div class="wizard-tip field1-wizard-tip field2-wizard-tip" id="tip1">Something</div>' +
             '<div class="wizard-tip field3-wizard-tip" id="tip2">Something</div>'
         );
@@ -62,6 +62,8 @@ $(document).ready(function () {
             
             // then...
             equals(fieldsAndTips[i].tip.css('display'), 'block');
+            equals(fieldsAndTips[i].tip.offset().top,
+                   fieldsAndTips[i].field.offset().top);
             $('.wizard-tip').hide();
         }
         
@@ -75,7 +77,7 @@ $(document).ready(function () {
             '<input type="text" name="project-mission-problem" id="project-mission-problem">' +
             '<input type="text" name="project-mission-solution" id="project-mission-solution">' +
             '<input type="text" name="project-mission-values" id="project-mission-values">' +
-            '<p id="project-mission-altogether"></p>'
+            '<p id="project-mission-mashup"></p>'
         );
         compileMissionFromParts();
         
@@ -88,7 +90,7 @@ $(document).ready(function () {
         $('#project-mission-values').change();
         
         // then...
-        equals($('#project-mission-altogether').html(), 'There is a problem. We care about the problem. So, We will fix it.');
+        equals($('#project-mission-mashup').html(), 'There is a problem. We care about the problem. So, We will fix it.');
         
         // finally...
         testArea.html('');

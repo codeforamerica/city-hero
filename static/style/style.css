@@ -35,6 +35,10 @@ p {
     line-height: 1.5em;
 }
 
+strong {
+    font-weight: bold;
+}
+
 /**
  * General class styles
  */
@@ -866,10 +870,34 @@ a.edit-project-link {
     padding-top: 0px !important;
 }
 
-#project-mission-altogether {
+.project-mission-altogether {
     border: 1px solid #888;
     background-color: #eee;
     padding: 1em;
     margin-bottom: 1em;
+}
+
+.project-mission-altogether > section > h1 {
     font-size: 1.2em;
+    font-weight: bold;
+    margin: 0em;
+    padding: 0em;
+}
+
+
+.project-mission-altogether > section > h2 {
+    font-size: 1em;
+    color: #888;
+    margin: 0em;
+    padding: 0em;
+}
+
+#project-mission-mashup {
+    font-size: 1.2em;
+    margin: 0.5em 0em;
+    padding: 0em;
+}
+
+.project-mission-former-section {
+    display: none;
 }
