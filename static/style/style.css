@@ -730,7 +730,7 @@ body.project-edit input.edit-title {
     background-color: #96A044;
     border: 1px solid #ccc;
 }
-.button-floater a, .button-floater input {
+.button-floater a, .button-floater input, a.edit-project-link {
     padding: 10px;
     background-color: #96A044;
     font-size: 1em;
@@ -739,9 +739,12 @@ body.project-edit input.edit-title {
     text-transform: uppercase;
     display: block;
 }
-.button-floater a:hover { text-decoration: none; }
+.button-floater a:hover, a.edit-project-link:hover { text-decoration: none; }
 .button-floater input:hover { cursor: pointer; }
 
+a.edit-project-link {
+   
+}
 /**
  * Geocoding textfields
  */
