@@ -143,10 +143,16 @@ function initFieldWizardTips() {
         // Fields with wizard tips
         initFieldWizardTips();
         
-        // Building the mission statement up from its parts
+        // Set up the mission statement mashup
         compileMissionFromParts()
         
-        $('#show-project-mission-step-by-step').click(function() {
+        function goToCompactMissionView() {
+            $('.project-mission-section').show();
+            $('.project-mission-step-by-step-section').hide();
+            $('#project-mission').focus();
+        }
+        
+        function goToMissionMashupView() {
             $('.project-mission-section').hide();
             $('.project-mission-step-by-step-section').show();
             $('#project-mission-problem').focus();
@@ -156,27 +162,23 @@ function initFieldWizardTips() {
                 $('#project-mission-former').html(old_mission);
                 $('.project-mission-former-section').show();
             }
-                        
+        }
+        
+        $('#show-project-mission-step-by-step').click(function() {
+            goToMissionMashupView();
             return false;
         });
-        
-        function goToCompactMissionView() {
-            $('.project-mission-section').show();
-            $('.project-mission-step-by-step-section').hide();
-            $('#project-mission').focus();
-        }
         
         $('#accept-project-mission-mashup').click(function() {
             var new_mission = $('#project-mission-mashup').html();
             $('#project-mission').val(new_mission);
-            goToCompactMissionView();
             
+            goToCompactMissionView();
             return false;
         });
 
         $('#reject-project-mission-mashup').click(function() {
             goToCompactMissionView();
-            
             return false;
         });
 
