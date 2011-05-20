@@ -6,7 +6,7 @@ views = require('views');
 module.exports = {
     'homepage view should contain expected context' : function() {
     },
-    
+    /*
     'project creation view should contain expected context' : function() {
         wizard = views.projectForm(function(context) {
             assert.equal(context.pageTitle, 'Add a Project');
@@ -14,6 +14,7 @@ module.exports = {
             assert.deepEqual(context.bodyClasses, ['project', 'project-add'])
         });
     },
+    */
     
     'project wizard view should contain expected context' : function() {
         wizard = views.projectWizard(function(context) {
