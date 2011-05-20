@@ -107,9 +107,13 @@ html[xmlns] .clearfix {
 }
 
 a#title  {
-    width:200px;
     color: #ffffff;
     font-size:18px;
+}
+.beta-tag {
+    color: #E89A41;
+    font-family: "Arial Black";
+    padding-left: 5px;
 }
 
 #user-links {

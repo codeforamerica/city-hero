@@ -12,7 +12,7 @@
     
     <div id="header">
         <div class="wrapper">
-            <a id="title" class="left" href="/"><%= siteName %></a>
+            <a id="title" class="left" href="/"><%= siteName %></a> <span class="beta-tag">Beta</span>
             <!--
             <div id="search-link" class="right nav-links">
                 <img src="/images/search-icon.png" id="search-link" alt="Search" />
@@ -45,7 +45,7 @@
             <% if (typeof pageTitle === 'object') { %>
                 <%- partial(pageTitle) %>
             <% } else { %>
-                <h1><%- pageTitle %></h1>
+                <h1><%= pageTitle %></h1>
             <% } %>
                 
             <!-- Render header partials -->
