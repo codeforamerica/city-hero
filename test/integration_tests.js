@@ -88,7 +88,7 @@ module.exports = {
         
         setup(function(app, db, project) {
         
-            // Check that the project context is as expected
+            // Check that the project context has the attributes from above
             views.projectDetailsPage(project._id, function(pageContext) {
                 try {
                     assert.equal(pageContext.project._id, project.id);
@@ -99,6 +99,104 @@ module.exports = {
                     teardown(db, project);
                 }
             });
+        });
+    },
+    
+    
+    'test routes, views, and controllers for creating a project' : function() {
+        /**
+         * Set up fixture; just get the database connection.
+         */
+        function setup(test) {
+            var app = require('server').app
+            var conn = new (cradle.Connection)(auth.db.host, auth.db.port);
+            var db = conn.database('projects');
+            
+            test(app, db);
+        }
+        
+        /**
+         * Tear down fixture; clean up the database.
+         */
+        function teardown(db, project) {
+            db.remove(project._id, project._rev, function(err, dbRes) {
+                assert.isNull(err);
+                assert.isNotNull(dbRes);
+            });
+        }
+        
+        /**
+         * Perform the tests
+         */
+        setup(function(app, db) {
+            
+            // Test that we can add a project with no attachments
+            assert.response(app,
+                { url: '/projects/wizard',
+                  method: 'POST',
+                  headers: 
+                    { 'Content-type': 'multipart/form-data; boundary=----WebKitFormBoundarysUTGv0XAU0FJgBQd',
+                      'Host': 'chicken.local' },
+                  body: '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-mission"\r\n' + '\r\n' + 'This is a test\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-mission-problem"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-mission-solution"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-mission-values"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-title"\r\n' + '\r\n' + 'Still a test\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-location"\r\n' + '\r\n' + 'Oakland, CA\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-lat"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-lon"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-image"; filename=""\r\n' + 'Content-Type: application/octet-stream\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-video"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-link"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-creator"\r\n' + '\r\n' + 'undefined\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd\r\n' + 'Content-Disposition: form-data; name="project-submit"\r\n' + '\r\n' + 'Submit\r\n' + '------WebKitFormBoundarysUTGv0XAU0FJgBQd--'},
+                function(res) {
+                    var redir = res.headers.location;
+                    assert.isDefined(redir);
+                    
+                    var projid = redir.substr(30);
+                    views.projectDetailsPage(projid, function(context) {
+                        assert.isDefined(context.project);
+                        assert.equal(project.description, 'This is a test');
+                        assert.equal(project.title, 'Still a test');
+                        assert.equal(project.location, 'Oakland, CA');
+                        assert.isDefined(context.project._id);
+                        assert.isDefined(context.project._rev);
+                        console.log(context);
+                    });
+                    
+                    db.get(projid, function(err, project) {
+                        try {
+                            assert.isNull(err);
+                        } finally {
+                            teardown(db, project);
+                        }
+                    });
+                    
+                    assert.equal(res.statusCode, 302);
+                    assert.equal(redir.substr(0,30), 'http://chicken.local/projects/');
+                }
+            );
+        });
+        
+        setup(function(app, db) {
+            
+            // Test that we can add a project with an attachment
+            assert.response(app,
+                { url: '/projects/wizard',
+                  method: 'POST',
+                  headers: 
+                    { 'Content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryn1IsGnrAwFp8EoCb',
+                      'Host': 'chicken.local' },
+                  body: '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-mission"\r\n' + '\r\n' + 'This is a test\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-mission-problem"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-mission-solution"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-mission-values"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-title"\r\n' + '\r\n' + 'Still a test\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-location"\r\n' + '\r\n' + 'Oakland, CA\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-lat"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-lon"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-image"; filename="anan_lg (copy).gif"\r\n' + 'Content-Type: image/gif\r\n' + '\r\n' + '1234567890\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-video"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-link"\r\n' + '\r\n' + '\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-creator"\r\n' + '\r\n' + 'undefined\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb\r\n' + 'Content-Disposition: form-data; name="project-submit"\r\n' + '\r\n' + 'Submit\r\n' + '------WebKitFormBoundaryn1IsGnrAwFp8EoCb--'},
+                function(res) {
+                    var redir = res.headers.location;
+                    assert.isDefined(redir);
+                    
+                    var projid = redir.substr(30);
+                    db.get(projid, function(err, project) {
+                        try {
+                            assert.isNull(err);
+                            assert.equal(project.description, 'This is a test');
+                            assert.equal(project.title, 'Still a test');
+                            assert.equal(project.location, 'Oakland, CA');
+                        } finally {
+                            teardown(db, project);
+                        }
+                    });
+                    
+                    assert.equal(res.statusCode, 302);
+                    assert.equal(redir.substr(0,30), 'http://chicken.local/projects/');
+                }
+            );
         });
     }
 }
