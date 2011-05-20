@@ -913,6 +913,16 @@ a.edit-project-link {
     padding: 0em;
 }
 
+#project-mission-former {
+    margin: 0.5em 0em;
+}
+
 .project-mission-former-section {
+    display: none;
+    margin-top: 1em;
+    padding-top: 1em !important;
+}
+
+.project-mission-mashup-good-stuff {
     display: none;
 }
