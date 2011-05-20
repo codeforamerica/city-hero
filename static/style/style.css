@@ -190,7 +190,7 @@ a#title  {
 .sidebar_box .sidebar_box_image{
     width: 150px;
     height: 150px;
-    background-color: #ff88c0;
+    background-color: #eeeeee;
     float: left;
     margin-right: 15px;
 }
@@ -305,7 +305,7 @@ a#title  {
 .supporter_image {
     height: 40px;
     width: 40px;
-    background-color: #ff88c0;
+    background-color: #eeeeee;
     float: left;
     margin-right: 5px;
     margin-bottom: 5px;
@@ -608,7 +608,7 @@ a.content-sidebar-link {
 .home-slider .slider-image img {
     width: 200px;
     height: 200px;
-    background-color: #FF88C0;
+    background-color: #eeeeee;
 }
 
 .home-slider .slider-move-left,
@@ -705,7 +705,7 @@ form .submit {
 form .form-item-help img {
     width: 20px;
     height: 20px;
-    background-color: #FF88C0;
+    background-color: #eeeeee;
     padding-bottom: 20px;
 }
 
