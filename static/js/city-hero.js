@@ -43,6 +43,7 @@ function compileFromValues(bufferSel, template, keySels) {
         $(keySel).keyup(function() {
             context = _buildContext();
             $(bufferSel).html(template.format(context));
+            $('.project-mission-mashup-good-stuff').show();
         });
     }
 }
