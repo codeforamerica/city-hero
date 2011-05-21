@@ -188,6 +188,10 @@ module.exports = {
                             assert.equal(project.description, 'This is a test');
                             assert.equal(project.title, 'Still a test');
                             assert.equal(project.location, 'Oakland, CA');
+                            assert.isDefined(project._attachments);
+                            assert.ok(project._attachments.hasOwnProperty('project-image'));
+                            assert.equal(project._attachments['project-image'].content_type, 'image/gif');
+                            assert.equal(project._attachments['project-image'].length, 10);
                         } finally {
                             teardown(db, project);
                         }
