@@ -150,7 +150,6 @@ module.exports = {
                         assert.equal(project.location, 'Oakland, CA');
                         assert.isDefined(context.project._id);
                         assert.isDefined(context.project._rev);
-                        console.log(context);
                     });
                     
                     db.get(projid, function(err, project) {
