@@ -87,6 +87,9 @@ function initFieldWizardTips() {
 }
 
 (function($) {
+    /**
+     * Carousel Code
+     */
     $(document).ready(function() {
         $('#slide-list li').first().addClass('carousel-active');
         
@@ -112,7 +115,6 @@ function initFieldWizardTips() {
                 // Only slide if there is an image to slide to
                 if(next_image.length) {
                     // delta is the number of pixels to slide - this should be abstracted out to the 
-                    console.log(cur_image.outerWidth(true));
                     var delta = 240;
                     var move_to = parseInt($('#slide-list').css('marginLeft'));
                     move_to = (dir === 'left') ? move_to - delta : move_to + delta;

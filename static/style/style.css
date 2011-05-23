@@ -661,7 +661,8 @@ form label {
 
 form .textarea,
 form .textfield,
-form .password {
+form .password,
+form input#q  {
     border: none;
     background-color: #AAAAAA;
     color: #FFFFFF;
@@ -798,7 +799,8 @@ a.edit-project-link {
 }
 
 .project-wizard .textfield,
-.project-wizard .textarea {
+.project-wizard .textarea,
+form input#q {
     width: 540px;
 }
 
@@ -926,4 +928,20 @@ a.edit-project-link {
 
 .project-mission-mashup-good-stuff {
     display: none;
+}
+
+/**
+ *  Search form styles
+ */
+form input.search_btn {
+    background-color: #96A044;
+    padding: 10px;
+    font-size: 1.25em;
+    color: #FFFFFF;
+    border: none;
+    text-transform: uppercase;
+}
+.search_form {
+    margin: 1em auto;
+    width: 650px;
 }
