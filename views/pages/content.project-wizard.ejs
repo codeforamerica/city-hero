@@ -175,13 +175,21 @@
         </div>
     </section>
     
-    <div class="form-item-wrapper form-textfield-wrapper">
-        <div class="label-wrapper">
-            <label for="project-location">Project Location</label>
+    <section>
+        <div class="wizard-tip wizard-field-tip project-location-wizard-tip">
+            <h1 class="wizard-tip-title">Specifying The Location</h1>
+            <p>Let people know where your project will be taking place...</p>
         </div>
-        <input class="textfield geocode" type="text" name="project-location" id="project-location" size="50" />
-    </div>
+        
+        <div class="form-item-wrapper form-textfield-wrapper">
+            <div class="label-wrapper">
+                <label for="project-location">Project Location</label>
+            </div>
+            <input class="textfield geocode" type="text" name="project-location" id="project-location" size="50" />
+        </div>
+    </section>
     
+    <!--
     <div class="form-item-wrapper form-filefield-wrapper">
         <div class="label-wrapper">
             <label for="project-image">Image</label>
@@ -202,6 +210,7 @@
         </div>
         <input class="textfield" type="text" name="project-link" id="project-link" size="50" />
     </div>
+    -->
     
     <div class="form-item-wrapper form-submit-wrapper">
         <input type="hidden" name="project-creator" id="project-creator" value="<%= session.user._id %>" />
