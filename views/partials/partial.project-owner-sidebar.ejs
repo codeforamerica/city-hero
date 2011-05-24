@@ -1,0 +1,23 @@
+<!-- -->
+<div class="sidebar_box sb_container">
+    <div class="sidebar_box_title">Organizer</div>
+    <div class="sidebar_box_content">
+
+<% if (project.creatorData) { %>
+	    <div class="sidebar_box_image"></div>
+	    <div class="sidebar_box_text">
+            <span class="sidebar_box_name"><%= project.creatorData.name %></span>
+            <!-- I've lived here for 14 years now and no amount of roundhouse kicks have been able to clean this place up... -->
+        </div>
+        <div class="sidebar_box_more_info"><a href="#" class="arrow-icon">Full Bio</a></div>
+        <div class="clear"></div>
+<% } else { %>
+        <p>This project currently has no owner. If this sounds like something
+           you would like to see happen, then own it. We'll
+           help you out with what you need to know to get the project off the
+           ground.</p>
+        <div class="sidebar_box_more_info"><a href="#" class="arrow-icon">Own It</a></div>
+<% } %>
+    </div>
+</div>
+

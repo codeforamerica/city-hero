@@ -1,1 +1,8 @@
-<h2>Created by <a href="/profile/<%= project.creatorData._id %>"><%= project.creatorData.username %></a></a>, <a href="#"><%= project.location %></a></h2>
+<% if (project.creatorData) { %>
+    <h2>Owned by <a href="/profile/<%= project.creatorData._id %>"><%= project.creatorData.username %></a></a>, <a href="#"><%= project.location %></a></h2>
+<% } else { %>
+    <h2><a href="#"><%= project.location %></a></h2>
+    <form method="POST">
+        <p>This project has no owner.  If this sounds like something you would like to work on, <button name="own-it">Own it</button>.  We'll help you out with what you need to know to get the project off the ground.</p>
+    </form>
+<% } %>
