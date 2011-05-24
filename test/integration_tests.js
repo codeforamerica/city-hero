@@ -15,16 +15,6 @@ module.exports = {
             });
     },
     
-    'test that the add project form page gives us a 200 status' : function() {
-        var app = require('server').app
-        assert.response(app,
-            { url: '/projects/add', headers: {'Host': 'cityheroes.in'} },
-            function(res) {
-//                console.log(res.body);
-                assert.equal(res.statusCode, 200);
-            });
-    },
-    
     'test that the project wizard page gives us a 200 status' : function() {
         var app = require('server').app
         assert.response(app,
@@ -200,6 +190,39 @@ module.exports = {
                     assert.equal(redir.substr(0,30), 'http://chicken.local/projects/');
                 }
             );
+        });
+    },
+    
+    
+    'test default context in a route' : function() {
+        /**
+         * Set up fixture; add a new route to the app that just calls the test
+         */
+        function setup(test) {
+            var app = require('server').app
+            var testpath = '/testPath' + (Math.random()*1000000).toFixed(0)
+            
+            app.testpath = testpath
+            app.get(testpath, function(req, res) {
+                test(app, req, res);
+                res.send('done.');
+                res.end();
+            });
+            
+            assert.response(app, { url: testpath }, {});
+        }
+        
+        /**
+         * Perform the tests
+         */
+        setup(function(app, req, res) {
+            
+            // Test that context is defined on the response
+            assert.isDefined(res.context);
+            
+            // Test that the global context is as expected
+            console.log(res.context)
+            assert.includes(res.context.scripts, '/js/city-hero.js')
         });
     }
 }
