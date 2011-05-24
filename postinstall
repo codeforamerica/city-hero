@@ -1,0 +1,2 @@
+# DotCloud deploy post install
+cp /home/dotcloud/auth.js /home/dotcloud/current/lib/settings/auth.js
