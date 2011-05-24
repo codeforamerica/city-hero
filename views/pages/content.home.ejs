@@ -1,11 +1,21 @@
 <div class="project_description">
     <div class="search_form">
-        <form name="searchForm" action="">
-        <input type="text" name="q" id="q" value="" /><input type="submit" class="search_btn" value="Search" />
+        <form name="searchForm" action="search">
+        <input type="text" name="q" id="q" value="<%= searchQuery %>" /><input type="submit" class="search_btn" value="Search" />
         </form>
         <a href="projects/wizard">Create and manage a project.</a>  
     </div>
-    <div class="search_results"></div>
+    <div class="search_results">
+        
+        <% for(var i=0; i < searchResults.hits.length; i++) { %>
+            <div class="project_block">
+                <a href="/projects/<%= searchResults.hits[i]._id %>">
+                    <img src="http://127.0.0.1:5984/projects/<%= searchResults.hits[i]._id %>/project-image" width="200" height="200" />
+                    <span class="project_block_title"><%= searchResults.hits[i]._source.title %></span>
+                </a>
+            </div>
+        <% } %>
+    </div>
     <div class="project_text">
     </div>
 </div>

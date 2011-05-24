@@ -945,3 +945,26 @@ form input.search_btn {
     margin: 1em auto;
     width: 650px;
 }
+
+.search_results {
+    margin-left: 17px;
+}
+div.project_block {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-right: 15px;
+}
+
+.project_block_title {
+    color: #992739;
+    font-size: 1.5em;
+    width: 180px;
+    height: 45px;
+    padding: 10px;
+    display: block;
+    position: relative;
+    top: -65px;
+    background-color: rgba(255, 255, 255, 0.7)
+}
+.project_text { clear: both; }
