@@ -280,5 +280,12 @@ function initFieldWizardTips() {
             });
         });
     });
+    
+    /**
+     * If there is a search box in the page, give it the focus.
+     */
+    $(document).ready(function() {
+        $('#q').focus();
+    });
 
 })(jQuery);
