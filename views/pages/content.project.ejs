@@ -1,8 +1,6 @@
 <div class="project_description">
     <% if (project._attachments && project._attachments['project-image']) { %>
-    <img class="project_image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= project._id %>/project-image" />
-    <% } else { %>
-    (No project image provided)
+        <img class="project_image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= project._id %>/project-image" />
     <% } %>
                 
     <div class="social_bar">
