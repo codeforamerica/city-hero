@@ -1,7 +1,11 @@
 /**
  * Client JS for home page
  */
- 
+
+
+/**
+ * ==== COMPILING THE MISSION STATEMENT ====
+ */ 
 String.prototype.format = function(context) {
     var s = this
       , strings = context //[].slice.apply(arguments, 0)
@@ -87,6 +91,56 @@ function initFieldWizardTips() {
 }
 
 (function($) {
+    $(document).ready(function() {
+        // Fields with wizard tips
+        initFieldWizardTips();
+        
+        // Set up the mission statement mashup
+        compileMissionFromParts()
+        
+        function goToCompactMissionView() {
+            $('.project-mission-section').show();
+            $('.project-mission-step-by-step-section').hide();
+            $('#project-mission').focus();
+        }
+        
+        function goToMissionMashupView() {
+            $('.project-mission-section').hide();
+            $('.project-mission-step-by-step-section').show();
+            $('#project-mission-problem').focus();
+            
+            var old_mission = $('#project-mission').val();
+            if (old_mission) {
+                $('#project-mission-former').html(old_mission);
+                $('.project-mission-former-section').show();
+            }
+        }
+        
+        $('#show-project-mission-step-by-step').click(function() {
+            goToMissionMashupView();
+            return false;
+        });
+        
+        $('#accept-project-mission-mashup').click(function() {
+            var new_mission = $('#project-mission-mashup').html();
+            $('#project-mission').val(new_mission);
+            
+            goToCompactMissionView();
+            return false;
+        });
+
+        $('#reject-project-mission-mashup').click(function() {
+            goToCompactMissionView();
+            return false;
+        });
+    });
+})(jQuery);
+
+
+/**
+ * ==== OTHER STUFF ====
+ */
+(function($) {
     /**
      * Carousel Code
      */
@@ -142,50 +196,6 @@ function initFieldWizardTips() {
     $(document).ready(function() {
         var id = 1;
         // $('.form-item-help')....
-        
-        // Fields with wizard tips
-        initFieldWizardTips();
-        
-        // Set up the mission statement mashup
-        compileMissionFromParts()
-        
-        function goToCompactMissionView() {
-            $('.project-mission-section').show();
-            $('.project-mission-step-by-step-section').hide();
-            $('#project-mission').focus();
-        }
-        
-        function goToMissionMashupView() {
-            $('.project-mission-section').hide();
-            $('.project-mission-step-by-step-section').show();
-            $('#project-mission-problem').focus();
-            
-            var old_mission = $('#project-mission').val();
-            if (old_mission) {
-                $('#project-mission-former').html(old_mission);
-                $('.project-mission-former-section').show();
-            }
-        }
-        
-        $('#show-project-mission-step-by-step').click(function() {
-            goToMissionMashupView();
-            return false;
-        });
-        
-        $('#accept-project-mission-mashup').click(function() {
-            var new_mission = $('#project-mission-mashup').html();
-            $('#project-mission').val(new_mission);
-            
-            goToCompactMissionView();
-            return false;
-        });
-
-        $('#reject-project-mission-mashup').click(function() {
-            goToCompactMissionView();
-            return false;
-        });
-
-
         
         // Geocoding textfields
         $('.textfield.geocode').each(function () {
