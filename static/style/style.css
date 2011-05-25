@@ -660,8 +660,7 @@ form label {
 
 form .textarea,
 form .textfield,
-form .password,
-form input#q  {
+form .password {
     border: none;
     background-color: #AAAAAA;
     color: #FFFFFF;
@@ -798,8 +797,7 @@ a.edit-project-link {
 }
 
 .project-wizard .textfield,
-.project-wizard .textarea,
-form input#q {
+.project-wizard .textarea {
     width: 540px;
 }
 
@@ -932,27 +930,43 @@ form input#q {
 /**
  *  Search form styles
  */
+form input#q  {
+    width: 680px;
+    border: none;
+    background-color: #AAAAAA;
+    color: #FFFFFF;
+    font-size: 2.75em;
+    padding: 10px;
+    margin-bottom: 15px
+}
+
 form input.search_btn {
     background-color: #96A044;
     padding: 10px;
-    font-size: 1.25em;
+    font-size: 2.75em;
     color: #FFFFFF;
     border: none;
     text-transform: uppercase;
 }
 .search_form {
-    margin: 1em auto;
-    width: 650px;
+    margin-left: 15px;
+    margin-bottom: 1.5em;
 }
 
 .search_results {
-    margin-left: 17px;
+    margin-left: 8px;
 }
 div.project_block {
     float: left;
     width: 200px;
     height: 200px;
-    margin-right: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+    border-width: 0px 4px 9px 4px;
+    border-image: url(/images/widget-border.png) 8 4 9 4 stretch;
+    -moz-border-image: url(/images/widget-border.png) 8 4 9 4 stretch;
+    -webkit-border-image: url(/images/widget-border.png) 8 4 9 4 stretch;
 }
 
 .project_block_title {
@@ -964,6 +978,8 @@ div.project_block {
     display: block;
     position: relative;
     top: -65px;
-    background-color: rgba(255, 255, 255, 0.7)
+    background-color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    overflow: hidden;
 }
 .project_text { clear: both; }

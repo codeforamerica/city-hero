@@ -10,7 +10,7 @@
         <% for(var i=0; i < searchResults.hits.length; i++) { %>
             <div class="project_block">
                 <a href="/projects/<%= searchResults.hits[i]._id %>">
-                    <img src="http://127.0.0.1:5984/projects/<%= searchResults.hits[i]._id %>/project-image" width="200" height="200" />
+                    <img src="http://<%- auth.db.host %>:<%- auth.db.port %>/projects/<%= searchResults.hits[i]._id %>/project-image" width="200" height="200" />
                     <span class="project_block_title"><%= searchResults.hits[i]._source.title %></span>
                 </a>
             </div>
