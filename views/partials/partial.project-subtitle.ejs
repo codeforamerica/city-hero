@@ -1,5 +1,5 @@
-<% if (project.creatorData) { %>
-    <h2>Owned by <a href="/profile/<%= project.creatorData._id %>"><%= project.creatorData.username %></a></a>, <a href="#"><%= project.location %></a></h2>
+<% if (project.owner) { %>
+    <h2>Owned by <a href="/profile/<%= project.owner._id %>"><%= project.owner.username %></a></a>, <a href="#"><%= project.location %></a></h2>
 <% } else { %>
     <h2><a href="#"><%= project.location %></a></h2>
     <form method="POST">

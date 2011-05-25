@@ -3,10 +3,10 @@
     <div class="sidebar_box_title">Organizer</div>
     <div class="sidebar_box_content">
 
-<% if (project.creatorData) { %>
+<% if (project.owner) { %>
 	    <div class="sidebar_box_image"></div>
 	    <div class="sidebar_box_text">
-            <span class="sidebar_box_name"><%= project.creatorData.name %></span>
+            <span class="sidebar_box_name"><%= project.owner.name %></span>
             <!-- I've lived here for 14 years now and no amount of roundhouse kicks have been able to clean this place up... -->
         </div>
         <div class="sidebar_box_more_info"><a href="#" class="arrow-icon">Full Bio</a></div>
