@@ -12,11 +12,20 @@
         <div class="sidebar_box_more_info"><a href="#" class="arrow-icon">Full Bio</a></div>
         <div class="clear"></div>
 <% } else { %>
-        <p>This project currently has no owner. If this sounds like something
+        <p class="no_owner_call_to_action">This project currently has no owner. If this sounds like something
            you would like to see happen, then own it. We'll
            help you out with what you need to know to get the project off the
            ground.</p>
-        <div class="sidebar_box_more_info"><a href="#" class="arrow-icon">Own It</a></div>
+        
+    <% if (session.user._id) { %>
+        <form method="POST" action="edit/<%= project._id %>" enctype="multipart/form-data">
+            <input type="hidden" name="_id" value="<%= project._id %>" />
+            <input type="hidden" name="owner" value="<%= session.user._id %>" />
+            <div class="sidebar_box_more_info"><button type="submit" name="action" value="setowner" class="arrow-icon">Own It</button></div>
+        </form>
+    <% } else { %>
+        <div class="sidebar_box_more_info"><a href="/user/login" class="arrow-icon">Log In</a></div>
+    <% } %>
 <% } %>
     </div>
 </div>
