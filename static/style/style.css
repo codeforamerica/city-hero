@@ -214,10 +214,17 @@ a#title  {
     color: #533549;
 }
 
-.sidebar_box .sidebar_box_more_info a {
+.sidebar_box .sidebar_box_more_info a,
+.sidebar_box .sidebar_box_more_info button {
     color: #533549;
     font-size: 1.5em;
+    border: none;
     text-transform: uppercase;
+}
+
+.sidebar_box .sidebar_box_more_info button:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .sidebar_box .sidebar_box_more_info {
@@ -983,3 +990,7 @@ div.project_block {
     overflow: hidden;
 }
 .project_text { clear: both; }
+
+.no_owner_call_to_action {
+    padding-bottom: 2.5em;
+}

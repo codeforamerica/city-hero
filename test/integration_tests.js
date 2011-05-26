@@ -15,13 +15,13 @@ module.exports = {
             });
     },
     
-    'test that the project wizard page gives us a 200 status' : function() {
+    'test that the project wizard page gives us a 320 status when a user is not logged in' : function() {
         var app = require('server').app
         assert.response(app,
             { url: '/projects/wizard', headers: {'Host': 'cityheroes.in'} },
             function(res) {
 //                console.log(res.body);
-                assert.equal(res.statusCode, 200);
+                assert.equal(res.statusCode, 302);
             });
     },
     
@@ -79,12 +79,15 @@ module.exports = {
         setup(function(app, db, project) {
         
             // Check that the project context has the attributes from above
-            views.projectDetailsPage(project._id, function(pageContext) {
+            var req = { params: { pid: project._id } }
+            var res = { context: { bogus: 'bogus value', session: { userLoggedin: false } } }
+            views.projects.details()(req, res, function() {
                 try {
-                    assert.equal(pageContext.project._id, project.id);
-                    assert.equal(pageContext.project._rev, project.rev);
-                    assert.equal(pageContext.project.info, 'blah');
-                    assert.equal(pageContext.project.title, 'wonderful');
+                    assert.equal(res.context.project._id, project.id);
+                    assert.equal(res.context.project._rev, project.rev);
+                    assert.equal(res.context.project.info, 'blah');
+                    assert.equal(res.context.project.title, 'wonderful');
+                    assert.equal(res.context.bogus, 'bogus value');
                 } finally {
                     teardown(db, project);
                 }
@@ -132,17 +135,29 @@ module.exports = {
                     var redir = res.headers.location;
                     assert.isDefined(redir);
                     
-                    var projid = redir.substr(30);
-                    views.projectDetailsPage(projid, function(context) {
+                    var projReq = { 
+                        params: { 
+                            pid: redir.substr(30) 
+                        }
+                    }
+                    var projRes = {
+                        context: {
+                            session: {
+                                userLoggedin: false
+                            }
+                        }
+                    }
+                    views.projects.details()(projReq, projRes, function() {
+                        var context = projRes.context
                         assert.isDefined(context.project);
-                        assert.equal(project.description, 'This is a test');
-                        assert.equal(project.title, 'Still a test');
-                        assert.equal(project.location, 'Oakland, CA');
+                        assert.equal(context.project.description, 'This is a test');
+                        assert.equal(context.project.title, 'Still a test');
+                        assert.equal(context.project.location, 'Oakland, CA');
                         assert.isDefined(context.project._id);
                         assert.isDefined(context.project._rev);
                     });
                     
-                    db.get(projid, function(err, project) {
+                    db.get(projReq.params.pid, function(err, project) {
                         try {
                             assert.isNull(err);
                         } finally {
