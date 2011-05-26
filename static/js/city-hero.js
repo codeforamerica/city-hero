@@ -215,7 +215,7 @@ function initFieldWizardTips() {
                 zoom: 2,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
-                disableDefaultUI: true,
+                disableDefaultUI: true
             };
             map = new google.maps.Map(document.getElementById(geocodeMapID), options);
             
@@ -292,7 +292,7 @@ function initFieldWizardTips() {
      * Setup autocomplete search
      */
     $(document).ready(function() {
-        $('#q').live('keyup', function(ev) {
+        $('#q').bind('keyup', function(ev) {
             //if($('#q').val().length > 2) {
                 var wildcard = { "description": "*"+$('#q').val()+"*" };
                 var postData = {
@@ -305,7 +305,7 @@ function initFieldWizardTips() {
                     data: JSON.stringify(postData),
                     success: function(data) {
                         var resultsHtml = '';
-                        //console.log(data.hits.hits);
+                        console.log(data.hits.hits);
                         if(data.hits.hits) {
                             $.each(data.hits.hits, function(idx, el) {
                                 resultsHtml += getProjectBox(el);
@@ -321,14 +321,19 @@ function initFieldWizardTips() {
         $('#q').trigger('keyup');
         
         function getProjectBox(project) {
-             var ret = '';
-             ret += '<div class="project_block">';
-             ret += '<a href="/projects/'+project._id+'">';
-             ret += '<img src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/'+project._id+'/project-image" width="200" height="200" />';
-             ret += '<span class="project_block_title">'+project._source.title+'</span>';
-             ret += '</a>';
-             ret += '</div>';
-             return ret;
+            var ret = '';
+            ret += '<div class="project_block">';
+            ret += '<a href="/projects/'+project._id+'">';
+            
+            if(project._source._attachments) {
+                ret += '<img src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/'+project._id+'/project-image" width="200" height="200" />';
+            } else {
+                ret += '<img src="/images/no-image.gif" width="200" height="200" />';
+            }
+            ret += '<span class="project_block_title">'+project._source.title+'</span>';
+            ret += '</a>';
+            ret += '</div>';
+            return ret;
         }
     });
     
