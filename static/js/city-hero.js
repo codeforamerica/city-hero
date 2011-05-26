@@ -287,5 +287,29 @@ function initFieldWizardTips() {
     $(document).ready(function() {
         $('#q').focus();
     });
+    
+    /**
+     * Setup autocomplete search
+     */
+    $(document).ready(function() {
+        $('#q').live('keyup', function(ev) {
+            if($('#q').val().length > 2) {
+                var wildcard = { "description": "*"+$('#q').val()+"*" };
+                var postData = {
+                    "query": { "wildcard": wildcard }
+                };
+                $.ajax({
+                    url: "http://ec2-184-73-122-209.compute-1.amazonaws.com:9200/projects/projects/_search",
+                    type: "POST",
+                    dataType: "json",
+                    data: JSON.stringify(postData),
+                    success: function( data ) {
+                        console.log(data);
+                    }
+                });
+            }
+        });
+    });
+    
 
 })(jQuery);
