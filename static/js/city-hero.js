@@ -293,7 +293,7 @@ function initFieldWizardTips() {
      */
     $(document).ready(function() {
         $('#q').live('keyup', function(ev) {
-            if($('#q').val().length > 2) {
+            //if($('#q').val().length > 2) {
                 var wildcard = { "description": "*"+$('#q').val()+"*" };
                 var postData = {
                     "query": { "wildcard": wildcard }
@@ -303,12 +303,33 @@ function initFieldWizardTips() {
                     type: "POST",
                     dataType: "json",
                     data: JSON.stringify(postData),
-                    success: function( data ) {
-                        console.log(data);
+                    success: function(data) {
+                        var resultsHtml = '';
+                        //console.log(data.hits.hits);
+                        if(data.hits.hits) {
+                            $.each(data.hits.hits, function(idx, el) {
+                                resultsHtml += getProjectBox(el);
+                            });
+                            $('#searchResults').html(resultsHtml);
+                        }
+                        
                     }
                 });
-            }
+            //}
         });
+        
+        $('#q').trigger('keyup');
+        
+        function getProjectBox(project) {
+             var ret = '';
+             ret += '<div class="project_block">';
+             ret += '<a href="/projects/'+project._id+'">';
+             ret += '<img src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/'+project._id+'/project-image" width="200" height="200" />';
+             ret += '<span class="project_block_title">'+project._source.title+'</span>';
+             ret += '</a>';
+             ret += '</div>';
+             return ret;
+        }
     });
     
 
