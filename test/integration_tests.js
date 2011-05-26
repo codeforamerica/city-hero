@@ -15,13 +15,13 @@ module.exports = {
             });
     },
     
-    'test that the project wizard page gives us a 200 status' : function() {
+    'test that the project wizard page gives us a 320 status when a user is not logged in' : function() {
         var app = require('server').app
         assert.response(app,
             { url: '/projects/wizard', headers: {'Host': 'cityheroes.in'} },
             function(res) {
 //                console.log(res.body);
-                assert.equal(res.statusCode, 200);
+                assert.equal(res.statusCode, 302);
             });
     },
     
