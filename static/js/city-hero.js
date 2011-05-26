@@ -337,5 +337,15 @@ function initFieldWizardTips() {
         }
     });
     
+    /**
+     * Development mode for links
+     */
+    $(document).ready(function() {
+        $('a[href="#"]').click(function() {
+            alert('Coming soon!  (No more # links)');
+            return false;
+        });
+    });
+    
 
 })(jQuery);
