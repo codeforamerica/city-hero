@@ -17,7 +17,10 @@ module.exports = {
     */
     
     'project wizard view should contain expected context' : function() {
-        wizard = views.projectWizard(function(context) {
+        req = {}
+        res = {}
+        wizard = views.projects.wizard(req, res, function() {
+            var context = res.context;
             assert.equal(context.pageTitle, 'Start a Project');
             assert.deepEqual(context.contentMain, ['pages/content.project-wizard.ejs']);
             assert.deepEqual(context.bodyClasses, ['project', 'project-wizard'])
