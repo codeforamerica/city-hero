@@ -5,16 +5,7 @@
         </form>
         <a href="projects/wizard">Create and manage a project.</a>  
     </div>
-    <div class="search_results">
-        
-        <% for(var i=0; i < searchResults.hits.length; i++) { %>
-            <div class="project_block">
-                <a href="/projects/<%= searchResults.hits[i]._id %>">
-                    <img src="http://<%- auth.db.host %>:<%- auth.db.port %>/projects/<%= searchResults.hits[i]._id %>/project-image" width="200" height="200" />
-                    <span class="project_block_title"><%= searchResults.hits[i]._source.title %></span>
-                </a>
-            </div>
-        <% } %>
+    <div id="searchResults">
     </div>
     <div class="project_text">
     </div>
