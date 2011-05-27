@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'test';
 
 assert = require('assert');
-views = require('views');
+projectsContext = require('context/projects');
 
 module.exports = {
     'homepage view should contain expected context' : function() {
@@ -19,7 +19,7 @@ module.exports = {
     'project wizard view should contain expected context' : function() {
         req = {}
         res = {}
-        wizard = views.projects.wizard(req, res, function() {
+        wizard = projectsContext.wizard(req, res, function() {
             var context = res.context;
             assert.equal(context.pageTitle, 'Start a Project');
             assert.deepEqual(context.contentMain, ['pages/content.project-wizard.ejs']);
