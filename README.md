@@ -39,4 +39,7 @@ City Hero is a site that makes the world a better place.
   * See [DotCloud Node.JS docs](http://docs.dotcloud.com/components/nodejs/)
   * See [npm package.json documentation](https://github.com/isaacs/npm/blob/master/doc/json.md)
   * Must listen on port 8080 for DotCloud
-  
+
+## Tracking
+
+[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/city-hero.png)](http://stats.codeforamerica.org/projects/city-hero)  

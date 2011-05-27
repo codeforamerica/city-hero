@@ -40,6 +40,10 @@
         </div>
     </div>
     
+    <% if (typeof editable != 'undefined') { %>
+        <form id="user-register" enctype="multipart/form-data" method="post">
+    <% } %>
+    
     <div class="wrapper">
         <div class="title-main">
             <% if (typeof pageTitle === 'object') { %>
@@ -123,5 +127,9 @@
             <script type="text/javascript" src="<%- scripts[scriptIndex] %>"></script>
         <% } %>
     </div>
+    
+    <% if (typeof editable != 'undefined') { %>
+        </form>
+    <% } %>
 </body>
 </html>

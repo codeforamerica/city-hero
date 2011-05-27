@@ -81,7 +81,7 @@ module.exports = {
             // Check that the project context has the attributes from above
             var req = { params: { pid: project._id } }
             var res = { context: { bogus: 'bogus value', session: { userLoggedin: false } } }
-            views.projects.details()(req, res, function() {
+            projectsContext.details()(req, res, function() {
                 try {
                     assert.equal(res.context.project._id, project.id);
                     assert.equal(res.context.project._rev, project.rev);
@@ -147,7 +147,7 @@ module.exports = {
                             }
                         }
                     }
-                    views.projects.details()(projReq, projRes, function() {
+                    projectsContext.details()(projReq, projRes, function() {
                         var context = projRes.context
                         assert.isDefined(context.project);
                         assert.equal(context.project.description, 'This is a test');
