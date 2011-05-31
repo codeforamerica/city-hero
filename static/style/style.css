@@ -744,7 +744,10 @@ body.project-edit input.edit-title {
     background-color: #96A044;
     border: 1px solid #ccc;
 }
-.button-floater a, .button-floater input, a.edit-project-link {
+.button-floater a,
+.button-floater input, 
+a.edit-project-link, 
+a.edit-profile-link {
     padding: 10px;
     background-color: #96A044;
     font-size: 1em;

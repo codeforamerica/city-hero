@@ -28,3 +28,12 @@
     </ul>
 
 </div>
+
+<% if (typeof editable != 'undefined' && editable) { %>
+    <div class="button-floater">
+        <ul class="edit-controls">
+            <li><input type="submit" value="save your profile" /></li>
+            <li><a href="/profile/edit/<%= session.user._id %>">Finished editing</a></li>
+        </ul>
+    </div>
+<% } %>
