@@ -1,0 +1,5 @@
+var projectPage = {
+    addPhotograph : function () {
+        
+    }
+}

@@ -138,6 +138,17 @@ function initFieldWizardTips() {
 
 
 /**
+ * ==== WAYFINDER ====
+ */
+
+$(document).ready(function () {
+    $('#wayfinder_add_media').click(function () {
+        $('.project_image_box').addClass('em_border');;
+        return false;
+    });
+});
+
+/**
  * ==== OTHER STUFF ====
  */
 (function($) {

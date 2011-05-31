@@ -994,3 +994,35 @@ div.project_block {
 .no_owner_call_to_action {
     padding-bottom: 2.5em;
 }
+
+.em_border { border: 3px dashed yellow; }
+
+.wayfinder li {
+    background-image: url(/images/wayfinder-item-background1.png);
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-color: silver;
+    
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+
+/**
+ * Project Wayfinder
+ */
+.wayfinder li button {
+    background: none;
+    font: inherit;
+    border: none;
+    
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0px;
+    padding: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+}
