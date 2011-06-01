@@ -835,7 +835,8 @@ a.edit-project-link {
     -webkit-border-image: url(/images/wizard-general-tip-border.png) 29 4 9 15 stretch;
 }
 
-.wizard-tip > h1 {
+.wizard-tip > h1,
+.in-place-wizard-tip > h1 {
     margin: 0px;
     margin-top: -29px;
     line-height: 29px;
@@ -847,6 +848,7 @@ a.edit-project-link {
     background-color: #992739;
 }
 
+.in-place-wizard-tip > h2,
 .wizard-tip > h2 {
     margin: 15px;
     
@@ -856,6 +858,9 @@ a.edit-project-link {
     border-bottom: 1px solid #888;
 }
 
+.in-place-wizard-tip > p,
+.in-place-wizard-tip > ul,
+.in-place-wizard-tip > ol,
 .wizard-tip > p,
 .wizard-tip > ul,
 .wizard-tip > ol {
@@ -1026,3 +1031,32 @@ div.project_block {
 button:hover {
     cursor: pointer;
 }
+
+.project_image-wizard-tip {
+    /*display: none;*/
+    
+    border: 5px dashed black;
+    height: 320px;
+}
+
+.project_image-wizard-tip .field {
+    margin-left: 1em;
+}
+
+.textfield[type="file"] {
+    padding: 5px;
+}
+
+.project_image-wizard-tip .label-wrapper,
+.project_image-wizard-tip input {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+/*.project_image-wizard-tip > .field > label {*/
+/*    width: 15%;*/
+/*}*/
+/*.project_image-wizard-tip > .field > input {*/
+/*    width: 85%;*/
+/*    background: grey;*/
+/*}*/
