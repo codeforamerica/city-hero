@@ -1034,6 +1034,22 @@ div.project_block {
     background-image: url('/images/wayfinder-check.png');
 }
 
+/**
+ * Wayfinder steps
+ */
+a.step-link-inline {
+    display: block;
+    float: right;
+    width: 50px;
+    background-color: #96A044;
+    color: #FFFFFF;
+    padding: 5px;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 5px;
+}
+
 button:hover {
     cursor: pointer;
 }
