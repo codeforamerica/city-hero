@@ -142,8 +142,9 @@ function initFieldWizardTips() {
  */
 
 $(document).ready(function () {
+//    $('.in-place-wizard-tip').slideUp(0);
     $('#wayfinder_add_media').click(function () {
-        $('.project_image_box').addClass('em_border');;
+//        wayfinder.projectPage.showMediaTip();
         return false;
     });
 });

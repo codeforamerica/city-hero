@@ -41,7 +41,7 @@
     </div>
     
     <% if (typeof editable != 'undefined' && editable) { %>
-        <form id="user-register" enctype="multipart/form-data" method="post">
+        <form id="<%= editable.id || 'user-register' %>" action="<%= editable.action %>" enctype="multipart/form-data" method="post">
     <% } %>
     
     <div class="wrapper">

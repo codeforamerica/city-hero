@@ -14,13 +14,25 @@
 <script type="text/javascript" src="qunit.js"></script>
 
 <script type="text/javascript" src="../city-hero.js"></script>
+<script type="text/javascript" src="../wayfinder.js"></script>
 
 <script>
 $(document).ready(function () {
     var testArea = $('#test-area');
     
     module("Edit Project Page");
-
+    
+    test("showing a wizard tip will hide the side content", function() {
+        projectPage.showTip('.project_image-wizard-tip');
+        
+        equals($('.project_image-wizard-tip').css('display'), 'block');
+        equals($('#sidebar').css('visibility'), 'hidden');
+        
+        projectPage.hideTips();
+        
+        equals($('.project_image-wizard-tip').css('display'), 'none');
+        equals($('#sidebar').css('visibility'), 'visible');
+    });
 });
 </script>
   
@@ -61,6 +73,11 @@ $(document).ready(function () {
                   <input type="hidden" name="_id" value="1dc109092bbff6fe21f5723fac003d47" />
                   
                   <div class="project_image_box">
+                    <input type="file" id="project_image" />
+                    <div class="wizard-tip project_image-wizard-tip">
+                      <h1>This is my title</h1>
+                      <p>This is my tip.  We need more stuff in here.</p>
+                    </div>
                   </div>
                               
                   <div class="social_bar">
@@ -151,9 +168,12 @@ $(document).ready(function () {
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=US"></script> 
         
         <script type="text/javascript" src="/js/city-hero.js"></script>
+        
+        <script>
+            initFieldWizardTips();
+        </script>
       </div>
     </div>
-    
   </section>
   
 </body>
