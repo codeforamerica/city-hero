@@ -1008,9 +1008,6 @@ div.project_block {
 /**
  * Wayfinder
  */
-.wayfinder .sidebar_box .sidebar_box_content {
-    padding: 10px;
-}
 .wayfinder li {
     margin-bottom: 5px;
 }
