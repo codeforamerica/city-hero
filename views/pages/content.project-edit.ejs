@@ -1,5 +1,6 @@
 <div class="project_description">
     <input type="hidden" name="_id" value="<%= project._id %>" />
+    <input type="hidden" name="slug" value="<%= (project.slug) ? project.slug : '' %>" />
     
     <div class="project_image_box">
         <% if (project._attachments && project._attachments['project-image']) { %>
@@ -24,7 +25,7 @@
 <div class="button-floater">
     <ul class="edit-controls">
         <li><input type="submit" value="save your project" /></li>
-        <li><a href="/projects/<%= project._id %>">Finished editing</a></li>
+        <li><a href="/projects/<%= (project.slug) ? project.slug : project._id %>">Finished editing</a></li>
     </ul>
 </div>
 </form>
