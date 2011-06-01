@@ -1,5 +1,5 @@
 <% if (project.owner) { %>
-    <h2>Owned by <a href="/profile/<%= project.owner._id %>"><%= project.owner.username %></a></a>, <a href="#"><%= project.location %></a></h2>
+    <h2>Owned by <a href="/profile/<%= project.owner.username %>"><%= project.owner.username %></a></a>, <a href="#"><%= project.location %></a></h2>
 <% } else { %>
     <h2><a href="#"><%= project.location %></a>.  (This project has no owner)</h2>
     <!--form method="POST">
