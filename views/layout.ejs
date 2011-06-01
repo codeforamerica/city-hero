@@ -32,7 +32,7 @@
             <div id="user-links" class="nav-links right">
                 <a href="<%= session.actionHref %>"><%= session.actionTitle %></a> |
                 <% if (typeof session.user != 'undefined' && typeof session.user._id != 'undefined') { %>
-                    <a href="/profile/<%= session.user._id %>">Profile</a>
+                    <a href="/profile/<%= session.user.username %>">Profile</a>
                 <% } else { %>
                     <a href="/user/register">Register</a>
                 <% } %>
@@ -40,7 +40,7 @@
         </div>
     </div>
     
-    <% if (typeof editable != 'undefined') { %>
+    <% if (typeof editable != 'undefined' && editable) { %>
         <form id="<%= editable.id || 'user-register' %>" action="<%= editable.action %>" enctype="multipart/form-data" method="post">
     <% } %>
     
@@ -128,7 +128,7 @@
         <% } %>
     </div>
     
-    <% if (typeof editable != 'undefined') { %>
+    <% if (typeof editable != 'undefined' && editable) { %>
         </form>
     <% } %>
 </body>

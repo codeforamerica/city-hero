@@ -1,0 +1,17 @@
+<!-- -->
+<div class="sidebar_box admin_box sb_container">
+    <div class="sidebar_box_title">Wayfinder</div>
+    <div class="sidebar_box_content">
+	    <div class="wayfinder sidebar_box_text">
+            <ul class="check_list">
+                <% for (var i in steps) { %>
+                    <li <% if (steps[i].completed) { %>class="completed"<% } %>>
+                        <a href="#step-<%= i %>" class="step-<%= i %>"><%= steps[i].name %></a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+

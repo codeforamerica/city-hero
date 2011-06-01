@@ -239,5 +239,80 @@ module.exports = {
             console.log(res.context)
             assert.includes(res.context.scripts, '/js/city-hero.js')
         });
+    },
+    
+    'test user registration' : function() {
+        /**
+         * Set up fixture; just get the database connection.
+         */
+        function setup(test) {
+            var app = require('server').app
+            var conn = new (cradle.Connection)(auth.db.host, auth.db.port);
+            var db = conn.database('projects');
+            
+            test(app, db);
+        }
+        
+        /**
+         * Perform the tests
+         */
+        setup(function(app, db) {
+            
+            // Test that we can add a user who has submitted valid information
+            assert.response(app,
+                { url: '/user/register',
+                  method: 'POST',
+                  headers: 
+                    { 'Content-type': 'multipart/form-data; boundary=----WebKitFormBoundary2QdhgqAqSDMk1noE',
+                      'Host': 'chicken.local' },
+                  body: '------WebKitFormBoundary2QdhgqAqSDMk1noE\r\n'+'Content-Disposition: form-data; name="username"\r\n'+'\r\n'+'johndoe\r\n'+'------WebKitFormBoundary2QdhgqAqSDMk1noE\r\n'+'Content-Disposition: form-data; name="password"\r\n'+'\r\n'+'test\r\n'+'------WebKitFormBoundary2QdhgqAqSDMk1noE\r\n'+'Content-Disposition: form-data; name="password_confirm"\r\n'+'\r\n'+'test\r\n'+'------WebKitFormBoundary2QdhgqAqSDMk1noE\r\n'+'Content-Disposition: form-data; name="email"\r\n'+'\r\n'+'johndoe@example.com\r\n'+'------WebKitFormBoundary2QdhgqAqSDMk1noE\r\n'+'Content-Disposition: form-data; name="email_confirm"\r\n'+'\r\n'+'johndoe@example.com\r\n'+'------WebKitFormBoundary2QdhgqAqSDMk1noE\r\n'+'Content-Disposition: form-data; name="submit"\r\n'+'\r\n'+'Submit\r\n'+'------WebKitFormBoundary2QdhgqAqSDMk1noE--'},
+                function(res) {
+                    // Make sure the response header has a location (???)
+                    var redir = res.headers.location;
+                    assert.isDefined(redir);
+                    
+                    var urlParts = redir.split('/');
+                    
+                    var userReq = { 
+                        params: { 
+                            username: redir.substr(30),
+                            password:
+                            email:
+                            password_confirm: 
+                            email_confirm:
+                            submit:
+                        }
+                    }
+                    var userRes = {
+                        context: {
+                            session: {
+                                userLoggedin: false
+                            }
+                        }
+                    }
+                    userContext.profile()(userReq, userRes, function() {
+                        var context = projRes.context
+                        assert.isDefined(context.project);
+                        assert.equal(context.project.description, 'This is a test');
+                        assert.equal(context.project.title, 'Still a test');
+                        assert.equal(context.project.location, 'Oakland, CA');
+                        assert.isDefined(context.project._id);
+                        assert.isDefined(context.project._rev);
+                    });
+                    
+                    db.get(userReq.params.pid, function(err, project) {
+                        try {
+                            assert.isNull(err);
+                        } finally {
+                            teardown(db, project);
+                        }
+                    });
+                    
+                    assert.equal(res.statusCode, 302);
+                    assert.equal(redir.substr(0,30), 'http://chicken.local/projects/');
+                }
+            );
+        });
+        
     }
 }
