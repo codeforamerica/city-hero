@@ -316,7 +316,7 @@ $(document).ready(function () {
                     data: JSON.stringify(postData),
                     success: function(data) {
                         var resultsHtml = '';
-                        console.log(data.hits.hits);
+
                         if(data.hits.hits) {
                             $.each(data.hits.hits, function(idx, el) {
                                 resultsHtml += getProjectBox(el);
@@ -332,12 +332,19 @@ $(document).ready(function () {
         $('#q').trigger('keyup');
         
         function getProjectBox(project) {
+            // projIdentifier is a stop-gap until all the projects have slugs.
+            var projIdentifier = (project._source.slug) ? project._source.slug : project._id;
+            
+            // This should go somewhere else
+            var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects';
+            
+            // Build the project blocks
             var ret = '';
             ret += '<div class="project_block">';
-            ret += '<a href="/projects/'+project._id+'">';
-            
+            ret += '<a href="/projects/'+projIdentifier+'">';
+
             if(project._source._attachments) {
-                ret += '<img src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/'+project._id+'/project-image" width="200" height="200" />';
+                ret += '<img src="'+imgServer+'/'+project._id+'/project-image" width="200" height="200" />';
             } else {
                 ret += '<img src="/images/no-image.gif" width="200" height="200" />';
             }
