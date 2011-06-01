@@ -40,7 +40,7 @@
         </div>
     </div>
     
-    <% if (typeof editable != 'undefined') { %>
+    <% if (typeof editable != 'undefined' && editable) { %>
         <form id="user-register" enctype="multipart/form-data" method="post">
     <% } %>
     
@@ -128,7 +128,7 @@
         <% } %>
     </div>
     
-    <% if (typeof editable != 'undefined') { %>
+    <% if (typeof editable != 'undefined' && editable) { %>
         </form>
     <% } %>
 </body>
