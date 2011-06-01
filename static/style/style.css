@@ -1000,6 +1000,9 @@ div.project_block {
 
 .em_border { border: 3px dashed yellow; }
 
+/**
+ * Wayfinder
+ */
 .wayfinder li {
     background-image: url(/images/wayfinder-item-background1.png);
     background-repeat: no-repeat;
@@ -1011,9 +1014,6 @@ div.project_block {
     line-height: 30px;
 }
 
-/**
- * Project Wayfinder
- */
 .wayfinder li button {
     background: none;
     font: inherit;
@@ -1024,6 +1024,10 @@ div.project_block {
     font-size: 1.2em;
     margin: 0px;
     padding: 0px;
+}
+
+.wayfinder li.completed {
+    background-color: green;
 }
 
 button:hover {

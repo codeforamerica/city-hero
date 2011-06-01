@@ -5,7 +5,9 @@
 	    <div class="wayfinder sidebar_box_text">
             <ul class="check_list">
                 <% for (var i in steps) { %>
-                    <li class="completed"><%= steps[i].name %></li>
+                    <li <% if (steps[i].completed) { %>class="completed"<% } %>>
+                        <a href="#step-<%= i %>" class="step-<%= i %>"><%= steps[i].name %></a>
+                    </li>
                 <% } %>
             </ul>
         </div>
