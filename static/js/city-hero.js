@@ -309,7 +309,7 @@ $(document).ready(function () {
         
         $('#q').bind('keyup', function(ev) {
             //if($('#q').val().length > 2) {
-                var wildcard = { "description": "*"+$('#q').val()+"*" };
+                var wildcard = { "_all": "*"+$('#q').val()+"*" };
                 var postData = {
                     "query": { "wildcard": wildcard }
                 };
