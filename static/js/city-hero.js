@@ -370,7 +370,7 @@ $(document).ready(function () {
      * If there are messages, make them flash
      */
     $(document).ready(function() {
-        $('.messages').animate({ backgroundColor: '#ECFA73'}, 500).animate({ backgroundColor: '#BBBBBB'}, 500);
+        $('.messages-wrapper').effect("highlight", {}, 700);
         $('.messages-wrapper').delay(5000).fadeOut(1000);
     });
     

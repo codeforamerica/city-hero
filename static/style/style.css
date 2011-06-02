@@ -389,11 +389,14 @@ a#title  {
     z-index: 20;
     left: 50%;
     margin-left: -250px;
+    margin-top: 5px;
 }
 
 .messages {
-    border: 5px solid #999999;
-    background-color: #BBBBBB;
+    border: 2px solid #333333;
+    background-color: rgb(33, 33, 33);
+    background-color: rgba(33, 33, 33, 0.4);
+    color: #FFFFFF;
     font-size: 1.5em;
     padding: 10px;
 }
