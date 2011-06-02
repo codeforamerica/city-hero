@@ -29,13 +29,13 @@
 <% } %>
 
 <% if (user.profile_motto || editable) { %>
-    <div class="project_text">
+    <div class="project_text profile-motto">
         <div class="project_overview">
-            <header>
+            <header class="clearfix">
                 <% if (editable) { %><a href="#step-4" class="step-link-inline">Edit</a><% } %>
             
                 <h1>Motto</h1>
-                <%= (user.profile_motto) ? user.profile_motto : '' %>
+                <p><%= (user.profile_motto) ? user.profile_motto : '' %></p>
 
                 <% if (editable) { %>
                     <div class="step-editable step-4-editable">

@@ -1117,3 +1117,10 @@ button:hover {
 .profile-bio textarea {
     width: 280px;
 }
+
+.profile-motto p {
+    margin-bottom: 20px;
+}
+.profile-motto input {
+    width: 400px;
+}
