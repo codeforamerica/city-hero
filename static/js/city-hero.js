@@ -304,6 +304,9 @@ $(document).ready(function () {
      * Setup autocomplete search
      */
     $(document).ready(function() {
+        //var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200/projects/projects/_search';
+        var elasticSearchServer = 'http://localhost:9200/projects/projects/_search';
+        
         $('#q').bind('keyup', function(ev) {
             //if($('#q').val().length > 2) {
                 var wildcard = { "description": "*"+$('#q').val()+"*" };
@@ -311,7 +314,7 @@ $(document).ready(function () {
                     "query": { "wildcard": wildcard }
                 };
                 $.ajax({
-                    url: "http://ec2-184-73-122-209.compute-1.amazonaws.com:9200/projects/projects/_search",
+                    url: elasticSearchServer,
                     type: "POST",
                     dataType: "json",
                     data: JSON.stringify(postData),
@@ -337,7 +340,8 @@ $(document).ready(function () {
             var projIdentifier = (project._source.slug) ? project._source.slug : project._id;
             
             // This should go somewhere else
-            var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects';
+            //var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects';
+            var imgServer = 'http://localhost:5984/projects';
             
             // Build the project blocks
             var ret = '';
