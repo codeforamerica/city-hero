@@ -4,7 +4,7 @@
         <ul>
             <li><span class="metric_value"><%= project.supporters.length %></span>Supporters</li>
             <% if (project.deadline) { %>
-            <li><span class="metric_value"><%= project.deadline %></span>Days until event</li>
+            <li><span class="metric_value"><%= metrics.daysLeft %></span>Days until event</li>
             <% } %>
 <!--            <li><span class="metric_value">75%</span>Ready</li> -->
         </ul>
