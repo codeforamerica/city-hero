@@ -1,4 +1,4 @@
-<form id="project-add" enctype="multipart/form-data" method="post">
+<form id="project-add" enctype="multipart/form-data" method="post" action="/projects/wizard">
     
     <div class="wizard-tip wizard-general-tip project-definition-wizard-tip">
         <h1 class="wizard-tip-title">Defining Your Project</h1>
@@ -44,6 +44,9 @@
                explain what your project hopes to achieve in the future. It
                articulates the project's essential nature, its values, and its
                work. </p>
+            <p>We have started you off with a sample mission statement. You can
+               use this, or customize it to your event &mdash; which we
+               encourage you to do!</p>
             <p><strong>Not sure where to start?  Go <a id="show-project-mission-step-by-step" href="#">step-by-step</a>.</strong></p>
             <p>Your mission should answer these three key questions:</p>
             <ol>
@@ -67,7 +70,7 @@
                      project exists to address.</span>
             </div>
             
-            <textarea class="textarea" name="project-mission" id="project-mission"></textarea>
+            <textarea class="textarea" name="project-mission" id="project-mission">National Night Out is an annual event designed to strengthen our communities by encouraging neighborhoods to engage in stronger relationships with each other and with their local law enforcement partners. The goal is to heighten crime-prevention awareness, build support and participation in local anti-crime programs, and most importantly, send a message that our neighborhoods are organized and fighting back. It’s also the perfect opportunity to get to know your neighbors even better. See you there!</textarea>
         </div>
     </section>
     
@@ -172,6 +175,23 @@
             </div>
             
             <input class="textfield" name="project-title" id="project-title" />
+        </div>
+    </section>
+    
+    <section class="project-deadline-section">
+        <div class="wizard-tip wizard-field-tip project-deadline-wizard-tip">
+            <h1 class="wizard-tip-deadline">Setting Your Event Date</h1>
+            <p>When is your National Night Out event happening?  The official date for 2011 is August 2, 2011.  If you're planning yours for a different day, enter it here.</p>
+        </div>
+        
+        <div class="form-item-wrapper form-textfield-wrapper">
+            <div class="label-wrapper">
+                <label for="project-deadline">Event Date</label>
+                <!--span class="form-item-help">What you are going to do</span-->
+            </div>
+            
+            <input type="text" class="textfield" name="project-deadline-formatted" id="project-deadline-formatted" value="August 02, 2011" />
+            <input type="hidden" name="project-deadline" id="project-deadline" value="2011-08-02" />
         </div>
     </section>
     
