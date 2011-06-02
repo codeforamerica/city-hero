@@ -4,10 +4,10 @@
     <div class="sidebar_box_content">
 	    <div class="wayfinder sidebar_box_text">
             <ul class="check_list">
-                <li><button id="wayfinder_add_media">Add a photo</button></li>
-                
-<% for (itemIndex in project.nextSteps) { %>
-                <!--li><%= project.nextSteps[itemIndex] %></li-->
+<% for (i in project.tasks) { %>
+                <li class="
+                    <% if (project.tasks[i].completed()) { %> completed<% } %>">
+                  <button class="wayfinder_task" id="wayfinder_add_media"><%= project.tasks[i].label %></button></li>
 <% } %>
             </ul>
         </div>

@@ -1011,6 +1011,7 @@ div.project_block {
 .wayfinder li {
     margin-bottom: 5px;
 }
+.wayfinder li button,
 .wayfinder li a {
     display: block;
     color: #FFFFFF;
@@ -1024,14 +1025,22 @@ div.project_block {
     background-image: url('/images/wayfinder-plus.png');
     background-repeat: no-repeat;
     background-position: 95% center;
+    border: none;
+    width: 270px;
 }
+.wayfinder li button:hover,
 .wayfinder li a:hover {
     background-color: #533549;
 }
 
+.wayfinder li.completed button,
 .wayfinder li.completed a {
     background-color: silver;
     background-image: url('/images/wayfinder-check.png');
+}
+
+.wayfinder li.completed button:hover {
+    cursor: default;
 }
 
 /**
