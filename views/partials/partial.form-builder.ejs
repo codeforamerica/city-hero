@@ -1,6 +1,7 @@
-<% if (cancelFormWrapper) { %>
+<% if ((typeof cancelFormWrapper == 'undefined') || (cancelFormWrapper == false)) { %>
     <form id="user-register" enctype="multipart/form-data" method="post">
 <% } %>
+
     <% if (typeof formBuilder != 'undefined') { %>
         <% for (var f in formBuilder) { %>
             <div class="form-item-wrapper form-<%= formBuilder[f].type %>-wrapper <%= (formBuilder[f].wrapperClasses) ? formBuilder[f].wrapperClasses.join(' ') : '' %>">
@@ -42,7 +43,7 @@
                             <span class="form-item-help"><%= formBuilder[f].help %></span>
                         </div>
                     <% } %>
-                    <textarea class="textarea <%= (formBuilder[f].geocode) ? 'geocode' : '' %>" name="<%= f %>" id="<%= f %>" rows="<%= formBuilder[f].rows %>"><% if (typeof forms != 'undefined') { %><%= (form.fields[f]) ? form.fields[f] : '' %><% } %></textarea>
+                    <textarea class="textarea <%= (formBuilder[f].geocode) ? 'geocode' : '' %>" name="<%= f %>" id="<%= f %>" rows="<%= formBuilder[f].rows %>"><% if (typeof form != 'undefined') { if (form.fields) { if  (form.fields[f]) { %><%= form.fields[f] %><% } } } %></textarea>
                 <% } %>
                 
                 <% if (formBuilder[f].type == 'file') { %>
@@ -59,6 +60,7 @@
             </div>
         <% } %>
     <% } %>
-<% if (cancelFormWrapper) { %>
+    
+<% if ((typeof cancelFormWrapper == 'undefined') || (cancelFormWrapper == false)) { %>
     </form>
 <% } %>

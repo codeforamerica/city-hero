@@ -3,10 +3,10 @@
  */
 
 // Globals...yeah, I know.
-var imgServer = 'http://localhost:5984';
-var elasticSearchServer = 'http://localhost:9200';
-//var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects'; 
-//var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200';
+//gvar imgServer = 'http://localhost:5984';
+//var elasticSearchServer = 'http://localhost:9200';
+var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984'; 
+var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200';
 
 /**
  * ==== COMPILING THE MISSION STATEMENT ====
@@ -370,7 +370,7 @@ $(document).ready(function () {
      * If there are messages, make them flash
      */
     $(document).ready(function() {
-        $('.messages').animate({ backgroundColor: '#ECFA73'}, 500).animate({ backgroundColor: '#BBBBBB'}, 500);
+        $('.messages-wrapper').effect("highlight", {}, 700);
         $('.messages-wrapper').delay(5000).fadeOut(1000);
     });
     
