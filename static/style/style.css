@@ -1188,6 +1188,11 @@ button:hover {
 .profile-edit .ui-autocomplete {
     width: 250px;
 }
-.profile-edit .step-3-editable {
-    
+.profile-location #profile-map {
+    width: auto;
+    height: 120px;
+}
+.profile-location .sidebar_box_name {
+    margin-top: 5px;
+    text-align: right;
 }

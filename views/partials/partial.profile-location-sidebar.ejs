@@ -1,19 +1,61 @@
 <div class="sidebar_box sb_container">
     <div class="sidebar_box_title">Location</div>
     <div class="sidebar_box_content clearfix profile-location">
-	    <div class="sidebar_box_image"></div>
-	    <div class="sidebar_box_text">
+    
+        <% if (typeof user.profile_location != 'undefined') { %>
+    	    <div id="profile-map"></div>
+    	    <script>
+                (function($) {
+                    $(document).ready(function() {
+                        var lon = '<% if (typeof user.geometry != 'undefined') { %><%= user.geometry.coordinates[0] %><% } %>';
+                        var lat = '<% if (typeof user.geometry != 'undefined') { %><%= user.geometry.coordinates[1] %><% } %>';
+                        var markerShadow = new google.maps.MarkerImage(
+                            '/images/map-shadow-icon.png',
+                            new google.maps.Size(25, 25),
+                            new google.maps.Point(0, 0),
+                            new google.maps.Point(10, 34)
+                        );
+                        var markerImage = new google.maps.MarkerImage(
+                            '/images/map-icon.png',
+                            new google.maps.Size(16, 25),
+                            new google.maps.Point(0, 0),
+                            new google.maps.Point(10, 34)
+                        );
+                        
+                        // Make map
+                        var options = {
+                            zoom: 6,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                            disableDefaultUI: true
+                        };
+                        map = new google.maps.Map(document.getElementById('profile-map'), options);
+                        if (lat) {
+                            var location = new google.maps.LatLng(lat, lon);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                draggable: true,
+                                icon: markerImage,
+                                shadow: markerShadow
+                            });
+                            marker.setPosition(location);
+                            map.setCenter(location);
+                            map.setZoom(9);
+                        }
+                    });
+                })(jQuery);
+            </script>
+        <% } %>
 	    
+	    <div class="sidebar_box_text">
             <% if (editable) { %><a href="#step-3" class="step-link-inline">Edit</a><% } %>
 
-            <span class="sidebar_box_name"><%= (user.profile_location) ? user.profile_location : '' %></span>
+            <div class="sidebar_box_name"><%= (user.profile_location) ? user.profile_location : 'No location available.' %></div>
 
             <% if (editable) { %>
                 <div class="step-editable step-3-editable">
                     <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[3].form, cancelFormWrapper: true}) %>
                 </div>
             <% } %>
-            
         </div>
     </div>
 </div>
