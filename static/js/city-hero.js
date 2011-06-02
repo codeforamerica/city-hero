@@ -359,6 +359,14 @@ $(document).ready(function () {
             return ret;
         }
     });
+
+    /**
+     * If there are messages, make them flash
+     */
+    $(document).ready(function() {
+        $('.messages').animate({ backgroundColor: '#ECFA73'}, 500).animate({ backgroundColor: '#BBBBBB'}, 500);
+        $('.messages-wrapper').delay(5000).fadeOut(1000);
+    });
     
     /**
      * Development mode for links
@@ -369,6 +377,4 @@ $(document).ready(function () {
             return false;
         });
     });
-    
-
 })(jQuery);

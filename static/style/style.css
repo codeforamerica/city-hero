@@ -384,11 +384,11 @@ a#title  {
  */
 .messages-wrapper {
     position: absolute;
-    top: 55px;
-    right: 10px;
-    width: 300px;
-    float: right;
+    top: 0px;
+    width: 500px;
     z-index: 20;
+    left: 50%;
+    margin-left: -250px;
 }
 
 .messages {
