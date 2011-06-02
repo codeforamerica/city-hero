@@ -43,7 +43,7 @@
                             <span class="form-item-help"><%= formBuilder[f].help %></span>
                         </div>
                     <% } %>
-                    <textarea class="textarea <%= (formBuilder[f].geocode) ? 'geocode' : '' %>" name="<%= f %>" id="<%= f %>" rows="<%= formBuilder[f].rows %>"><% if (typeof forms != 'undefined') { %><%= (form.fields[f]) ? form.fields[f] : '' %><% } %></textarea>
+                    <textarea class="textarea <%= (formBuilder[f].geocode) ? 'geocode' : '' %>" name="<%= f %>" id="<%= f %>" rows="<%= formBuilder[f].rows %>"><% if (typeof form != 'undefined') { if (form.fields) { if  (form.fields[f]) { %><%= form.fields[f] %><% } } } %></textarea>
                 <% } %>
                 
                 <% if (formBuilder[f].type == 'file') { %>

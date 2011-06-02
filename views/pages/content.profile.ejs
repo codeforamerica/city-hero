@@ -29,13 +29,13 @@
 <% } %>
 
 <% if (user.profile_motto || editable) { %>
-    <div class="project_text">
+    <div class="project_text profile-motto">
         <div class="project_overview">
-            <header>
+            <header class="clearfix">
                 <% if (editable) { %><a href="#step-4" class="step-link-inline">Edit</a><% } %>
             
                 <h1>Motto</h1>
-                <%= (user.profile_motto) ? user.profile_motto : '' %>
+                <p><%= (user.profile_motto) ? user.profile_motto : '' %></p>
 
                 <% if (editable) { %>
                     <div class="step-editable step-4-editable">
@@ -59,7 +59,10 @@
     <div class="button-floater">
         <ul class="edit-controls">
             <li><input type="submit" value="save your profile" /></li>
-            <li><a href="/profile/<%= session.user.username %>">Finished editing</a></li>
+            <li><a href="/profile/<%= session.user.username %>">Cancel editing</a></li>
         </ul>
+        <div class="action-help">
+            Once you are done editing, make sure to press <strong>save your profile</strong> above.  If you press <strong>cancel editing</strong>, none of your changes will be saved.
+        </div>
     </div>
 <% } %>
