@@ -5,18 +5,18 @@
 	    <div class="wayfinder sidebar_box_text">
             <ul class="check_list">
 <% for (i in project.tasks) { %>
-                <li class="
-                    <% if (project.tasks[i].completed()) { %> completed<% } %>">
-                  <button class="wayfinder_task" id="wayfinder_<%= project.tasks[i].name %>"><%= project.tasks[i].label %></button>
-                  <% if (!project.tasks[i].completed()) { %>
+                <li class="<% if (project.tasks[i].completed()) { %> completed<% } %>">
+                  <button type="button" class="wayfinder_task" id="wayfinder_<%= project.tasks[i].name %>"><%= project.tasks[i].label %></button>
                   <script>
                     $(document).ready(function() {
                       $('#wayfinder_<%= project.tasks[i].name %>').click(function (evt) {
-                        <%- partial(project.tasks[i].action) %>
+                        <% if (!project.tasks[i].completed()) { %>
+                          <%- partial(project.tasks[i].action) %>
+                        <% } %>
+                        return false;
                       });
                     });
                   </script>
-                  <% } %>
                 </li>
 <% } %>
             </ul>
