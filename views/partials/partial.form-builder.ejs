@@ -1,6 +1,7 @@
-<% if (cancelFormWrapper) { %>
+<% if ((typeof cancelFormWrapper == 'undefined') || (cancelFormWrapper == false)) { %>
     <form id="user-register" enctype="multipart/form-data" method="post">
 <% } %>
+
     <% if (typeof formBuilder != 'undefined') { %>
         <% for (var f in formBuilder) { %>
             <div class="form-item-wrapper form-<%= formBuilder[f].type %>-wrapper <%= (formBuilder[f].wrapperClasses) ? formBuilder[f].wrapperClasses.join(' ') : '' %>">
@@ -59,6 +60,7 @@
             </div>
         <% } %>
     <% } %>
-<% if (cancelFormWrapper) { %>
+    
+<% if ((typeof cancelFormWrapper == 'undefined') || (cancelFormWrapper == false)) { %>
     </form>
 <% } %>
