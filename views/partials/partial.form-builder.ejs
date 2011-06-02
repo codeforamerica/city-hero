@@ -1,23 +1,30 @@
-<form id="user-register" enctype="multipart/form-data" method="post">
+<% if (cancelFormWrapper) { %>
+    <form id="user-register" enctype="multipart/form-data" method="post">
+<% } %>
     <% if (typeof formBuilder != 'undefined') { %>
         <% for (var f in formBuilder) { %>
-            <div class="form-item-wrapper form-<%= formBuilder[f].type %>-wrapper<% if (formBuilder[f].wrapperClasses) { %> <%= formBuilder[f].wrapperClasses.join(' ') %><% } %>">
+            <div class="form-item-wrapper form-<%= formBuilder[f].type %>-wrapper <%= (formBuilder[f].wrapperClasses) ? formBuilder[f].wrapperClasses.join(' ') : '' %>">
+            
                 <% if (formBuilder[f].type == 'textfield') { %>
                     <!-- textfield -->
-                    <div class="label-wrapper">
-                        <label for="<%= f %>"><%= formBuilder[f].label %></label>
-                        <span class="form-item-help"><%= formBuilder[f].help %></span>
-                    </div>
-                    <input class="textfield<% if (formBuilder[f].geocode) { %> geocode<% } %>" type="text" name="<%= f %>" id="<%= f %>" size="<%= formBuilder[f].size %>" <% if (typeof form != 'undefined') { if (form.fields) { if  (form.fields[f]) { %>value="<%= form.fields[f] %>"<% } } } %> />
+                    <% if (formBuilder[f].label) { %>
+                        <div class="label-wrapper">
+                            <label for="<%= f %>"><%= formBuilder[f].label %></label>
+                            <span class="form-item-help"><%= formBuilder[f].help %></span>
+                        </div>
+                    <% } %>
+                    <input class="textfield <%= (formBuilder[f].geocode) ? 'geocode' : '' %>" type="text" name="<%= f %>" id="<%= f %>" size="<%= formBuilder[f].size %>" <% if (typeof form != 'undefined') { if (form.fields) { if  (form.fields[f]) { %>value="<%= form.fields[f] %>"<% } } } %> />
                 <% } %>
                 
                 <% if (formBuilder[f].type == 'password') { %>
                     <!-- password -->
-                    <div class="label-wrapper">
-                        <label for="<%= f %>"><%= formBuilder[f].label %></label>
-                        <span class="form-item-help"><%= formBuilder[f].help %></span>
-                    </div>
-                    <input class="password<% if (formBuilder[f].geocode) { %> geocode<% } %>" type="password" name="<%= f %>" id="<%= f %>" size="<%= formBuilder[f].size %>" <% if (typeof form != 'undefined') { if (form.fields) { if  (form.fields[f]) { %>value="<%= form.fields[f] %>"<% } } } %> />
+                    <% if (formBuilder[f].label) { %>
+                        <div class="label-wrapper">
+                            <label for="<%= f %>"><%= formBuilder[f].label %></label>
+                            <span class="form-item-help"><%= formBuilder[f].help %></span>
+                        </div>
+                    <% } %>
+                    <input class="password" type="password" name="<%= f %>" id="<%= f %>" size="<%= formBuilder[f].size %>" <% if (typeof form != 'undefined') { if (form.fields) { if  (form.fields[f]) { %>value="<%= form.fields[f] %>"<% } } } %> />
                 <% } %>
                 
                 <% if (formBuilder[f].type == 'submit') { %>
@@ -26,8 +33,32 @@
                         <input class="submit" type="submit" name="<%= f %>" id="<%= f %>" value="<%= formBuilder[f].value %>" />
                     </div>
                 <% } %>
+                
+                <% if (formBuilder[f].type == 'textarea') { %>
+                    <!-- textarea -->
+                    <% if (formBuilder[f].label) { %>
+                        <div class="label-wrapper">
+                            <label for="<%= f %>"><%= formBuilder[f].label %></label>
+                            <span class="form-item-help"><%= formBuilder[f].help %></span>
+                        </div>
+                    <% } %>
+                    <textarea class="textarea <%= (formBuilder[f].geocode) ? 'geocode' : '' %>" name="<%= f %>" id="<%= f %>" rows="<%= formBuilder[f].rows %>"><% if (typeof forms != 'undefined') { %><%= (form.fields[f]) ? form.fields[f] : '' %><% } %></textarea>
+                <% } %>
+                
+                <% if (formBuilder[f].type == 'file') { %>
+                    <!-- file -->
+                    <% if (formBuilder[f].label) { %>
+                        <div class="label-wrapper">
+                            <label for="<%= f %>"><%= formBuilder[f].label %></label>
+                            <span class="form-item-help"><%= formBuilder[f].help %></span>
+                        </div>
+                    <% } %>
+                    <input class="file" type="file" name="<%= f %>" id="<%= f %>" />
+                <% } %>
             
             </div>
         <% } %>
     <% } %>
-</form>
+<% if (cancelFormWrapper) { %>
+    </form>
+<% } %>

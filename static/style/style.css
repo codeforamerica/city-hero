@@ -384,11 +384,11 @@ a#title  {
  */
 .messages-wrapper {
     position: absolute;
-    top: 55px;
-    right: 10px;
-    width: 300px;
-    float: right;
+    top: 0px;
+    width: 500px;
     z-index: 20;
+    left: 50%;
+    margin-left: -250px;
 }
 
 .messages {
@@ -1034,6 +1034,22 @@ div.project_block {
     background-image: url('/images/wayfinder-check.png');
 }
 
+/**
+ * Wayfinder steps
+ */
+a.step-link-inline {
+    display: block;
+    float: right;
+    width: 50px;
+    background-color: #96A044;
+    color: #FFFFFF;
+    padding: 5px;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 5px;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -1066,3 +1082,35 @@ button:hover {
 /*    width: 85%;*/
 /*    background: grey;*/
 /*}*/
+
+/**
+ * Profile styles
+ */
+.profile-image-container {
+    width: 200px;
+    float: left;
+    margin: 10px
+}
+.profile-image-container input {
+    width: 180px;
+}
+.profile-image-container img.profile-image {
+    width: 200px;
+}
+
+.profile-bio {
+    width: 300px;
+    float: right;
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+    background-color: #BBBBBB;
+}
+.profile-bio h2 {
+    margin-bottom: 0;
+}
+.profile-bio p {
+    margin-top: 0;
+}
+.profile-bio textarea {
+    width: 280px;
+}

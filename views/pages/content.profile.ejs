@@ -1,39 +1,65 @@
-<img src="/images/example.jpg" width="570px" />
+<% if ((user._attachments && user._attachments['profile_image']) || editable) { %>
+    <div class="profile-image-container">
+        <% if (editable) { %><a href="#step-1" class="step-link-inline">Edit</a><% } %>
 
+        <% if (user._attachments && user._attachments['profile_image']) { %>
+            <img class="profile-image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/users/<%= user._id %>/profile_image" />
+        <% } %>
 
-<div class="project_text">
-    <div class="project_overview">
-        <header>
-            <h1>About this Person</h1>
-        </header>
-        <p>This person does this and that and a little bit of that.</p>
+        <% if (editable) { %>
+            <div class="step-editable step-1-editable">
+                <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[1].form, cancelFormWrapper: true}) %>
+            </div>
+        <% } %>
     </div>
+<% } %>
+
+<% if (user.profile_bio || editable) { %>
+    <div class="profile-bio">
+        <% if (editable) { %><a href="#step-2" class="step-link-inline">Edit</a><% } %>
+        <h2>Bio</h2>
+        <p><%= (user.profile_bio) ? user.profile_bio : '' %></p>
+        
+        <% if (editable) { %>
+            <div class="step-editable step-2-editable">
+                <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[2].form, cancelFormWrapper: true}) %>
+            </div>
+        <% } %>
+    </div>
+<% } %>
+
+<% if (user.profile_motto || editable) { %>
+    <div class="project_text">
+        <div class="project_overview">
+            <header>
+                <% if (editable) { %><a href="#step-4" class="step-link-inline">Edit</a><% } %>
+            
+                <h1>Motto</h1>
+                <%= (user.profile_motto) ? user.profile_motto : '' %>
+
+                <% if (editable) { %>
+                    <div class="step-editable step-4-editable">
+                        <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[4].form, cancelFormWrapper: true}) %>
+                    </div>
+                <% } %>
+            </header>
+        </div>
+    </div>
+<% } %>
+
+<div class="projects-owned">
+    <h3>Projects Owned</h3>
 </div>
 
-<div class="profile-desciption">
-    <h3>Projects Started</h3>
-    
-    <ul>
-        <li><a href="#">Project 1</a></li>
-        <li><a href="#">Project 2</a></li>
-        <li><a href="#">Project 3</a></li>
-    </ul>
-    
-    <h3>Projects Supporting</h3>
-    
-    <ul>
-        <li><a href="#">Project 6</a></li>
-        <li><a href="#">Project 7</a></li>
-        <li><a href="#">Project 8</a></li>
-    </ul>
-
+<div class="projects-suggested">
+    <h3>Suggested Projects</h3>
 </div>
 
 <% if (typeof editable != 'undefined' && editable) { %>
     <div class="button-floater">
         <ul class="edit-controls">
             <li><input type="submit" value="save your profile" /></li>
-            <li><a href="/profile/<%= session.user._id %>">Finished editing</a></li>
+            <li><a href="/profile/<%= session.user.username %>">Finished editing</a></li>
         </ul>
     </div>
 <% } %>
