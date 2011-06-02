@@ -98,6 +98,13 @@ function initFieldWizardTips() {
         // Set up the mission statement mashup
         compileMissionFromParts()
         
+        var format = 'MM dd, yy';
+        $('#project-deadline-formatted').datepicker({dateFormat: format});
+        $('#project-deadline-formatted').change(function() {
+            date = $.datepicker.parseDate(format, $(this).val());
+            $('#project-deadline').val($.datepicker.formatDate('yy-mm-dd', date));
+        });
+        
         function goToCompactMissionView() {
             $('.project-mission-section').show();
             $('.project-mission-step-by-step-section').hide();
