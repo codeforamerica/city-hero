@@ -730,30 +730,8 @@ body.project-edit input.edit-title {
 }
 
 /**
- * The edit project controls
+ * Edit button
  */
-.button-floater {
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: #999999;
-    padding: 10px;
-    z-index: 501;
-    margin-top: 50px;
-    margin-right: 5px;
-    border: 2px solid #333333;
-    background-color: rgb(33, 33, 33);
-    background-color: rgba(33, 33, 33, 0.6);
-}
-
-.button-floater li {
-    margin-bottom:10px;    
-    width: 150px;
-    background-color: #96A044;
-    border: 1px solid #ccc;
-}
-.button-floater a,
-.button-floater input, 
 a.edit-project-link, 
 a.edit-profile-link {
     padding: 10px;
@@ -765,14 +743,67 @@ a.edit-profile-link {
     display: block;
     text-align: center;
 }
+
+/**
+ * The edit project controls
+ */
+.profile-edit #header {
+    margin-top: 50px;
+}
+.button-floater {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 501;
+    border-bottom: 2px solid #333333;
+    background-color: rgb(33, 33, 33);
+    background-color: rgba(33, 33, 33, 0.8);
+    width: 100%;
+    height: 48px;
+}
+
+.button-floater ul {
+    margin: 10px;
+    padding: 0;
+}
+.button-floater li {
+    float: left;
+    margin-right: 0 10px 0 0;
+    padding: 0;
+}
+.button-floater a,
+.button-floater input, 
+.button-floater a.edit-project-link, 
+.button-floater a.edit-profile-link {
+    padding: 4px 0 0 0;
+    margin: 0 10px 0 0;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #96A044;
+    border: 1px solid #ccc;
+    width: 170px;
+}
+.button-floater input {
+    height: 26px;
+    line-height: 26px;
+    padding: 0;
+}
 .button-floater a:hover, a.edit-project-link:hover { text-decoration: none; }
 .button-floater input:hover { cursor: pointer; }
 
-.button-floater .action-help {  
-    width: 150px;
+.button-floater .action-help {
     color: #FFFFFF;
     text-align: justify;
+    height: 15px;
+    width: 400px;
+    float: left;
 }
+
 /**
  * Geocoding textfields
  */
@@ -1142,3 +1173,20 @@ button:hover {
     width: 400px;
 }
 
+.profile-location input.textfield {
+    margin-top: 10px;
+    width: 250px;
+}
+.profile-location .geocoding-input-map {
+    width: auto;
+    float: none;
+}
+.profile-location .label-wrapper {
+    display: none;
+}
+.profile-edit .ui-autocomplete {
+    width: 250px;
+}
+.profile-edit .step-3-editable {
+    
+}

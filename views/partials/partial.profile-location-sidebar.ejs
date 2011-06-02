@@ -1,0 +1,20 @@
+<div class="sidebar_box sb_container">
+    <div class="sidebar_box_title">Location</div>
+    <div class="sidebar_box_content clearfix profile-location">
+	    <div class="sidebar_box_image"></div>
+	    <div class="sidebar_box_text">
+	    
+            <% if (editable) { %><a href="#step-3" class="step-link-inline">Edit</a><% } %>
+
+            <span class="sidebar_box_name"><%= (user.profile_location) ? user.profile_location : '' %></span>
+
+            <% if (editable) { %>
+                <div class="step-editable step-3-editable">
+                    <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[3].form, cancelFormWrapper: true}) %>
+                </div>
+            <% } %>
+            
+        </div>
+    </div>
+</div>
+
