@@ -737,8 +737,13 @@ body.project-edit input.edit-title {
     top: 0;
     right: 0;
     background: #999999;
-    padding: 5px;
+    padding: 10px;
     z-index: 501;
+    margin-top: 50px;
+    margin-right: 5px;
+    border: 2px solid #333333;
+    background-color: rgb(33, 33, 33);
+    background-color: rgba(33, 33, 33, 0.6);
 }
 
 .button-floater li {
@@ -758,12 +763,15 @@ a.edit-profile-link {
     border: none;
     text-transform: uppercase;
     display: block;
+    text-align: center;
 }
 .button-floater a:hover, a.edit-project-link:hover { text-decoration: none; }
 .button-floater input:hover { cursor: pointer; }
 
-a.edit-project-link {
-   
+.button-floater .action-help {  
+    width: 150px;
+    color: #FFFFFF;
+    text-align: justify;
 }
 /**
  * Geocoding textfields

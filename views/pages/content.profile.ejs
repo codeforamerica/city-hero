@@ -59,7 +59,10 @@
     <div class="button-floater">
         <ul class="edit-controls">
             <li><input type="submit" value="save your profile" /></li>
-            <li><a href="/profile/<%= session.user.username %>">Finished editing</a></li>
+            <li><a href="/profile/<%= session.user.username %>">Cancel editing</a></li>
         </ul>
+        <div class="action-help">
+            Once you are done editing, make sure to press <strong>save your profile</strong> above.  If you press <strong>cancel editing</strong>, none of your changes will be saved.
+        </div>
     </div>
 <% } %>
