@@ -3,9 +3,9 @@
  */
 
 // Globals...yeah, I know.
-//var imgServer = 'http://localhost:5984';
+//gvar imgServer = 'http://localhost:5984';
 //var elasticSearchServer = 'http://localhost:9200';
-var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects'; 
+var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984'; 
 var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200';
 
 /**
