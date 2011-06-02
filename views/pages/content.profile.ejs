@@ -1,7 +1,17 @@
 <% if ((user._attachments && user._attachments['profile_image']) || editable) { %>
-    <% if (user._attachments && user._attachments['profile_image']) { %>
-        <img class="profile-image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/users/<%= user._id %>/profile_image" />
-    <% } %>
+    <div class="profile-image-container">
+        <% if (editable) { %><a href="#step-1" class="step-link-inline">Edit</a><% } %>
+
+        <% if (user._attachments && user._attachments['profile_image']) { %>
+            <img class="profile-image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/users/<%= user._id %>/profile_image" />
+        <% } %>
+
+        <% if (editable) { %>
+            <div class="step-editable step-1-editable">
+                <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[1].form, cancelFormWrapper: true}) %>
+            </div>
+        <% } %>
+    </div>
 <% } %>
 
 <% if (user.profile_bio || editable) { %>

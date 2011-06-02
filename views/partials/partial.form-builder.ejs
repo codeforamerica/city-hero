@@ -44,6 +44,17 @@
                     <% } %>
                     <textarea class="textarea <%= (formBuilder[f].geocode) ? 'geocode' : '' %>" name="<%= f %>" id="<%= f %>" rows="<%= formBuilder[f].rows %>"><% if (typeof forms != 'undefined') { %><%= (form.fields[f]) ? form.fields[f] : '' %><% } %></textarea>
                 <% } %>
+                
+                <% if (formBuilder[f].type == 'file') { %>
+                    <!-- file -->
+                    <% if (formBuilder[f].label) { %>
+                        <div class="label-wrapper">
+                            <label for="<%= f %>"><%= formBuilder[f].label %></label>
+                            <span class="form-item-help"><%= formBuilder[f].help %></span>
+                        </div>
+                    <% } %>
+                    <input class="file" type="file" name="<%= f %>" id="<%= f %>" />
+                <% } %>
             
             </div>
         <% } %>

@@ -1086,10 +1086,22 @@ button:hover {
 /**
  * Profile styles
  */
+.profile-image-container {
+    width: 200px;
+    float: left;
+    margin: 10px
+}
+.profile-image-container input {
+    width: 180px;
+}
+.profile-image-container img.profile-image {
+    width: 200px;
+}
+
 .profile-bio {
-    width: 400px;
+    width: 300px;
     float: right;
-    margin: 10px;
+    margin: 10px 10px 10px 0;
     padding: 10px;
     background-color: #BBBBBB;
 }
@@ -1100,5 +1112,5 @@ button:hover {
     margin-top: 0;
 }
 .profile-bio textarea {
-    width: 350px;
+    width: 280px;
 }
