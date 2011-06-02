@@ -2,6 +2,11 @@
  * Client JS for home page
  */
 
+// Globals...yeah, I know.
+var imgServer = 'http://localhost:5984';
+var elasticSearchServer = 'http://localhost:9200';
+//var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects'; 
+//var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200';
 
 /**
  * ==== COMPILING THE MISSION STATEMENT ====
@@ -304,8 +309,6 @@ $(document).ready(function () {
      * Setup autocomplete search
      */
     $(document).ready(function() {
-        //var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200/projects/projects/_search';
-        var elasticSearchServer = 'http://localhost:9200/projects/projects/_search';
         
         $('#q').bind('keyup', function(ev) {
             //if($('#q').val().length > 2) {
@@ -314,7 +317,7 @@ $(document).ready(function () {
                     "query": { "wildcard": wildcard }
                 };
                 $.ajax({
-                    url: elasticSearchServer,
+                    url: elasticSearchServer+'/projects/projects/_search',
                     type: "POST",
                     dataType: "json",
                     data: JSON.stringify(postData),
@@ -339,17 +342,13 @@ $(document).ready(function () {
             // projIdentifier is a stop-gap until all the projects have slugs.
             var projIdentifier = (project._source.slug) ? project._source.slug : project._id;
             
-            // This should go somewhere else
-            //var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects';
-            var imgServer = 'http://localhost:5984/projects';
-            
             // Build the project blocks
             var ret = '';
             ret += '<div class="project_block">';
             ret += '<a href="/projects/'+projIdentifier+'">';
 
             if(project._source._attachments) {
-                ret += '<img src="'+imgServer+'/'+project._id+'/project-image" width="200" height="200" />';
+                ret += '<img src="'+imgServer+'/projects/'+project._id+'/project-image" width="200" height="200" />';
             } else {
                 ret += '<img src="/images/no-image.gif" width="200" height="200" />';
             }
