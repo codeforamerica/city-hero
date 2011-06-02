@@ -747,6 +747,7 @@ a.edit-profile-link {
 /**
  * The edit project controls
  */
+.project-edit #header,
 .profile-edit #header {
     margin-top: 50px;
 }
