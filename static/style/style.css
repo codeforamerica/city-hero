@@ -1082,3 +1082,23 @@ button:hover {
 /*    width: 85%;*/
 /*    background: grey;*/
 /*}*/
+
+/**
+ * Profile styles
+ */
+.profile-bio {
+    width: 400px;
+    float: right;
+    margin: 10px;
+    padding: 10px;
+    background-color: #BBBBBB;
+}
+.profile-bio h2 {
+    margin-bottom: 0;
+}
+.profile-bio p {
+    margin-top: 0;
+}
+.profile-bio textarea {
+    width: 350px;
+}

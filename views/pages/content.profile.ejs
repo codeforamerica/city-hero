@@ -4,12 +4,16 @@
     <% } %>
 <% } %>
 
-<% if (user.bio || editable) { %>
+<% if (user.profile_bio || editable) { %>
     <div class="profile-bio">
-        <% if (user.bio) { %>
-            <%= user.bio %>
-        <% } else { %>
-            Add a bio.
+        <% if (editable) { %><a href="#step-2" class="step-link-inline">Edit</a><% } %>
+        <h2>Bio</h2>
+        <p><%= (user.profile_bio) ? user.profile_bio : '' %></p>
+        
+        <% if (editable) { %>
+            <div class="step-editable step-2-editable">
+                <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[2].form, cancelFormWrapper: true}) %>
+            </div>
         <% } %>
     </div>
 <% } %>
@@ -18,14 +22,14 @@
     <div class="project_text">
         <div class="project_overview">
             <header>
-                <% if (editable) { %><a href="#step-5" class="step-link-inline">Edit</a><% } %>
+                <% if (editable) { %><a href="#step-4" class="step-link-inline">Edit</a><% } %>
             
                 <h1>Motto</h1>
                 <%= (user.profile_motto) ? user.profile_motto : '' %>
 
                 <% if (editable) { %>
-                    <div class="step-editable step-5-editable">
-                        <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[5].form}) %>
+                    <div class="step-editable step-4-editable">
+                        <%- partial('partials/partial.form-builder.ejs', {formBuilder: steps[4].form, cancelFormWrapper: true}) %>
                     </div>
                 <% } %>
             </header>
