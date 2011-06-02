@@ -8,6 +8,10 @@
 var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984'; 
 var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200';
 
+// Global maps containers
+var maps = {};
+
+
 /**
  * ==== COMPILING THE MISSION STATEMENT ====
  */ 
@@ -302,6 +306,9 @@ $(document).ready(function () {
                     }
                 });
             });
+            
+            // Give map to global
+            maps[geocodeMapID] = map;
         });
     });
     
