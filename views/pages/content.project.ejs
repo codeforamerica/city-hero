@@ -2,6 +2,8 @@
     <div class="project_image_box">
         <% if (project._attachments && project._attachments['project-image']) { %>
         <img class="project_image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= project._id %>/project-image" />
+        <% } else if (project.video_url) { %>
+        <iframe width="570" height="354" src="<%= project.video_url %>?rel=0" frameborder="0" allowfullscreen></iframe>
         <% } %>
     </div>
                 
