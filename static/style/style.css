@@ -1234,3 +1234,11 @@ div.project_image input {
     color: #992739;
     font-weight: bold;
 }
+
+/**
+ * JqueryUI
+ */
+
+.ui-datepicker {
+    display: none;
+}
