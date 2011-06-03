@@ -1,13 +1,55 @@
-<!-- -->
 <div class="sidebar_box sb_container">
     <div class="sidebar_box_title">Location</div>
-    <div class="sidebar_box_content">
-	    <div class="sidebar_box_image"></div>
-	    <div class="sidebar_box_text">
-            <span class="sidebar_box_name"><%= project.location %></span>
+    <div class="sidebar_box_content project-location">
+        <% if (typeof project.geometry != 'undefined' && project.geometry.coordinates[0] && project.geometry.coordinates[1]) { %>
+            <div id="project-map"></div>
+            <script>
+                (function($) {
+                    $(document).ready(function() {
+                        var lon = '<% if (typeof project.geometry != 'undefined') { %><%= project.geometry.coordinates[0] %><% } %>';
+                        var lat = '<% if (typeof project.geometry != 'undefined') { %><%= project.geometry.coordinates[1] %><% } %>';
+                        var markerShadow = new google.maps.MarkerImage(
+                            '/images/map-shadow-icon.png',
+                            new google.maps.Size(25, 25),
+                            new google.maps.Point(0, 0),
+                            new google.maps.Point(10, 34)
+                        );
+                        var markerImage = new google.maps.MarkerImage(
+                            '/images/map-icon.png',
+                            new google.maps.Size(16, 25),
+                            new google.maps.Point(0, 0),
+                            new google.maps.Point(10, 34)
+                        );
+                        
+                        // Make map
+                        var options = {
+                            zoom: 6,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                            disableDefaultUI: true
+                        };
+
+                        if (lat) {
+                            map = new google.maps.Map(document.getElementById('project-map'), options);
+
+                            var location = new google.maps.LatLng(lat, lon);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                draggable: true,
+                                icon: markerImage,
+                                shadow: markerShadow
+                            });
+                            marker.setPosition(location);
+                            map.setCenter(location);
+                            map.setZoom(9);
+                        }
+                    });
+                })(jQuery);
+            </script>
+        <% } %>        
+        
+        <div class="sidebar_box_text">
+            <div class="sidebar_box_name"><%= (project.location) ? project.location : 'No location available' %></div>
         </div>
-        <div class="sidebar_box_more_info"><a href="#" class="target-icon">Find it</a></div>
         <div class="clear"></div>
     </div>
 </div>
-
