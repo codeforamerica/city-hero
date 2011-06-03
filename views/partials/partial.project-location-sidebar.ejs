@@ -1,51 +1,78 @@
 <div class="sidebar_box sb_container">
     <div class="sidebar_box_title">Location</div>
     <div class="sidebar_box_content project-location">
-        <% if (typeof project.geometry != 'undefined' && project.geometry.coordinates[0] && project.geometry.coordinates[1]) { %>
+        <% if (typeof project.location != 'undefined') { %>
             <div id="project-map"></div>
             <script>
                 (function($) {
-                    $(document).ready(function() {
-                        var lon = '<% if (typeof project.geometry != 'undefined') { %><%= project.geometry.coordinates[0] %><% } %>';
-                        var lat = '<% if (typeof project.geometry != 'undefined') { %><%= project.geometry.coordinates[1] %><% } %>';
+                    var initMap = function(lat, lon) {
                         var markerShadow = new google.maps.MarkerImage(
-                            '/images/map-shadow-icon.png',
-                            new google.maps.Size(25, 25),
-                            new google.maps.Point(0, 0),
-                            new google.maps.Point(10, 34)
-                        );
-                        var markerImage = new google.maps.MarkerImage(
-                            '/images/map-icon.png',
-                            new google.maps.Size(16, 25),
-                            new google.maps.Point(0, 0),
-                            new google.maps.Point(10, 34)
-                        );
-                        
-                        // Make map
-                        var options = {
-                            zoom: 6,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP,
-                            disableDefaultUI: true
-                        };
+                                '/images/map-shadow-icon.png',
+                                new google.maps.Size(25, 25),
+                                new google.maps.Point(0, 0),
+                                new google.maps.Point(10, 34)
+                            ),
 
-                        if (lat) {
-                            map = new google.maps.Map(document.getElementById('project-map'), options);
+                            markerImage = new google.maps.MarkerImage(
+                                '/images/map-icon.png',
+                                new google.maps.Size(16, 25),
+                                new google.maps.Point(0, 0),
+                                new google.maps.Point(10, 34)
+                            ),
 
-                            var location = new google.maps.LatLng(lat, lon);
-                            var marker = new google.maps.Marker({
+                            options = {
+                                zoom: 6,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                disableDefaultUI: true
+                            },
+
+                            map = new google.maps.Map(document.getElementById('project-map'), options),
+
+                            location = new google.maps.LatLng(lat, lon),
+
+                            marker = new google.maps.Marker({
                                 map: map,
                                 draggable: true,
                                 icon: markerImage,
                                 shadow: markerShadow
                             });
-                            marker.setPosition(location);
-                            map.setCenter(location);
-                            map.setZoom(9);
+
+                        marker.setPosition(location);
+                        map.setCenter(location);
+                        map.setZoom(9);
+                    };
+
+                    $(document).ready(function() {
+                        var lon = '<% if (typeof project.geometry != 'undefined') { %><%= project.geometry.coordinates[0] %><% } %>',
+                            lat = '<% if (typeof project.geometry != 'undefined') { %><%= project.geometry.coordinates[1] %><% } %>',
+                            geocoder;
+
+                        if (!lat || !lon) {
+                            geocoder = new google.maps.Geocoder();
+                            geocoder.geocode( {'address': '<%= project.location %>' }, function(results, status) {
+                                var loc;
+                                if (status === 'OK') {
+                                    loc = $.map(results, function(item) {
+                                        return {
+                                            lat: item.geometry.location.lat(),
+                                            lon: item.geometry.location.lng()
+                                        }
+                                    });
+                                    
+                                    console.log(loc[0]);
+                                    
+                                    initMap(loc[0].lat, loc[0].lon);
+                                } else {
+                                    $('#project-map').hide();
+                                }
+                            });
+                        } else {
+                            initMap(lat, lon);
                         }
                     });
                 })(jQuery);
             </script>
-        <% } %>        
+        <% } %>
         
         <div class="sidebar_box_text">
             <div class="sidebar_box_name"><%= (project.location) ? project.location : 'No location available' %></div>
