@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/style/reset.css" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" href="/style/style.css" />
+    <% if (alphaPopup != 'undefined') { %>
+        <link rel="stylesheet" href="/js/libs/fancybox/jquery.fancybox-1.3.4.css" />
+    <% } %>
 </head>
 
 <body class="<%= bodyClasses.join(' ') %>">
@@ -119,13 +122,64 @@
             <a href="http://codeforamerica.org" class="footer-logo"><img src="/images/cfa-full-logo.png"></img></a>
         </div>
         
+        <% if (alphaPopup != 'undefined') { %>
+            <a id="open-alpha-popup" class="alpha-popup" href="#alpha-popup-container" title="This is alpha!"></a>
+            <div id="alpha-popup-container" class="alpha-popup">
+                <h3>This site is Alpha!</h3>
+                <p>What does that mean?  It means that we are working very hard to make this site awesome!  And there may be parts that might not function correctly and things may change frequently.  It also means that data may not be accurate.</p>
+                <p>We invite you to test out City Hero and kick the tires, but please <strong>be patient with us</strong> if the car breaks down.  Feel free to use the <strong>Feedback button</strong> on the left to let us know about ideas, issues, or comments you have.</p>
+                
+                <a href="http://codeforamerica.org" class="footer-logo"><img src="/images/cfa-full-logo.png" width="100px"></img></a>
+            </div>
+        <% } %>
+        
         <!-- Scripts -->
         <script type="text/javascript" src="/js/libs/jquery-ui-1.8.13.custom.min.js"></script>
         <script type="text/javascript" src="/js/libs/json2.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=US"></script> 
         
+        <% if (alphaPopup != 'undefined') { %>
+            <script type="text/javascript" src="/js/libs/fancybox/jquery.easing-1.3.pack.js"></script>
+            <script type="text/javascript" src="/js/libs/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+            <script type="text/javascript" src="/js/libs/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+            <script>
+                (function($) {
+                    $(document).ready(function() {
+                            // Check cookies
+                            if (cookieHandler.getCookie('alpha_popup') != 'true') {
+                                $('#open-alpha-popup').fancybox({
+                                    'type': 'inline'
+                                }).click();
+                                cookieHandler.setCookie('alpha_popup', 'true', 7);   
+                            }
+                        });
+                })(jQuery);
+            </script>
+        <% } %>
+        
         <% for (scriptIndex in scripts) { %>
             <script type="text/javascript" src="<%- scripts[scriptIndex] %>"></script>
+        <% } %>
+        
+        <% if (typeof feedback != 'undefined') { %>
+            <script type="text/javascript" charset="utf-8">
+                var is_ssl = ("https:" == document.location.protocol);
+                var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+                document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+                
+            <script type="text/javascript" charset="utf-8">
+                var feedback_widget_options = {};
+                
+                feedback_widget_options.display = "overlay";  
+                feedback_widget_options.company = "code_for_america";
+                feedback_widget_options.placement = "left";
+                feedback_widget_options.color = "#222";
+                feedback_widget_options.style = "idea";
+                feedback_widget_options.product = "code_for_america_city_hero";
+                feedback_widget_options.limit = "3";
+                var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+            </script>
         <% } %>
     </div>
     

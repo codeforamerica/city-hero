@@ -377,14 +377,31 @@ $(document).ready(function () {
         $('.messages-wrapper').effect("highlight", {}, 700);
         $('.messages-wrapper').delay(5000).fadeOut(1000);
     });
-    
-    /**
-     * Development mode for links
-     */
-    $(document).ready(function() {
-/*        $('a[href="#"]').click(function() {
-            alert('Coming soon!  (No more # links)');
-            return false;
-        });*/
-    });
 })(jQuery);
+
+/**
+ * Cook handling
+ */
+var cookieHandler = cookieHandler || {};
+cookieHandler.setCookie = function(name, value, days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+cookieHandler.getCookie = function(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+cookieHandler.deleteCookie = function(name) {
+    setCookie(name, "" , -1);
+}

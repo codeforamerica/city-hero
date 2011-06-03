@@ -1236,6 +1236,28 @@ div.project_image input {
 }
 
 /**
+ * Alpha popup
+ */
+.wrapper .alpha-popup {
+    display: none;
+}
+#alpha-popup-container {
+    width: 400px;
+    height: 230px;
+}
+#alpha-popup-container h3 {
+    color: #992739;
+    font-size: 3.2em;
+    font-weight: bold;
+    line-height: 100%;
+    text-transform: uppercase;
+}
+#alpha-popup-container img {
+    float: right;
+    padding-top: 10px;
+}
+
+/**
  * JqueryUI
  */
 
