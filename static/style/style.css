@@ -1256,3 +1256,11 @@ div.project_image input {
     float: right;
     padding-top: 10px;
 }
+
+/**
+ * JqueryUI
+ */
+
+.ui-datepicker {
+    display: none;
+}
