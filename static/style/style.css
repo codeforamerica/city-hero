@@ -792,7 +792,7 @@ a.edit-profile-link {
 .button-floater input, 
 .button-floater a.edit-project-link, 
 .button-floater a.edit-profile-link {
-    padding: 4px 0 0 0;
+    padding: 2px 0 2px 0;
     margin: 0 10px 0 0;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -804,6 +804,7 @@ a.edit-profile-link {
     background-color: #96A044;
     border: 1px solid #ccc;
     width: 170px;
+    font-family: 'Lucida Grande';
 }
 .button-floater input {
     height: 26px;
