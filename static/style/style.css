@@ -509,6 +509,12 @@ a#title  {
     margin-right: 0.5em;
 }
 
+.project-creator .sidebar_box_text {
+    float: right;
+    width: 150px;
+    text-align: right;
+}
+
 /**
  * Footer 
  */
