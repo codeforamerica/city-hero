@@ -47,13 +47,29 @@
     </div>
 <% } %>
 
-<div class="projects-owned">
-    <h3>Projects Owned</h3>
-</div>
+<% if (typeof projectsOwned == 'object') { %>
+    <div class="projects-owned clearfix">
+        <h3>Projects Owned</h3>
+        <% for (var i in projectsOwned) { %>
+            <div class="project_block">
+                <a href="/projects/<%= projectsOwned[i].value.slug %>">
+                    <% if (typeof projectsOwned[i].value._attachments != 'undefined') { %>
+                        <img src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= projectsOwned[i].value._id %>project-image" width="200" height="200" />
+                    <% } else { %>
+                        <img src="/images/no-image.gif" width="200" height="200" />
+                    <% } %>
+                    <span class="project_block_title"><%= projectsOwned[i].value.title %></span>
+                </a>
+            </div>
+        <% } %>
+    </div>
+<% } %>
 
-<div class="projects-suggested">
-    <h3>Suggested Projects</h3>
-</div>
+<% if (typeof projectsSuggested == 'object') { %>
+    <div class="projects-suggested">
+        <h3>Suggested Projects</h3>        
+    </div>
+<% } %>
 
 <% if (typeof editable != 'undefined' && editable) { %>
     <div class="button-floater">

@@ -1196,3 +1196,11 @@ button:hover {
     margin-top: 5px;
     text-align: right;
 }
+.projects-owned {
+    margin: 5px;
+}
+.projects-owned h3 {
+    text-transform: uppercase;
+    color: #992739;
+    font-weight: bold;
+}
