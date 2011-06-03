@@ -382,16 +382,6 @@ $(document).ready(function () {
         $('.messages-wrapper').effect("highlight", {}, 700);
         $('.messages-wrapper').delay(5000).fadeOut(1000);
     });
-    
-    /**
-     * Development mode for links
-     */
-    $(document).ready(function() {
-        $('a[href="#"]').click(function() {
-            alert('Coming soon!  (No more # links)');
-            return false;
-        });
-    });
 })(jQuery);
 
 /**
