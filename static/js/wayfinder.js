@@ -43,7 +43,7 @@ wayfinder.projectPage = {
  * ==== ADD MEDIA ====
  */
 
-wayfinder.projectPage.showMediaTip = function () {
+wayfinder.projectPage.toggleMediaTip = function () {
     $('div.project_image').slideToggle(function () {
         if ($('div.project_image').css('display') !== 'none') {
             wayfinder.projectPage.showTip('.project_image-wizard-tip', true);
@@ -52,3 +52,7 @@ wayfinder.projectPage.showMediaTip = function () {
         }
     });
 }
+
+$(document).ready(function () {
+    $('.project_image_action_cancel').click(wayfinder.projectPage.toggleMediaTip);
+});
