@@ -6,11 +6,26 @@
     <div class="project_image_box">
         <% if (project._attachments && project._attachments['project-image']) { %>
         <img class="project_image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= project._id %>/project-image" />
+        <% } else if (project.youtube_id) { %>
+        <iframe width="570" height="354" src="http://www.youtube.com/embed/<%= project.youtube_id %>?rel=0" frameborder="0" allowfullscreen></iframe>
         <% } else { %>
-        <div class="project_image-wizard-tip in-place-wizard-tip">
-            <p>A picture is much more likely to draw interest from potential supporters than a text-only project page, and a video is even more effective.</p>
-            
-            <p>Think about what image would represent your project well.  You can use a service like <a href="http://pixlr.com/">Pixlr.com</a> or <a href="http://www.aviary.com/">Aviary.com</a> to edit that image. Your picture should be about 600 by 400 pixels in size and less than 100kb.</p>
+        <div class="project_image-wizard-tip wizard-field-tip wizard-tip">
+            <h1>Add an Image</h1>
+            <p>A picture is much more likely to draw interest from potential
+               supporters than a text-only project page, and a video is even
+               more effective.</p>
+            <ul>
+                <li>Think about what image would represent your project well.</li>
+                <li>You can use a service like <a href="http://pixlr.com/">Pixlr.com</a> or <a href="http://www.aviary.com/">Aviary.com</a> to edit that image.</li>
+                <li>Your picture should be about 600 by 400 pixels in size and less than 100kb.</li>
+            </ul>
+            <p>If video is your thing then try to get your message to be no more
+               than 30 seconds long. Upload it to <a
+               href="http://www.youtube.com/">YouTube</a> and paste the link
+               below.</p>
+        </div>
+        
+        <div class="project_image" id="project_image">
             <div class="field project_image_field">
                 <div class="label-wrapper">
                     <label for="project_image_field">Image</label>
@@ -19,14 +34,15 @@
                 <input type="file" class="textfield" name="project-image" />
             </div>
             
-            <p>If video is your thing then try to get your message to be no more than 30 seconds long.  Upload it to <a href="http://www.youtube.com/">YouTube</a> and paste the link below.</p>
             <div class="field project_video_field">
                 <div class="label-wrapper">
                     <label for="project_video_field">Video</label>
                     <!--span class="form-item-help">What you are going to do</span-->
                 </div>
-                <input type="text" class="textfield" name="project-video" id="project_video_field" />
+                <input type="text" class="textfield" name="video_url" id="project_video_field" />
             </div>
+            
+            <div class="action action_cancel project_image_action_cancel">Not what you want?<button type="button">Cancel</button></div>
         </div>
         <% } %>
     </div>
