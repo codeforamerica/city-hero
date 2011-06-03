@@ -1,6 +1,6 @@
 This is the main README for the City Hero thing (known as ET below).
 
-## What is this?
+## What is this? 
 
 City Hero is a site that makes the world a better place.
 
