@@ -3,8 +3,8 @@
  */
 
 // Globals...yeah, I know.
-//gvar imgServer = 'http://localhost:5984';
-//var elasticSearchServer = 'http://localhost:9200';
+var imgServer = 'http://localhost:5984';
+var elasticSearchServer = 'http://localhost:9200';
 var imgServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:5984'; 
 var elasticSearchServer = 'http://ec2-184-73-122-209.compute-1.amazonaws.com:9200';
 
@@ -328,6 +328,7 @@ $(document).ready(function () {
             //if($('#q').val().length > 2) {
                 var wildcard = { "_all": "*"+$('#q').val()+"*" };
                 var postData = {
+                    "from" : 0, "size" : 20,
                     "query": { "wildcard": wildcard }
                 };
                 $.ajax({
