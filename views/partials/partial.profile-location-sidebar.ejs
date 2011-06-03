@@ -3,8 +3,8 @@
     <div class="sidebar_box_content clearfix profile-location">
     
         <% if (typeof user.profile_location != 'undefined') { %>
-    	    <div id="profile-map"></div>
-    	    <script>
+            <div id="profile-map"></div>
+            <script>
                 (function($) {
                     $(document).ready(function() {
                         var lon = '<% if (typeof user.geometry != 'undefined') { %><%= user.geometry.coordinates[0] %><% } %>';
@@ -45,8 +45,8 @@
                 })(jQuery);
             </script>
         <% } %>
-	    
-	    <div class="sidebar_box_text">
+        
+        <div class="sidebar_box_text">
             <% if (editable) { %><a href="#step-3" class="step-link-inline">Edit</a><% } %>
 
             <div class="sidebar_box_name"><%= (user.profile_location) ? user.profile_location : 'No location available.' %></div>

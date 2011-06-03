@@ -471,6 +471,16 @@ a#title  {
     margin-bottom: 1em;
 }
 
+.project-location #project-map {
+    width: auto;
+    height: 120px;
+}
+
+.project-location .sidebar_box_name {
+    margin-top: 5px;
+    text-align: right;
+}
+
 .helpful_questions li,
 .project_ingredients li {
     line-height: 1.7em;

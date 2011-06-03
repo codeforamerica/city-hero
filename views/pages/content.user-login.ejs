@@ -15,6 +15,7 @@
     </div>
     
     <div class="form-item-wrapper form-submit-wrapper">
+        <input type="hidden" name="login-nexturl" value="<%- session.nextUrl %>" />
         <input class="submit" type="submit" name="login-submit" id="login-submit" value="Login" />
     </div>
     <a href="/auth/facebook/">Login with Facebook</a>
