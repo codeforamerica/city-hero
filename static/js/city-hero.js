@@ -158,11 +158,6 @@ function initFieldWizardTips() {
  */
 
 $(document).ready(function () {
-    $('div.project_image').slideUp(0);
-    $('#wayfinder_add_media').click(function () {
-//        wayfinder.projectPage.showMediaTip();
-        return false;
-    });
 });
 
 /**
@@ -387,9 +382,9 @@ $(document).ready(function () {
      * Development mode for links
      */
     $(document).ready(function() {
-        $('a[href="#"]').click(function() {
+/*        $('a[href="#"]').click(function() {
             alert('Coming soon!  (No more # links)');
             return false;
-        });
+        });*/
     });
 })(jQuery);
