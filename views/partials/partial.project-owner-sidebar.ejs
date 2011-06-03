@@ -1,15 +1,16 @@
 <!-- -->
 <div class="sidebar_box sb_container">
     <div class="sidebar_box_title">Organizer</div>
-    <div class="sidebar_box_content">
+    <div class="sidebar_box_content project-creator">
 
-<% if (project.owner) { %>
-	    <div class="sidebar_box_image"></div>
+    <% if (project.owner) { %>
 	    <div class="sidebar_box_text">
-            <span class="sidebar_box_name"><%= project.owner.name %></span>
-            <!-- I've lived here for 14 years now and no amount of roundhouse kicks have been able to clean this place up... -->
+            <span class="sidebar_box_name"><%= project.owner.username %></span>
         </div>
-        <div class="sidebar_box_more_info"><a href="#" class="arrow-icon">Full Bio</a></div>
+	    <% if (project.owner._attachments) { %>
+	       <a href="/profile/<%= project.owner.username %>"><img width="100px" class="profile-image" src="http://<%= auth.db.host %>:<%= auth.db.port %>/users/<%= project.owner._id %>/profile_image" /></a>
+	   <% } %>
+        <div class="sidebar_box_more_info"><a href="/profile/<%= project.owner.username %>" class="arrow-icon">Full Bio</a></div>
         <div class="clear"></div>
 <% } else { %>
         <p class="no_owner_call_to_action">This project currently has no owner. If this sounds like something
