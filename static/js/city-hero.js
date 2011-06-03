@@ -158,11 +158,6 @@ function initFieldWizardTips() {
  */
 
 $(document).ready(function () {
-    $('div.project_image').slideUp(0);
-    $('#wayfinder_add_media').click(function () {
-//        wayfinder.projectPage.showMediaTip();
-        return false;
-    });
 });
 
 /**
@@ -382,16 +377,6 @@ $(document).ready(function () {
     $(document).ready(function() {
         $('.messages-wrapper').effect("highlight", {}, 700);
         $('.messages-wrapper').delay(5000).fadeOut(1000);
-    });
-    
-    /**
-     * Development mode for links
-     */
-    $(document).ready(function() {
-        $('a[href="#"]').click(function() {
-            alert('Coming soon!  (No more # links)');
-            return false;
-        });
     });
 })(jQuery);
 
