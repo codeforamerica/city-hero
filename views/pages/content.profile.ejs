@@ -54,7 +54,7 @@
             <div class="project_block">
                 <a href="/projects/<%= projectsOwned[i].value.slug %>">
                     <% if (typeof projectsOwned[i].value._attachments != 'undefined') { %>
-                        <img src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= projectsOwned[i].value._id %>project-image" width="200" height="200" />
+                        <img src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= projectsOwned[i].value._id %>/project-image" width="200" height="200" />
                     <% } else { %>
                         <img src="/images/no-image.gif" width="200" height="200" />
                     <% } %>
@@ -65,9 +65,21 @@
     </div>
 <% } %>
 
-<% if (typeof projectsSuggested == 'object') { %>
-    <div class="projects-suggested">
-        <h3>Suggested Projects</h3>        
+<% if (typeof projectsSupported == 'object') { %>
+    <div class="projects-supported clearfix">
+        <h3>Supported Projects</h3>  
+        <% for (var i in projectsSupported) { %>
+            <div class="project_block">
+                <a href="/projects/<%= projectsSupported[i].value.slug %>">
+                    <% if (typeof projectsSupported[i].value._attachments != 'undefined') { %>
+                        <img src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= projectsSupported[i].value._id %>/project-image" width="200" height="200" />
+                    <% } else { %>
+                        <img src="/images/no-image.gif" width="200" height="200" />
+                    <% } %>
+                    <span class="project_block_title"><%= projectsSupported[i].value.title %></span>
+                </a>
+            </div>
+        <% } %>      
     </div>
 <% } %>
 
