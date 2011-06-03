@@ -885,12 +885,15 @@ a.edit-profile-link {
     -webkit-border-image: url(/images/wizard-field-tip-border.png) 29 4 9 15 stretch;
 }
 
+.wizard-general-tip-border,
 .wizard-general-tip {
+    border-width: 29px 4px 9px 15px;
     border-image: url(/images/wizard-general-tip-border.png) 29 4 9 15 stretch;
     -moz-border-image: url(/images/wizard-general-tip-border.png) 29 4 9 15 stretch;
     -webkit-border-image: url(/images/wizard-general-tip-border.png) 29 4 9 15 stretch;
 }
 
+.wizard-general-tip-border > h1,
 .wizard-tip > h1,
 .in-place-wizard-tip > h1 {
     margin: 0px;
@@ -1116,34 +1119,42 @@ button:hover {
     cursor: pointer;
 }
 
-.project_image-wizard-tip {
+div.project_image {
     /*display: none;*/
     
-    border: 5px dashed black;
+    border: 5px solid black;
     height: 320px;
+    width: auto;
+    text-align: center;
 }
 
-.project_image-wizard-tip .field {
-    margin-left: 1em;
+.project_image_field,
+.project_video_field {
+    height: 120px;
+}
+
+.project_image_field {
+    border-bottom: 1px solid black;
+}
+
+div.project_image .field {
+    line-height: 120px;
+    margin: 0em 3em;
+}
+
+div.project_image .label-wrapper {
+    display: inline;
 }
 
 .textfield[type="file"] {
     padding: 5px;
 }
 
-.project_image-wizard-tip .label-wrapper,
-.project_image-wizard-tip input {
+div.project_image .label-wrapper,
+div.project_image input {
     margin-top: 2px;
     margin-bottom: 2px;
 }
-
-/*.project_image-wizard-tip > .field > label {*/
-/*    width: 15%;*/
-/*}*/
-/*.project_image-wizard-tip > .field > input {*/
-/*    width: 85%;*/
-/*    background: grey;*/
-/*}*/
 
 /**
  * Profile styles

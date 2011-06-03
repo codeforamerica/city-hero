@@ -6,17 +6,20 @@ var wayfinder = {}
 wayfinder.projectPage = {
     hideSideContent : function () {
         var sideContent = $('#sidebar');
-        sideContent.css('visibility', 'hidden');
+//        sideContent.css('visibility', 'hidden');
+        sideContent.fadeOut();
     },
     
     showSideContent : function () {
         var sideContent = $('#sidebar');
-        sideContent.css('visibility', 'visible');
+//        sideContent.css('visibility', 'visible');
+        sideContent.fadeIn();
     },
     
     hideTips : function () {
         var tips = $('.wizard-tip');
-        tips.hide();
+//        tips.hide();
+        tips.fadeOut();
         this.showSideContent();
     },
     
@@ -26,7 +29,8 @@ wayfinder.projectPage = {
         }
         
         $(selector).css('display', 'block');
-        $(selector).slideDown({duration:'slow'});
+//        $(selector).slideDown();
+        $(selector).fadeIn();
     },
     
     addPhotograph : function () {
@@ -40,6 +44,11 @@ wayfinder.projectPage = {
  */
 
 wayfinder.projectPage.showMediaTip = function () {
-    this.showTip('.project_image-wizard-tip', false);
-    
+    $('div.project_image').slideToggle(function () {
+        if ($('div.project_image').css('display') !== 'none') {
+            wayfinder.projectPage.showTip('.project_image-wizard-tip', true);
+        } else {
+            wayfinder.projectPage.hideTips();
+        }
+    });
 }

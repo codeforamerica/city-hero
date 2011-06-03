@@ -158,7 +158,7 @@ function initFieldWizardTips() {
  */
 
 $(document).ready(function () {
-//    $('.in-place-wizard-tip').slideUp(0);
+    $('div.project_image').slideUp(0);
     $('#wayfinder_add_media').click(function () {
 //        wayfinder.projectPage.showMediaTip();
         return false;
