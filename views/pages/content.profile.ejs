@@ -55,6 +55,8 @@
                 <a href="/projects/<%= projectsOwned[i].value.slug %>">
                     <% if (typeof projectsOwned[i].value._attachments != 'undefined') { %>
                         <img src="http://<%= auth.db.host %>:<%= auth.db.port %>/projects/<%= projectsOwned[i].value._id %>/project-image" width="200" height="200" />
+                    <% } else if (projectsOwned[i].value.youtube_id) { %>
+                        <img width="200" height="200" src="http://img.youtube.com/vi/<%= projectsOwned[i].value.youtube_id %>/default.jpg" frameborder="0" allowfullscreen></iframe>
                     <% } else { %>
                         <img src="/images/no-image.gif" width="200" height="200" />
                     <% } %>

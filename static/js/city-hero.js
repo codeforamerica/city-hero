@@ -363,6 +363,8 @@ $(document).ready(function () {
 
             if(project._source._attachments) {
                 ret += '<img src="'+imgServer+'/projects/'+project._id+'/project-image" width="200" height="200" />';
+            } else if (project._source.youtube_id) {
+                ret += '<img width="200" height="200" src="http://img.youtube.com/vi/' + project._source.youtube_id + '/default.jpg" />';
             } else {
                 ret += '<img src="/images/no-image.gif" width="200" height="200" />';
             }
