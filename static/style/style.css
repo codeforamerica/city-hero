@@ -309,61 +309,35 @@ a#title  {
 /**
  * Home page styles
  */
-.project_create {
-    width: 380px;
-    float: left;
+.about-site {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #CCCCCC;
 }
-
-.project_create a {
-    width: 225px;
+a.create-project {
+    width: 240px;
     display: block;
     background-color: #96A044;
     color: #FFFFFF;
-    font-size: 2.5em;
-    margin: 0 10px 0 0;
-    padding: 5px 27px;
+    font-size: 1.8em;
+    margin: 0 10px 0 20px;
+    padding: 5px;
+    text-align: center;
     height: 50px;
     line-height: 50px;
-    float: left;
-}
-
-.project_create .home-or {
-    float: right;
-    width: 50px;
-    font-size: 1.8em;
     text-transform: uppercase;
-    line-height: 50px;
-    padding: 5px;
-    display: none;
+    float: right;
 }
 
-.about-site {
-    display: none;
+.about-site h3 {
+    font-size: 4em;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-.home .about-site {
-    display: block;
-    background-color: #EEEEEE;
-    border: 2px solid #999999;
-    border-top: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top: none;
-    margin-top: -20px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-.home .about-site h2 {
-    font-size: 2em;
-}
-.home .about-site a.manage-about {
-    display: block;
-    float: right;
-    width: 100px;
-    border: 1px solid #999999;
-    padding: 5px;
-    background-color: #EEEEEE;
-    border-radius: 5px;
-    text-align: center;
+.about-site p {
+    font-size: 1.2em;
+    margin-top: 0;
+    text-align: justify;
 }
 
 /**
@@ -1073,19 +1047,26 @@ a.edit-profile-link {
  *  Search form styles
  */
 .search_form {
-    width: 400px;
-    float: right;
-    margin-left: 15px;
-    margin-bottom: 1.5em;
+    margin-bottom: 30px;
 }
 form input#q  {
-    width: 200px;
+    width: 780px;
     border: none;
     background-color: #AAAAAA;
     color: #FFFFFF;
     font-size: 2.75em;
     padding: 10px;
     margin-bottom: 15px
+    float: left;
+    height: 50px;
+}
+
+form input#q.focused {
+    color: #FFFFFF;
+}
+
+form input#q {
+    color: #888888;
 }
 
 form input.search_btn {
@@ -1095,11 +1076,17 @@ form input.search_btn {
     color: #FFFFFF;
     border: none;
     text-transform: uppercase;
+    float: right;
+    width: 50px;
 }
 
 .search_results {
     margin-left: 8px;
 }
+
+/**
+ * Search results
+ */
 div.project_block {
     float: left;
     width: 200px;

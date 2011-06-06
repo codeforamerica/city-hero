@@ -1,15 +1,18 @@
 <div class="project_description">
     <div class="home-input-container clearfix">
-        <div class="project_create">
-            <a href="/national-night-out/create-project">Create a project.</a>
-            <div class="home-or">
-                Or
-            </div>
+        <div class="about-site">
+            <h3>Local leaders solving local problems.</h3>
+            <a href="/national-night-out/create-project" class="create-project">Create a project</a>
+        
+            <p>City Hero is a place for community members to come and leverage technology to accomplish their goals.  Create a project to get started or search for existing projects you may be interested in.  We are currently focusing on <strong>National Night Out</strong> projects as we move forward.</p>
         </div>
         
-        <div class="search_form">
+
+        
+        <div class="search_form clearfix">
             <form name="searchForm" action="search">
-            <input type="text" name="q" id="q" value="<%= searchQuery %>" /><input type="submit" class="search_btn" value="Search" />
+                <input type="text" name="q" id="q" value="<%= searchQuery %>" title="Search projects" <% if (searchQuery) { %>class="focused"<% } %> />
+                <input type="image" src="/images/search_icon-50.png" class="search_btn" value="Search" alt="Search" />
             </form>
         </div>
     </div>
