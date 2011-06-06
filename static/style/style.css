@@ -1249,7 +1249,7 @@ div.project_image input {
     width: 400px;
     height: 230px;
 }
-#alpha-popup-container h3 {
+#alpha-popup-container h3, .guidance-popup h3 {
     color: #992739;
     font-size: 3.2em;
     font-weight: bold;
@@ -1260,6 +1260,9 @@ div.project_image input {
     float: right;
     padding-top: 10px;
 }
+
+.guidance-popup h3 { font-size: 2.5em; }
+.guidance-popup p { font-size: 1.2em; }
 
 /**
  * JqueryUI
