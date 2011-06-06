@@ -234,7 +234,8 @@ a#title  {
 }
 
 .sidebar_box .supporters_fix {
-    right: 30px;
+    position: static;
+    float: right;
 }
 
 .arrow-icon {
@@ -1320,3 +1321,5 @@ div.project_image input {
 .ui-datepicker {
     display: none;
 }
+
+.small-avatar { width: 40px; height: 40px; margin-right: 5px; }
