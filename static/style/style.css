@@ -957,6 +957,10 @@ a.edit-profile-link {
     padding-top: 2em;
 }
 
+#project-mission {
+    height: 12em;
+}
+
 .project-mission-step-by-step-section {
     display: none;
     border-top: none !important;
