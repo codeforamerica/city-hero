@@ -1,12 +1,22 @@
 <div class="project_description">
-    <div class="search_form">
-        <form name="searchForm" action="search">
-        <input type="text" name="q" id="q" value="<%= searchQuery %>" /><input type="submit" class="search_btn" value="Search" />
-        </form>
-        <a href="/national-night-out/create-project">Create and manage a project.</a>  
+    <div class="home-input-container clearfix">
+        <div class="project_create">
+            <a href="/national-night-out/create-project">Create a project.</a>
+            <div class="home-or">
+                Or
+            </div>
+        </div>
+        
+        <div class="search_form">
+            <form name="searchForm" action="search">
+            <input type="text" name="q" id="q" value="<%= searchQuery %>" /><input type="submit" class="search_btn" value="Search" />
+            </form>
+        </div>
     </div>
+    
     <div id="searchResults">
     </div>
+    
     <div class="project_text">
     </div>
 </div>

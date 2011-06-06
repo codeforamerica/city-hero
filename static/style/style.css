@@ -307,6 +307,50 @@ a#title  {
 }
 
 /**
+ * Home page styles
+ */
+.project_create {
+    width: 380px;
+    float: left;
+}
+
+.project_create a {
+    width: 225px;
+    display: block;
+    background-color: #96A044;
+    color: #FFFFFF;
+    font-size: 2.5em;
+    margin: 0 10px 0 0;
+    padding: 5px 27px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+}
+
+.project_create .home-or {
+    float: right;
+    width: 50px;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    line-height: 50px;
+    padding: 5px;
+    display: none;
+}
+
+.about-site {
+    display: none;
+}
+.home .about-site {
+    display: block;
+    background-color: #BBBBBB;
+    border: 2px solid #222222;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: -10px;
+}
+
+/**
  * Custom supporter sidebar box 
  */
 .supporter_image {
@@ -1012,8 +1056,14 @@ a.edit-profile-link {
 /**
  *  Search form styles
  */
+.search_form {
+    width: 400px;
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 1.5em;
+}
 form input#q  {
-    width: 680px;
+    width: 200px;
     border: none;
     background-color: #AAAAAA;
     color: #FFFFFF;
@@ -1029,10 +1079,6 @@ form input.search_btn {
     color: #FFFFFF;
     border: none;
     text-transform: uppercase;
-}
-.search_form {
-    margin-left: 15px;
-    margin-bottom: 1.5em;
 }
 
 .search_results {
