@@ -6,19 +6,16 @@ var wayfinder = {}
 wayfinder.projectPage = {
     hideSideContent : function () {
         var sideContent = $('#sidebar');
-//        sideContent.css('visibility', 'hidden');
         sideContent.fadeOut();
     },
     
     showSideContent : function () {
         var sideContent = $('#sidebar');
-//        sideContent.css('visibility', 'visible');
         sideContent.fadeIn();
     },
     
     hideTips : function () {
         var tips = $('.wizard-tip');
-//        tips.hide();
         tips.fadeOut();
         this.showSideContent();
     },
@@ -29,12 +26,7 @@ wayfinder.projectPage = {
         }
         
         $(selector).css('display', 'block');
-//        $(selector).slideDown();
         $(selector).fadeIn();
-    },
-    
-    addPhotograph : function () {
-        this.hideSideContent();
     }
 }
 
@@ -53,6 +45,16 @@ wayfinder.projectPage.toggleMediaTip = function () {
     });
     return false;
 }
+
+/**
+ * ==== CHANGE THE DATE ====
+ */
+
+wayfinder.projectPage.toggleDeadlineEdit = function () {
+    $('[name="project-deadline-formatted"]').focus();
+    return false;
+}
+
 
 $(document).ready(function () {
     $('div.project_image').slideUp(0);
