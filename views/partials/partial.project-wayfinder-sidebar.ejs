@@ -11,7 +11,7 @@
                     $(document).ready(function() {
                       $('#wayfinder_<%= project.tasks[i].name %>').click(function (evt) {
                         <% if (!project.tasks[i].completed()) { %>
-                          <%- partial(project.tasks[i].action) %>
+                          <%- partial(project.tasks[i].action, {task: project.tasks[i]}) %>
                         <% } %>
                         return false;
                       });
