@@ -342,12 +342,28 @@ a#title  {
 }
 .home .about-site {
     display: block;
-    background-color: #BBBBBB;
-    border: 2px solid #222222;
+    background-color: #EEEEEE;
+    border: 2px solid #999999;
     border-top: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    border-top: -10px;
+    border-top: none;
+    margin-top: -20px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.home .about-site h2 {
+    font-size: 2em;
+}
+.home .about-site a.manage-about {
+    display: block;
+    float: right;
+    width: 100px;
+    border: 1px solid #999999;
+    padding: 5px;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    text-align: center;
 }
 
 /**

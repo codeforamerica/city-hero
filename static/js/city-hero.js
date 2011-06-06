@@ -378,6 +378,23 @@ $(document).ready(function () {
         $('.messages-wrapper').effect("highlight", {}, 700);
         $('.messages-wrapper').delay(5000).fadeOut(1000);
     });
+
+    /**
+     * About handler
+     */
+    $(document).ready(function() {
+        $('.about-site a.manage-about').click(function() {
+            var $about = $('.about-site');
+            if ($about.css('display') == 'block') {
+                $about.slideUp('slow');
+                $about.toggleClass('closed');
+            }
+            else {
+                $about.slideUp('slow');
+                $about.toggleClass('closed');
+            }
+        });
+    });
 })(jQuery);
 
 /**
