@@ -2,11 +2,15 @@
 <div class="sidebar_box sb_container">
     <div class="sidebar_box_title">Supporters</div>
     <div class="sidebar_box_content">
-        <% for (sidx in project.supporters_details) { %>
-            <div class="supporter_image"><a href="/profile/<%= project.supporters_details[sidx].doc.username %>"><img class="small-avatar" src="http://<%= auth.db.host %>:<%= auth.db.port %>/users/<%= project.supporters_details[sidx].doc._id %>/profile_image"></a></div>
+        <% if(project.supporters_details && project.supporters_details.length > 0) { %>
+            <% for (sidx in project.supporters_details) { %>
+                <div class="supporter_image"><a href="/profile/<%= project.supporters_details[sidx].doc.username %>"><img class="small-avatar" src="http://<%= auth.db.host %>:<%= auth.db.port %>/users/<%= project.supporters_details[sidx].doc._id %>/profile_image"></a></div>
+            <% } %>
+        <% } else { %>
+            <p>This project has no supporters yet :(</p>
         <% } %>
         <div class="clear"></div>
-        <div class="sidebar_box_more_info supporters_fix"><a href="#" class="arrow-icon">Full List</a></div>
+        <!--div class="sidebar_box_more_info supporters_fix"><a href="#" class="arrow-icon">Full List</a></div-->
         <div class="clear"></div>
     </div>
 </div>
