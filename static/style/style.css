@@ -26,6 +26,9 @@ a:hover, a:active {
     color:#96a044;
     text-decoration:underline;
 }
+.project_block a:hover, .project_block a:active {
+	text-decoration:none;
+	}
 
 .right { float:right; }
 .left { float:left; }
