@@ -195,7 +195,7 @@ $(document).ready(function () {
                     var delta = 240;
                     var move_to = parseInt($('#slide-list').css('marginLeft'));
                     move_to = (dir === 'left') ? move_to - delta : move_to + delta;
-                    console.log(move_to);
+                    //console.log(move_to);
                 
                     $('#slide-list').animate(
                         { marginLeft: move_to+'px'}, 
@@ -311,7 +311,31 @@ $(document).ready(function () {
      * If there is a search box in the page, give it the focus.
      */
     $(document).ready(function() {
-        $('#q').focus();
+        // $('#q').focus();
+    });
+
+    /**
+     * Search input labeler
+     */
+    $(document).ready(function() {
+        $('.search_form input[title]').each(function() {
+            $thisInput = $(this);
+            if ($thisInput.val() == '') {
+                $thisInput.val($thisInput.attr('title'));
+            }
+        
+            $thisInput.focus(function() {
+                if ($(this).val() === $(this).attr('title')) {
+                    $(this).val('').addClass('focused');
+                }
+            });
+        
+            $thisInput.blur(function() {
+                if ($(this).val() === '') {
+                    $(this).val($(this).attr('title')).removeClass('focused');
+                }
+            });
+        });
     });
     
     /**
@@ -320,30 +344,31 @@ $(document).ready(function () {
     $(document).ready(function() {
         
         $('#q').bind('keyup', function(ev) {
-            //if($('#q').val().length > 2) {
-                var wildcard = { "_all": "*"+$('#q').val()+"*" };
-                var postData = {
-                    "from" : 0, "size" : 20,
-                    "query": { "wildcard": wildcard }
-                };
-                $.ajax({
-                    url: elasticSearchServer+'/projects/projects/_search',
-                    type: "POST",
-                    dataType: "json",
-                    data: JSON.stringify(postData),
-                    success: function(data) {
-                        var resultsHtml = '';
+            var specialSearch = $('.search_form input[title]').attr('title');
+            var searchString = ($('#q').val() == specialSearch) ? '' : $('#q').val();
+            
+            var wildcard = { "_all": "*"+ searchString +"*" };
+            var postData = {
+                "from" : 0, "size" : 20,
+                "query": { "wildcard": wildcard }
+            };
+            $.ajax({
+                url: elasticSearchServer+'/projects/projects/_search',
+                type: "POST",
+                dataType: "json",
+                data: JSON.stringify(postData),
+                success: function(data) {
+                    var resultsHtml = '';
 
-                        if(data.hits.hits) {
-                            $.each(data.hits.hits, function(idx, el) {
-                                resultsHtml += getProjectBox(el);
-                            });
-                            $('#searchResults').html(resultsHtml);
-                        }
-                        
+                    if(data.hits.hits) {
+                        $.each(data.hits.hits, function(idx, el) {
+                            resultsHtml += getProjectBox(el);
+                        });
+                        $('#searchResults').html(resultsHtml);
                     }
-                });
-            //}
+                    
+                }
+            });
         });
         
         $('#q').trigger('keyup');

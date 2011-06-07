@@ -17,7 +17,7 @@
     
     <div id="header">
         <div class="wrapper">
-            <a id="title" class="left" href="/"><%= siteName %></a> <span class="beta-tag">pre-alpha</span>
+            <a id="title" class="left" href="/"><img src="/images/cityhero_logo.png" alt="<%= siteName %>"></a> <span class="beta-tag">pre-alpha</span>
             <!--
             <div id="search-link" class="right nav-links">
                 <img src="/images/search-icon.png" id="search-link" alt="Search" />
@@ -50,6 +50,7 @@
     <% } %>
     
     <div class="wrapper">
+        
         <div class="title-main">
             <% if (typeof pageTitle === 'object') { %>
                 <%- partial(pageTitle) %>
