@@ -238,6 +238,8 @@ a#title  {
     float: right;
 }
 
+.sidebar_box p { font-size: 1.3em; }
+
 .arrow-icon {
     background-image: url(/images/arrow-right.png);
     background-color: transparent;
