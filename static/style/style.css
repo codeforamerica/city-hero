@@ -110,6 +110,10 @@ a#title  {
     color: #ffffff;
     font-size:18px;
 }
+a#title img {
+	border:0;
+	margin:-10px 0 0 -2px;
+	}
 .beta-tag {
     color: #E89A41;
     font-family: "Arial Black";
