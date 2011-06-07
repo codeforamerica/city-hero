@@ -447,15 +447,15 @@ a.create-project:hover, a.create-project:active {
     top: 0px;
     width: 500px;
     z-index: 20;
-    left: 50%;
-    margin-left: -250px;
-    margin-top: 5px;
+    right: 50%;
+    margin-right: -470px;
+    margin-top: 50px;
 }
 
 .messages {
     border: 2px solid #333333;
-    background-color: rgb(33, 33, 33);
-    background-color: rgba(33, 33, 33, 0.4);
+    background-color: rgb(66, 66, 66);
+    background-color: rgba(66, 66, 66, 0.8);
     color: #FFFFFF;
     font-size: 1.5em;
     padding: 10px;
