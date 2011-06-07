@@ -1077,14 +1077,14 @@ a.edit-profile-link {
 }
 form input#q  {
     width: 780px;
-    border: none;
-    background-color: #AAAAAA;
+    border:2px inset;
+    background-color: #EEE;
     color: #FFFFFF;
     font-size: 2.75em;
     padding: 10px;
-    margin-bottom: 15px
+    margin-bottom: 15px;
     float: left;
-    height: 50px;
+    height: 46px;
 }
 
 form input#q.focused {
@@ -1117,13 +1117,15 @@ div.project_block {
     float: left;
     width: 200px;
     height: 200px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    
-    border-width: 0px 4px 9px 4px;
-    border-image: url(/images/widget-border.png) 8 4 9 4 stretch;
-    -moz-border-image: url(/images/widget-border.png) 8 4 9 4 stretch;
-    -webkit-border-image: url(/images/widget-border.png) 8 4 9 4 stretch;
+    margin-right: 20px;
+    margin-bottom: 20px;
+	-moz-box-shadow: 0px 3px 4px #666;
+	-webkit-box-shadow: 0px 3px 4px #666;
+	box-shadow: 0px 3px 4px #666;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#666666')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#666666');
 }
 
 .project_block_title {
