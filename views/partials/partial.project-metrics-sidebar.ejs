@@ -7,12 +7,21 @@
             <li><span class="metric_value"><%= metrics.daysLeft %></span>Days until event</li>
             <% } %>
 <!--            <li><span class="metric_value">75%</span>Ready</li> -->
+            <% if (editable) { %>
+                <div class="form-textfield-wrapper project-deadline-wrapper">
+                    <input type="text" class="textfield" name="project-deadline-formatted" id="project-deadline-formatted" value="<% if (project.deadline) { %><%= project.deadline.substr(0,10) %><% } %>" />
+                    <input type="hidden" name="project-deadline" id="project-deadline" value="<% if (project.deadline) { %><%= project.deadline.substr(0,10) %><% } %>" />
+                </div>
+                <a class="action_edit_deadline step-link-inline" href="#">Edit Date</a>
+            <% } %>
         </ul>
         <div id="join_project_wrapper">
         <div id="join_project">
+            <% if (!editable) { %>
             <a href="/projects/support/<%= project.slug %>">Support this project</a>
+            <% } %>
         </div>
-      </div>
+        </div>
     </div>
 </div>
 

@@ -60,4 +60,7 @@ $(document).ready(function () {
     $('div.project_image').slideUp(0);
     $('.project_image_action_cancel').click(wayfinder.projectPage.toggleMediaTip);
     $('a.action_edit_image').click(wayfinder.projectPage.toggleMediaTip);
+    $('a.action_edit_deadline').click(wayfinder.projectPage.toggleDeadlineEdit);
+    
+    $('[name="project-deadline-formatted"]').css('visibility', 'hidden');
 });
