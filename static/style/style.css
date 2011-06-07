@@ -1088,11 +1088,11 @@ form input#q  {
 }
 
 form input#q.focused {
-    color: #FFFFFF;
+    color: #222222;
 }
 
 form input#q {
-    color: #888888;
+    color: #AAAAAA;
 }
 
 form input.search_btn {
