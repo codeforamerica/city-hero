@@ -238,8 +238,11 @@ a#title img {
 }
 
 .sidebar_box .supporters_fix {
-    right: 30px;
+    position: static;
+    float: right;
 }
+
+.sidebar_box p { font-size: 1.3em; }
 
 .arrow-icon {
     background-image: url(/images/arrow-right.png);
@@ -308,6 +311,59 @@ a#title img {
     -moz-box-shadow: 0 0 7px #888;
     -webkit-box-shadow: 0 0 7px #888;
     box-shadow: 0 0 7px #888;
+}
+
+/**
+ * Home page styles
+ */
+.about-site {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.about-site h3 {
+    font-size: 4em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.about-site p {
+    font-size: 1.2em;
+    margin-top: 0;
+    text-align: justify;
+}
+
+a.create-project {
+    width: 240px;
+    display: block;
+    background-color: #96A044;
+    color: #FFFFFF;
+    font-size: 1.8em;
+    margin: 0 10px 0 20px;
+    padding: 5px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    float: right;
+	-moz-box-shadow: 0px 3px 4px #000;
+	-webkit-box-shadow: 0px 3px 4px #000;
+	box-shadow: 0px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000');
+}
+a.create-project:hover, a.create-project:active {
+    text-decoration: none;
+    margin-top:2px;
+	-moz-box-shadow: 0px 1px 2px #000;
+	-webkit-box-shadow: 0px 1px 2px #000;
+	box-shadow: 0px 1px 2px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#000000');
 }
 
 /**
@@ -961,6 +1017,10 @@ a.edit-profile-link {
     padding-top: 2em;
 }
 
+#project-mission {
+    height: 12em;
+}
+
 .project-mission-step-by-step-section {
     display: none;
     border-top: none !important;
@@ -1012,14 +1072,27 @@ a.edit-profile-link {
 /**
  *  Search form styles
  */
+.search_form {
+    margin-bottom: 30px;
+}
 form input#q  {
-    width: 680px;
+    width: 780px;
     border: none;
     background-color: #AAAAAA;
     color: #FFFFFF;
     font-size: 2.75em;
     padding: 10px;
     margin-bottom: 15px
+    float: left;
+    height: 50px;
+}
+
+form input#q.focused {
+    color: #FFFFFF;
+}
+
+form input#q {
+    color: #888888;
 }
 
 form input.search_btn {
@@ -1029,15 +1102,17 @@ form input.search_btn {
     color: #FFFFFF;
     border: none;
     text-transform: uppercase;
-}
-.search_form {
-    margin-left: 15px;
-    margin-bottom: 1.5em;
+    float: right;
+    width: 50px;
 }
 
 .search_results {
     margin-left: 8px;
 }
+
+/**
+ * Search results
+ */
 div.project_block {
     float: left;
     width: 200px;
@@ -1249,7 +1324,7 @@ div.project_image input {
     width: 400px;
     height: 230px;
 }
-#alpha-popup-container h3 {
+#alpha-popup-container h3, .guidance-popup h3 {
     color: #992739;
     font-size: 3.2em;
     font-weight: bold;
@@ -1261,6 +1336,9 @@ div.project_image input {
     padding-top: 10px;
 }
 
+.guidance-popup h3 { font-size: 2.5em; }
+.guidance-popup p { font-size: 1.2em; }
+
 /**
  * JqueryUI
  */
@@ -1268,3 +1346,5 @@ div.project_image input {
 .ui-datepicker {
     display: none;
 }
+
+.small-avatar { width: 40px; height: 40px; margin-right: 5px; }
