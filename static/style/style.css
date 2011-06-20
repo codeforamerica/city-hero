@@ -786,6 +786,7 @@ form .form-item-help {
 form .form-filefield-wrapper {
     margin-bottom: 20px;
 }
+.content-main { min-height:545px; }
 
 form .submit {
     background-color: #96A044;
@@ -794,6 +795,29 @@ form .submit {
     color: #FFFFFF;
     border: none;
     text-transform: uppercase;
+	-moz-box-shadow: 0px 3px 4px #666;
+	-webkit-box-shadow: 0px 3px 4px #666;
+	box-shadow: 0px 3px 4px #666;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#666666')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#666666');
+}
+form .submit:hover {
+    background-color: #96A044;
+    padding: 15px;
+    font-size: 1.75em;
+    color: #FFFFFF;
+    border: none;
+    text-transform: uppercase;
+	margin-top:2px;
+	-moz-box-shadow: 0px 1px 2px #666;
+	-webkit-box-shadow: 0px 1px 2px #666;
+	box-shadow: 0px 1px 2px #666;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#666666')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=90, Color='#666666');
 }
 
 form .form-item-help img {
